@@ -141,7 +141,7 @@ const Boxes = ({ i, j, elements }) => {
   const material = new THREE.MeshLambertMaterial({ color: "red" });
   const boxesGeometry = new THREE.BoxGeometry(1, 0.25, 1);
   const ref = useRef();
-  const size = elements.length-85;
+  const size = elements.length;
 
 //   useFrame(({}) => {
 //     let counter = 0;
@@ -159,7 +159,7 @@ useFrame(({}) => {
     let counter = 0;
     for(let x=0;x<size;x++){
         const id = counter++;
-        tempBoxes.position.set((elements[x].x) * 1.5, (elements[x].y) * 1.5), 0;
+        tempBoxes.position.set((elements[x].x) * 1.5, 0, (elements[x].y) * 1.5);
         tempBoxes.updateMatrix();
         ref.current.setMatrixAt(id, tempBoxes.matrix);
     }
