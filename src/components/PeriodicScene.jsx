@@ -1,10 +1,13 @@
 import React, {useRef} from 'react';
-import {Canvas} from '@react-three/fiber';
+import * as THREE from 'three'
+import {Canvas, useFrame} from '@react-three/fiber';
 import {Stats, Stars} from '@react-three/drei';
 import PeriodicTable from './PeriodicTable';
+import PeriodicTablev2 from './PeriodicTablev2';
 // import Universe from './Universe';
 // import Grid from './components/Grid';
 import SpecialControls from './SpecialControls';
+
 
 export default function PeriodicScene() {
     const Table = useRef();
@@ -20,9 +23,14 @@ export default function PeriodicScene() {
                 <ambientLight intensity={0.25}/>
                 <pointLight position={[0, -20, 100]} lookAt={[0,0,0]} intensity={1}/>
 
-                <group ref={Table} position={[-14.25, -11.5, 0]} rotation={[0,0,0]}>
+                {/* <group ref={Table} position={[-14.25, -11.5, 0]} rotation={[0,0,0]}>
                     <PeriodicTable/>
-                </group>               
+                </group>     */}
+
+                <group ref={Table} position={[0, 0, 0]} rotation={[0,0,0]}>
+                    {/* <PeriodicTable/> */}
+                    <PeriodicTablev2/>
+                </group>                
 
                 <Stars/>
                 <Stats showPanel={0}/>

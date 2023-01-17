@@ -63,6 +63,7 @@ const IsotopeStack = (isotopeMap, boxoptions, pactive, toggle) => {
     return;
 }
 
+
 const ElementText = (id, mass, num, textoptions, enabled) => {
     if(enabled) {
         return (
@@ -156,7 +157,7 @@ export default function PeriodicTable() {
         {num: 51, id:'Sb', name:'Antimony', mass:'121.76', x:15, y:6, isotopes: [R,R,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,G,B,G,B,B,B,B,B,B,B,B,B,B,B,B,R,R,R,R]},
         {num: 52, id:'Te', name:'Tellurium', mass:'127.6', x:16, y:6, isotopes: [R,R,R,B,B,B,B,B,B,B,B,B,B,B,B,G,B,G,B,G,G,G,B,B,B,B,B,B,B,B,B,B,B,B,R,R,R,R]},
         {num: 53, id:'I', name:'Iodine', mass:'126.90', x:17, y:6, isotopes: [R,R,R,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,G,B,B,B,B,B,B,B,B,B,B,B,B,R,R,R,R,R]},
-        {num: 54, id:'Xe', name:'Xenon', mass:'131.29', x:18, y:6, isotopes: [R,R,R,B,B,B,B,B,B,B,B,B,B,B,B,G,B,G,B,G,G,G,G,G,B,G,B [],G,B,B,B,B,B,B,R,R,R,R,R]},
+        {num: 54, id:'Xe', name:'Xenon', mass:'131.29', x:18, y:6, isotopes: [R,R,R,B,B,B,B,B,B,B,B,B,B,B,B,G,B,G,B,G,G,G,G,G,B,G,B,G,B,B,B,B,B,B,R,R,R,R,R]},
     
         {num: 55, id:'Cs', name:'Caesium', mass:'132.90', x:1, y:5, isotopes: [R,R,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,G,B,B,B,B,B,B,B,B,B,B,R,R,R,R,R]},
         {num: 56, id:'Ba', name:'Barium', mass:'132.90', x:2, y:5, isotopes: [R,R,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,G,B,G,G,G,G,G,B,B,B,B,B,B,B,B,R,R,R,R,R]},
