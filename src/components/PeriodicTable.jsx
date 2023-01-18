@@ -4,9 +4,9 @@ import { RoundedBox, useCursor, Text } from '@react-three/drei';
 
 const mat = new THREE.MeshLambertMaterial({color:'#ffffff'});
 const tile = new THREE.BoxGeometry(1, 1, 0.25);
-const button = new THREE.BoxGeometry(1, 1, 0.25);
-const bmats = new THREE.MeshLambertMaterial({color:'#31ff64'});
-const bmat = new THREE.MeshLambertMaterial({color:'#f75f5f'});
+const button = new THREE.BoxGeometry(2, 1, 0.25);
+const bmats = new THREE.MeshLambertMaterial({color:'#00ff37'});
+const bmat = new THREE.MeshLambertMaterial({color:'#ff6e6e'});
 
 const ElementTile = (element, toggleText, toggleIsotopes, clear) => {
     const ElementTile = useRef();
@@ -251,50 +251,42 @@ export default function PeriodicTable() {
     const [clearHover, setClearHover] = useState(false);
     return (
         <mesh>
-            <RoundedBox
-            {...menuButtonOptions}
-            scale={toggleTextHover ? [1.25,1.25,1] : 1}
-            position= {[-11.25,-6,0]}
+
+            <mesh
             onPointerOver={(e) => {e.stopPropagation(); setToggleTextHover(true)}}
             onPointerOut={(e) => {e.stopPropagation(); setToggleTextHover(false)}}
             onPointerDown={(e) => {e.stopPropagation(); setToggleText(!toggleText)}}
+            scale={toggleTextHover ? [1.25,1.25,1] : 1}
+            position= {[-11.25,-6,0]}
+            geometry={button}
+            material={toggleText ? bmats : bmat} 
             >
-                <meshLambertMaterial color={toggleText ? menuButtonOptions.colorSelected : menuButtonOptions.color}/>
-                <Text 
-                    {...menuButtonTextOptions}
-                >
-                    {toggleText ? 'Text Enabled' :'Text Disabled'}</Text>
-            </RoundedBox>
+                <Text {...menuButtonTextOptions} > {toggleText ? 'Text Enabled' :'Text Disabled'}</Text>
+            </mesh>
 
-            <RoundedBox
-            {...menuButtonOptions}
-            scale={toggleHover ? [1.25,1.25,1] : 1}
-            position= {[-8.25,-6,0]}
-            onPointerOver={(e) => {e.stopPropagation(); setToggleHover(true)}}
-            onPointerOut={(e) => {e.stopPropagation(); setToggleHover(false)}}
-            onPointerDown={(e) => {e.stopPropagation(); setToggle(!toggle)}}
+            <mesh
+                onPointerOver={(e) => {e.stopPropagation(); setToggleHover(true)}}
+                onPointerOut={(e) => {e.stopPropagation(); setToggleHover(false)}}
+                onPointerDown={(e) => {e.stopPropagation(); setToggle(!toggle)}}
+                scale={toggleHover ? [1.25,1.25,1] : 1}
+                position= {[-8.25,-6,0]}
+                geometry={button}
+                material={toggle ? bmats : bmat} 
             >
-                <meshLambertMaterial color={toggle ? menuButtonOptions.colorSelected : menuButtonOptions.color}/>
-                <Text 
-                    {...menuButtonTextOptions}
-                >
-                    {toggle ? 'Isotopes Enabled' :'Isotopes Disabled'}</Text>
-            </RoundedBox>
-
-            <RoundedBox
-            {...menuButtonOptions}
-            scale={clearHover ? [1.25,1.25,1] : 1}
-            position= {[-5.25,-6,0]}
+                <Text {...menuButtonTextOptions}>{toggle ? 'Isotopes Enabled' :'Isotopes Disabled'}</Text>
+            </mesh>
+                
+            <mesh
             onPointerOver={(e) => {e.stopPropagation(); setClearHover(true)}}
             onPointerOut={(e) => {e.stopPropagation(); setClearHover(false)}}
             onPointerDown={(e) => {e.stopPropagation(); setClear(!clear)}}
+            scale={clearHover ? [1.25,1.25,1] : 1}
+            position= {[-5.25,-6,0]}
+            geometry={button}
+            material={clear ? bmats : bmat}
             >
-                <meshLambertMaterial color={clear ? menuButtonOptions.colorSelected : menuButtonOptions.color}/>
-                <Text 
-                    {...menuButtonTextOptions}
-                >
-                    Select All</Text>
-            </RoundedBox>
+                <Text {...menuButtonTextOptions}> Select All </Text>
+            </mesh>
 
             {elements.map((element) =>
             <group ref={Table} position={[(element.x - 9) * 1.5, (element.y - 7) * 1.5, 0]} key={element.id}>
