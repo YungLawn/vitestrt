@@ -6,7 +6,7 @@ const mat = new THREE.MeshLambertMaterial({color:'#ffffff'});
 const tile = new THREE.BoxGeometry(0.99, 0.99, 0.25);
 const button = new THREE.BoxGeometry(2, 1, 0.25);
 const bmats = new THREE.MeshLambertMaterial({color:'#00ff37'});
-const bmat = new THREE.MeshLambertMaterial({color:'#ff6e6e'});
+const bmat = new THREE.MeshLambertMaterial({color:'#fd5252'});
 
 const textoptions = {
     color: '#000000',
