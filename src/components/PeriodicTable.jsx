@@ -255,7 +255,7 @@ export default function PeriodicTable() {
             <RoundedBox
             {...menuButtonOptions}
             scale={toggleTextHover ? [1.25,1.25,1] : 1}
-            position= {[2.25,4.5,0]}
+            position= {[-11.25,-6,0]}
             onPointerOver={(e) => {e.stopPropagation(); setToggleTextHover(true)}}
             onPointerOut={(e) => {e.stopPropagation(); setToggleTextHover(false)}}
             onPointerDown={(e) => {e.stopPropagation(); setToggleText(!toggleText)}}
@@ -270,7 +270,7 @@ export default function PeriodicTable() {
             <RoundedBox
             {...menuButtonOptions}
             scale={toggleHover ? [1.25,1.25,1] : 1}
-            position= {[5.25,4.5,0]}
+            position= {[-8.25,-6,0]}
             onPointerOver={(e) => {e.stopPropagation(); setToggleHover(true)}}
             onPointerOut={(e) => {e.stopPropagation(); setToggleHover(false)}}
             onPointerDown={(e) => {e.stopPropagation(); setToggle(!toggle)}}
@@ -285,7 +285,7 @@ export default function PeriodicTable() {
             <RoundedBox
             {...menuButtonOptions}
             scale={clearHover ? [1.25,1.25,1] : 1}
-            position= {[8.25,4.5,0]}
+            position= {[-5.25,-6,0]}
             onPointerOver={(e) => {e.stopPropagation(); setClearHover(true)}}
             onPointerOut={(e) => {e.stopPropagation(); setClearHover(false)}}
             onPointerDown={(e) => {e.stopPropagation(); setClear(!clear)}}
@@ -298,7 +298,7 @@ export default function PeriodicTable() {
             </RoundedBox>
 
             {elements.map((element) =>
-            <group ref={Table} position={[element.x * 1.5, element.y * 1.5, 0]} key={element.id}>
+            <group ref={Table} position={[(element.x - 9) * 1.5, (element.y - 7) * 1.5, 0]} key={element.id}>
                 {ElementTile(element, toggleText, toggle, clear)}
             </group>
             )}
