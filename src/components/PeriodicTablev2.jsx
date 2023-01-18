@@ -1,6 +1,7 @@
 import * as THREE from 'three'
-import React, {useRef} from 'react';
+import React, {useRef, useEffect, useState} from 'react';
 import {useFrame} from '@react-three/fiber';
+import { BoxGeometry } from 'three';
  
 const R = '#ff0000';
 const G = '#00ff00';
@@ -137,41 +138,58 @@ const elements = [
 ];
 
 const tempBoxes = new THREE.Object3D();
-const Boxes = ({ i, j, elements }) => {
-  const material = new THREE.MeshLambertMaterial({ color: "red" });
-  const boxesGeometry = new THREE.BoxGeometry(1, 0.25, 1);
-  const ref = useRef();
-  const size = elements.length;
 
-//   useFrame(({}) => {
-//     let counter = 0;
-//     for (let x = 0; x < i; x++) {
-//       for (let z = 0; z < j; z++) {
-//         const id = counter++;
-//         tempBoxes.position.set((i / 2 - x) * 1.5, 0, (j / 2 - z) * 1.5);
-//         tempBoxes.updateMatrix();
-//         ref.current.setMatrixAt(id, tempBoxes.matrix);
-//       }
-//     }
-//   });
+const Boxes = ({elements }) => {
+    const [hover, setHover] = useState(false);
+    const ref = useRef();
+    const size = elements.length;
 
-useFrame(({}) => {
+    useEffect(() => {
     let counter = 0;
     for(let x=0;x<size;x++){
         const id = counter++;
-        tempBoxes.position.set((elements[x].x) * 1.5, 0, (elements[x].y) * 1.5);
+        tempBoxes.position.set((elements[x].x - 9) * 1.5, (elements[x].y - 7) * 1.5, 0);
         tempBoxes.updateMatrix();
         ref.current.setMatrixAt(id, tempBoxes.matrix);
+        ref.current.instanceMatrix.needsUpdate = true
     }
-  });
-  return <instancedMesh ref={ref} args={[boxesGeometry, material, i * j]} />;
+    }, [])
+    return (
+        <instancedMesh ref={ref} args={[null, null, size]}>
+            <boxBufferGeometry args={[1, 1, 0.25]} />
+            <meshLambertMaterial color={'#ffffff'}/>
+        </instancedMesh>
+    )
 };
+
+const Text = ({elements }) => {
+    const ref = useRef();
+    const size = elements.length;
+
+    useEffect(() => {
+    let counter = 0;
+    for(let x=0;x<size;x++){
+        const id = counter++;
+        tempBoxes.position.set((elements[x].x - 9) * 1.5, (elements[x].y - 7) * 1.5, 0);
+        tempBoxes.updateMatrix();
+        ref.current.setMatrixAt(id, tempBoxes.matrix);
+        ref.current.instanceMatrix.needsUpdate = true
+    }
+    }, [])
+    return (
+        <instancedMesh ref={ref} args={[null, null, size]}>
+            <boxBufferGeometry args={[1, 1, 0.25]} />
+            <meshLambertMaterial color={'#ffffff'}/>
+        </instancedMesh>
+    )
+};
+
 
 function PeriodicTablev2 () {
     console.log(elements.length)
     return (  
         <> 
-            <Boxes i={20} j={10} elements={elements}/>
+            <Boxes elements={elements}/>
         </>
         
     )
