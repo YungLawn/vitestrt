@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import * as THREE from 'three';
-import { RoundedBox, useCursor, Text } from '@react-three/drei';
+import { useCursor, Text } from '@react-three/drei';
 
 const mat = new THREE.MeshLambertMaterial({color:'#ffffff'});
 const tile = new THREE.BoxGeometry(0.99, 0.99, 0.25);
