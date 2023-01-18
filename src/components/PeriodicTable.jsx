@@ -12,13 +12,7 @@ const ElementTile = (element, toggleText, toggleIsotopes, clear) => {
     useCursor(hover);
     const isotopeMap = element.isotopes;
     const scaleFactor =[1.5,1.5,1];
-    const color ='#ffffff';
 
-    const tileOptions = {
-        args: [1, 1, 0.25],
-        radius: 0.05,
-        smoothness: 3
-    };
     const textoptions = {
         color: '#000000',
         letterSpacing: -0.075
@@ -36,27 +30,23 @@ const ElementTile = (element, toggleText, toggleIsotopes, clear) => {
             >
                 {ElementText(element.id, element.mass, element.num, textoptions, toggleText)}  
             </mesh>
-            {IsotopeStack(isotopeMap, tileOptions, active, toggleIsotopes)}
+            {IsotopeStack(isotopeMap,active, toggleIsotopes)}
         </>  
     )
 }
 
-const IsotopeStack = (isotopeMap, boxoptions, pactive, toggle) => {
+const IsotopeStack = (isotopeMap, pactive, toggle) => {
     const [active, setActive] = useState(false);
     if(pactive && toggle) {
         return (
         isotopeMap.map((isotope, index) =>
         <mesh
         onPointerDown={(e) => {e.stopPropagation(); setActive(!active)}}
-        >
-            <RoundedBox
-            {...boxoptions}
-            scale={active? [1,1,3] : 1}
-            position={active ? [0,0,(index * 0.7) + 0.525] : [0,0,(index * 0.25) + 0.25]}
-            >
-                <meshLambertMaterial color={isotope}/>
-            </RoundedBox>
-        </mesh>
+        scale={active? [1,1,3] : 1}
+        position={active ? [0,0,(index * 0.8) + 0.525] : [0,0,(index * 0.3) + 0.25]}
+        geometry={tile}
+        material={new THREE.MeshLambertMaterial({color:isotope})}
+        />
         )
     )
     }
