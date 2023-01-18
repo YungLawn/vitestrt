@@ -4,6 +4,9 @@ import { RoundedBox, useCursor, Text } from '@react-three/drei';
 
 const mat = new THREE.MeshLambertMaterial({color:'#ffffff'});
 const tile = new THREE.BoxGeometry(1, 1, 0.25);
+const button = new THREE.BoxGeometry(1, 1, 0.25);
+const bmats = new THREE.MeshLambertMaterial({color:'#31ff64'});
+const bmat = new THREE.MeshLambertMaterial({color:'#f75f5f'});
 
 const ElementTile = (element, toggleText, toggleIsotopes, clear) => {
     const ElementTile = useRef();
@@ -12,7 +15,13 @@ const ElementTile = (element, toggleText, toggleIsotopes, clear) => {
     useCursor(hover);
     const isotopeMap = element.isotopes;
     const scaleFactor =[1.5,1.5,1];
+    const color ='#ffffff';
 
+    const tileOptions = {
+        args: [1, 1, 0.25],
+        radius: 0.05,
+        smoothness: 3
+    };
     const textoptions = {
         color: '#000000',
         letterSpacing: -0.075
