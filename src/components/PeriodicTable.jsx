@@ -1,5 +1,9 @@
 import React, { useRef, useState } from "react";
+import * as THREE from 'three';
 import { RoundedBox, useCursor, Text } from '@react-three/drei';
+
+const mat = new THREE.MeshLambertMaterial({color:'#ffffff'});
+const tile = new THREE.BoxGeometry(1, 1, 0.25);
 
 const ElementTile = (element, toggleText, toggleIsotopes, clear) => {
     const ElementTile = useRef();
@@ -9,6 +13,7 @@ const ElementTile = (element, toggleText, toggleIsotopes, clear) => {
     const isotopeMap = element.isotopes;
     const scaleFactor =[1.5,1.5,1];
     const color ='#ffffff';
+
     const tileOptions = {
         args: [1, 1, 0.25],
         radius: 0.05,
@@ -25,16 +30,11 @@ const ElementTile = (element, toggleText, toggleIsotopes, clear) => {
                 onPointerOver={(e) => {e.stopPropagation(); setHover(true)}}
                 onPointerOut={(e) => {e.stopPropagation(); setHover(false)}}
                 onPointerDown={(e) => {e.stopPropagation(); setActive(clear? !active : false)}}
-            >
-                <RoundedBox 
-                {...tileOptions}
+                geometry={tile}
+                material={mat}
                 scale={active || hover ? scaleFactor : 1}
-                >
-                    <meshLambertMaterial color={color}/>
-                    {ElementText(element.id, element.mass, element.num, textoptions, toggleText)}  
-                </RoundedBox>
-
-                {/* {ElementText(active, hover, element, textoptions, toggleText)} */}
+            >
+                {ElementText(element.id, element.mass, element.num, textoptions, toggleText)}  
             </mesh>
             {IsotopeStack(isotopeMap, tileOptions, active, toggleIsotopes)}
         </>  
