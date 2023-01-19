@@ -5,8 +5,8 @@ import { useCursor, Text } from '@react-three/drei';
 const mat = new THREE.MeshLambertMaterial({color:'#ffffff'});
 const tile = new THREE.BoxGeometry(0.99, 0.99, 0.25);
 const button = new THREE.BoxGeometry(2, 1, 0.25);
-const bmats = new THREE.MeshLambertMaterial({color:'#5dff80'});
-const bmat = new THREE.MeshLambertMaterial({color:'#ff6c6c'});
+const bmats = new THREE.MeshLambertMaterial({color:'#00ff00'});
+const bmat = new THREE.MeshLambertMaterial({color:'#ff0000'});
 
 const textoptions = {
     color: '#000000',
