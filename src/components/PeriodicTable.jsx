@@ -154,7 +154,7 @@ const elements = [
     {num: 118, id:'Og', name:'Oganesson', mass:'(294)', x:18, y:4, isotopes: [R]}
 ];
 
-const ElementTile = (element, toggleText, toggleIsotopes, clear) => {
+const ElementTile = (element, toggleText, toggleIsotopes) => {
     const ElementTile = useRef();
     const [active, setActive] = useState(false);
     const [hover, setHover] = useState(false);
@@ -168,7 +168,7 @@ const ElementTile = (element, toggleText, toggleIsotopes, clear) => {
                 ref={ElementTile}
                 onPointerOver={(e) => {e.stopPropagation(); setHover(true)}}
                 onPointerOut={(e) => {e.stopPropagation(); setHover(false)}}
-                onPointerDown={(e) => {e.stopPropagation(); setActive(clear? !active : false)}}
+                onPointerDown={(e) => {e.stopPropagation(); setActive(!active)}}
                 geometry={tile}
                 material={mat}
                 scale={active || hover ? scaleFactor : 1}
@@ -225,8 +225,7 @@ const ElementText = (id, mass, num, enabled) => {
                 {num}
             </Text>
         </mesh>
-    )
-    }
+    )}
     return;
 }
 
@@ -265,7 +264,7 @@ export default function PeriodicTable() {
                 <Text {...menuButtonTextOptions}>{toggle ? 'Isotopes Enabled' :'Isotopes Disabled'}</Text>
             </mesh>
                 
-            <mesh
+            {/* <mesh
             onPointerOver={(e) => {e.stopPropagation(); setClearHover(true)}}
             onPointerOut={(e) => {e.stopPropagation(); setClearHover(false)}}
             onPointerDown={(e) => {e.stopPropagation(); setClear(!clear)}}
@@ -275,7 +274,7 @@ export default function PeriodicTable() {
             material={clear ? bmats : bmat}
             >
                 <Text {...menuButtonTextOptions}> Select All </Text>
-            </mesh>
+            </mesh> */}
 
             {elements.map((element) =>
             <group ref={Table} position={[(element.x - 9) * 1.5, (element.y - 7) * 1.5, 0]} key={element.id}>

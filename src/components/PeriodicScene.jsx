@@ -16,7 +16,7 @@ export default function PeriodicScene() {
         {/* <div className='controls'>
             <button> Press Me! </button>
         </div> */}
-        <Canvas camera={{fov: 30, position:[0,0,40] }}>
+        <Canvas camera={{ fov: 30, position:[0,0,40] }}>
             
                 <SpecialControls/>
         
@@ -33,7 +33,7 @@ export default function PeriodicScene() {
                 </group>                
 
                 <Stars/>
-                <Stats showPanel={0}/>
+                <Stats showPanel={4}/>
                 {/* <Grid size={10} /> */}
         </Canvas>
     </div>
