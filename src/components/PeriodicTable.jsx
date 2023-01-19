@@ -181,14 +181,16 @@ const ElementTile = (element, toggleText, toggleIsotopes) => {
 }
 
 const IsotopeStack = (isotopeMap, pactive, toggle) => {
-    const [active, setActive] = useState(false);
+    // const [active, setActive] = useState(false);
     if(pactive && toggle) {
         return (
         isotopeMap.map((isotope, index) =>
         <mesh
-        onPointerDown={(e) => {e.stopPropagation(); setActive(!active)}}
-        scale={active? [1,1,3] : 1}
-        position={active ? [0,0,(index * 0.8) + 0.525] : [0,0,(index * 0.3) + 0.25]}
+        // onPointerDown={(e) => {e.stopPropagation(); setActive(!active)}}
+        scale={1}
+        position={[0,0,(index * 0.3) + 0.25]}
+        // scale={active? [1,1,3] : 1}
+        // position={active ? [0,0,(index * 0.8) + 0.525] : [0,0,(index * 0.3) + 0.25]}
         geometry={tile}
         material={new THREE.MeshLambertMaterial({color:isotope})}
         />
@@ -235,8 +237,8 @@ export default function PeriodicTable() {
     const [toggleTextHover, setToggleTextHover] = useState(false);
     const [toggle, setToggle] =useState(true);
     const [toggleHover, setToggleHover] = useState(false);
-    const [clear, setClear] = useState(true);
-    const [clearHover, setClearHover] = useState(false);
+    // const [clear, setClear] = useState(true);
+    // const [clearHover, setClearHover] = useState(false);
     return (
         <mesh>
 
@@ -278,7 +280,7 @@ export default function PeriodicTable() {
 
             {elements.map((element) =>
             <group ref={Table} position={[(element.x - 9) * 1.5, (element.y - 7) * 1.5, 0]} key={element.id}>
-                {ElementTile(element, toggleText, toggle, clear)}
+                {ElementTile(element, toggleText, toggle)}
             </group>
             )}
         </mesh>
