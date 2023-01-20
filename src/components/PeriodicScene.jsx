@@ -30,8 +30,8 @@ export default function PeriodicScene() {
 
                 <Suspense>
                 <group ref={Table} position={[0, 0, 0]} rotation={[0,0,0]}>
-                    {/* <PeriodicTable/> */}
-                    <PeriodicTablev2/>
+                    <PeriodicTable/>
+                    {/* <PeriodicTablev2/> */}
                     {/* <tablev2/> */}
                 </group>  
                 </Suspense>
