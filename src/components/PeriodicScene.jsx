@@ -28,8 +28,8 @@ export default function PeriodicScene() {
                 </group>     */}
 
                 <group ref={Table} position={[0, 0, 0]} rotation={[0,0,0]}>
-                    <PeriodicTable/>
-                    {/* <PeriodicTablev2/> */}
+                    {/* <PeriodicTable/> */}
+                    <PeriodicTablev2/>
                 </group>                
 
                 <Stars/>
