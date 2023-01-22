@@ -10,7 +10,6 @@ export default function SpecialControls() {
             maxAzimuthAngle = {Math.PI / 2}
             minDistance = {10}
             maxDistance = {60}
-            enablePan={false}
             rotateSpeed = {0.75}
             zoomSpeed = {1}
             setAzimuthalAngle={Math.PI}
