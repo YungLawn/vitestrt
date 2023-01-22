@@ -1,8 +1,8 @@
 import * as THREE from 'three'
-import React, {useRef, useEffect, useState} from 'react';
+import React, {useRef, useEffect, useState, useMemo} from 'react';
 import {useFrame} from '@react-three/fiber';
-import { BoxGeometry } from 'three';
- 
+import { useCursor, Text } from '@react-three/drei';
+
 const R = '#ff0000';
 const G = '#00ff00';
 const B = '#0000ff';
@@ -136,62 +136,97 @@ const elements = [
     {num: 117, id:'Ts', name:'Tennessine', mass:'(294)', x:17, y:4, isotopes: [R,R,R,R]},
     {num: 118, id:'Og', name:'Oganesson', mass:'(294)', x:18, y:4, isotopes: [R]}
 ];
+const size = elements.length
+// const tile = new THREE.boxGeometry()
+const tempObject = new THREE.Object3D()
+const tempColor = new THREE.Color()
+const data = Array.from({ length: size }, () => ({ color:'#f0f0f0', scale: 1}))
 
-const tempBoxes = new THREE.Object3D();
+function Boxes() {
+    const [hovered, set] = useState()
+    const [active, setActive] = useState();
+    const meshRef = useRef()
+    const prevRef = useRef()
+    // useEffect(() => void (prevRef.current = hovered), [hovered])
+    let ele, num, mass = undefined
+  
+    useFrame((state) => {
+      const time = state.clock.getElapsedTime()
+      // meshRef.current.rotation.x = Math.sin(time / 4)
+      // meshRef.current.rotation.y = Math.sin(time / 2)
+      let i = 0
+  
+    for(let c = 0;c < elements.length;c++) {
+        const id = i++
+            tempObject.position.set((elements[id].x * 1.5) - 14 , (elements[id].y * 1.5) - 10,0)
+            // tempObject.rotation.y = Math.sin((c*0.1) + time) 
+            // tempObject.rotation.z = tempObject.rotation.y * 2
+            // if (hovered !== prevRef.Current) {
+            //   ;(id === hovered ? tempColor.setRGB(10, 10, 10) : tempColor.set(data[id].color)).toArray(colorArray, id * 3)
+            //   meshRef.current.geometry.attributes.color.needsUpdate = true
+            // }
+            ele=elements[id].id
+            num=elements[id].num
+            mass=elements[id].mass
+            const scale = (data[id].scale = id == hovered || active ? 1.5 : 1)
+            tempObject.scale.setScalar(scale)
+            tempObject.updateMatrix()
+            meshRef.current.setMatrixAt(id, tempObject.matrix)
+          }
+      meshRef.current.instanceMatrix.needsUpdate = true
+    })
 
-const Boxes = ({elements }) => {
-    const [hover, setHover] = useState(false);
-    const ref = useRef();
-    const size = elements.length;
-
-    useEffect(() => {
-    let counter = 0;
-    for(let x=0;x<size;x++){
-        const id = counter++;
-        tempBoxes.position.set((elements[x].x - 9) * 1.5, (elements[x].y - 7) * 1.5, 0);
-        tempBoxes.updateMatrix();
-        ref.current.setMatrixAt(id, tempBoxes.matrix);
-        ref.current.instanceMatrix.needsUpdate = true
-    }
-    }, [])
     return (
-        <instancedMesh ref={ref} args={[null, null, size]}>
-            <boxBufferGeometry args={[1, 1, 0.25]} />
+        <instancedMesh ref={meshRef} args={[null, null, size]}
+        onPointerMove={(e) => (e.stopPropagation(), set(e.instanceId))}
+        onPointerOut={(e) => set(undefined)}>
+        onPointerDown={(e) => (e.stopPropagation(), set(e.instanceId))}
+            <boxGeometry args={[1, 1, 0.25]} />
             <meshLambertMaterial color={'#ffffff'}/>
-        </instancedMesh>
+            <ElementText/>
+        </instancedMesh >
     )
-};
+}
 
-const Text = ({elements }) => {
-    const ref = useRef();
-    const size = elements.length;
-
-    useEffect(() => {
-    let counter = 0;
-    for(let x=0;x<size;x++){
-        const id = counter++;
-        tempBoxes.position.set((elements[x].x - 9) * 1.5, (elements[x].y - 7) * 1.5, 0);
-        tempBoxes.updateMatrix();
-        ref.current.setMatrixAt(id, tempBoxes.matrix);
-        ref.current.instanceMatrix.needsUpdate = true
-    }
-    }, [])
+const ElementText = ( scale ) => {
+    const textoptions = {
+        color: '#000000',
+        letterSpacing: -0.075
+    };
     return (
-        <instancedMesh ref={ref} args={[null, null, size]}>
-            <boxBufferGeometry args={[1, 1, 0.25]} />
-            <meshLambertMaterial color={'#ffffff'}/>
-        </instancedMesh>
-    )
-};
-
+        elements.map((element, index) => 
+        <mesh position={[(element.x * 1.5) - 14, (element.y * 1.5) - 10, 0.128]}>
+        <Text 
+            {...textoptions}
+            scale={0.5}
+            position={[0.175,-0.1,0]}
+        >
+            {element.id}
+        </Text>
+        <Text
+            {...textoptions}
+            scale={0.25}
+            position={[0,0.3,0]}
+        >
+            {element.mass}
+        </Text>
+        <Text
+            {...textoptions}
+            scale={0.25}
+            position={[-0.25,-0.35,0]}
+        >
+            {element.num}
+        </Text>
+    </mesh>
+    ))
+}
 
 function PeriodicTablev2 () {
-    console.log(elements.length)
     return (  
-        <> 
-            <Boxes elements={elements}/>
-        </>
-        
+        <mesh>
+            <Boxes/>
+            {/* <ElementText/> */}
+        </mesh>
     )
 }
 
