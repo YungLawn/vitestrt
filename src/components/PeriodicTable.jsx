@@ -3,17 +3,13 @@ import * as THREE from 'three';
 import { useCursor, Text } from '@react-three/drei';
 import { useLoader } from '@react-three/fiber'
 import { TextureLoader } from 'three/src/loaders/TextureLoader.js'
+import StringtoTexture from "./procTextTest";
 
 const mat = new THREE.MeshLambertMaterial({color:'#ffffff'});
 const tile = new THREE.BoxGeometry(0.99, 0.99, 0.25);
 const button = new THREE.BoxGeometry(2, 1, 0.25);
 const bmats = new THREE.MeshLambertMaterial({color:'#00ff00'});
 const bmat = new THREE.MeshLambertMaterial({color:'#ff0000'});
-
-const textoptions = {
-    color: '#000000',
-    letterSpacing: -0.075
-};
 
 const menuButtonTextOptions = {
     color:'#000000',
@@ -156,7 +152,6 @@ const elements = [
     {num: 118, id:'Og', name:'Oganesson', mass:'(294)', x:18, y:4, isotopes: [R]}
 ];
 
-
 const ElementTile = (element, toggleText, toggleIsotopes) => {
     const ElementTile = useRef();
     const [active, setActive] = useState(false);
@@ -202,6 +197,14 @@ const IsotopeStack = (isotopeMap, pactive, toggle) => {
     return;
 }
 
+const initTextures = () => {
+    let array = [];
+    for(let i=0;i<elements.length;i++) {
+        array.push(StringtoTexture(elements[i].id))
+    }
+    return array;
+}
+
 export default function PeriodicTable() {
     const Table = useRef();
     const [toggleText, setToggleText] =useState(true);
@@ -210,6 +213,7 @@ export default function PeriodicTable() {
     const [toggleHover, setToggleHover] = useState(false);
     // const [clear, setClear] = useState(true);
     // const [clearHover, setClearHover] = useState(false);
+
     return (
         <mesh>
 
@@ -252,7 +256,7 @@ export default function PeriodicTable() {
             {elements.map((element) =>
             <group ref={Table} position={[(element.x - 9) * 1.5, (element.y - 7) * 1.5, 0]} key={element.id}>
                 {/* {ElementTile(element, toggleText, toggle)} */}
-                {ElementTile(element, toggleText, toggle)}
+                {ElementTile(element, toggleText, toggle,)}
             </group>
             )}
         </mesh>
