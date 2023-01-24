@@ -11,6 +11,8 @@ const button = new THREE.BoxGeometry(2, 1, 0.25);
 const bmats = new THREE.MeshLambertMaterial({color:'#00ff00'});
 const bmat = new THREE.MeshLambertMaterial({color:'#ff0000'});
 
+// const toggleIsosBut = StringtoTexture('Text',);
+
 let array = [];
 
 const menuButtonTextOptions = {
@@ -202,7 +204,7 @@ const IsotopeStack = (isotopeMap, pactive, toggle) => {
 const initTextures = () => {
     if (array.length == 0) {
         for(let i=0;i<elements.length;i++) {
-            array.push(StringtoTexture(elements[i].id, '#ffffff'))
+            array.push(StringtoTexture(elements[i].id,'#ffffff', elements[i].mass, i+1))
         }
     }
     console.log(array)
