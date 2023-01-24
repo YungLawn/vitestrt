@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import * as THREE from 'three';
 import { useCursor, Text } from '@react-three/drei';
+import ProcTextBox from "./tablev2/ProcTextBox";
 
 const mat = new THREE.MeshLambertMaterial({color:'#ffffff'});
 const tile = new THREE.BoxGeometry(0.99, 0.99, 0.25);
@@ -280,7 +281,8 @@ export default function PeriodicTable() {
 
             {elements.map((element) =>
             <group ref={Table} position={[(element.x - 9) * 1.5, (element.y - 7) * 1.5, 0]} key={element.id}>
-                {ElementTile(element, toggleText, toggle)}
+                {/* {ElementTile(element, toggleText, toggle)} */}
+                <ProcTextBox element={element.id} num={element.num} mass={element.mass} />
             </group>
             )}
         </mesh>

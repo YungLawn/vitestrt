@@ -27,25 +27,25 @@ export default function ProcTextBox({ element, num, mass }) {
 
   return (
     <>
-      <OrthographicCamera ref={cam} position={[0, 0, 0.1]} zoom={50} />
+      <OrthographicCamera ref={cam} position={[0, 0, 0.1]} zoom={1} />
       {createPortal(
         <>
           <Text
-            position={[12,-2,0]}
+            position={[500,-100,0]}
             color="#171717"
-            fontSize={15}>
+            fontSize={700}>
             {element}
           </Text>
           <Text
-            position={[-12,-3,0]}
+            position={[-600,-250,0]}
             color="#171717"
-            fontSize={10}>
+            fontSize={350}>
             {num}
           </Text>
           <Text
-            position={[-2,4,0]}
+            position={[-350,200,0]}
             color="#171717"
-            fontSize={7.5}>
+            fontSize={350}>
             {mass}
           </Text>
         </>
