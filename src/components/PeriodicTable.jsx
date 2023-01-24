@@ -3,13 +3,15 @@ import * as THREE from 'three';
 import { useCursor, Text } from '@react-three/drei';
 import { useLoader } from '@react-three/fiber'
 import { TextureLoader } from 'three/src/loaders/TextureLoader.js'
-import StringtoTexture from "./procTextTest";
+import StringtoTexture from "./StringtoTexture";
 
 const mat = new THREE.MeshLambertMaterial({color:'#ffffff'});
 const tile = new THREE.BoxGeometry(0.99, 0.99, 0.25);
 const button = new THREE.BoxGeometry(2, 1, 0.25);
 const bmats = new THREE.MeshLambertMaterial({color:'#00ff00'});
 const bmat = new THREE.MeshLambertMaterial({color:'#ff0000'});
+
+let array = [];
 
 const menuButtonTextOptions = {
     color:'#000000',
@@ -152,14 +154,14 @@ const elements = [
     {num: 118, id:'Og', name:'Oganesson', mass:'(294)', x:18, y:4, isotopes: [R]}
 ];
 
-const ElementTile = (element, toggleText, toggleIsotopes) => {
+const ElementTile = (element, toggleText, toggleIsotopes, texture) => {
     const ElementTile = useRef();
     const [active, setActive] = useState(false);
     const [hover, setHover] = useState(false);
     useCursor(hover);
     const isotopeMap = element.isotopes;
-    const texture_1 = useLoader(TextureLoader, 'src/assets/textures/1-Hydrogen.jpg')
-    const tex = new THREE.MeshLambertMaterial({map:texture_1});
+    // const texture_1 = useLoader(TextureLoader, 'src/assets/textures/1-Hydrogen.jpg')
+    const tex = new THREE.MeshLambertMaterial({map:texture});
 
     return (
         <>
@@ -198,11 +200,12 @@ const IsotopeStack = (isotopeMap, pactive, toggle) => {
 }
 
 const initTextures = () => {
-    let array = [];
-    for(let i=0;i<elements.length;i++) {
-        array.push(StringtoTexture(elements[i].id))
+    if (array.length == 0) {
+        for(let i=0;i<elements.length;i++) {
+            array.push(StringtoTexture(elements[i].id, '#ffffff'))
+        }
     }
-    return array;
+    console.log(array)
 }
 
 export default function PeriodicTable() {
@@ -213,7 +216,7 @@ export default function PeriodicTable() {
     const [toggleHover, setToggleHover] = useState(false);
     // const [clear, setClear] = useState(true);
     // const [clearHover, setClearHover] = useState(false);
-
+    initTextures();
     return (
         <mesh>
 
@@ -253,10 +256,10 @@ export default function PeriodicTable() {
                 <Text {...menuButtonTextOptions}> Select All </Text>
             </mesh> */}
 
-            {elements.map((element) =>
+            {elements.map((element, index) =>
             <group ref={Table} position={[(element.x - 9) * 1.5, (element.y - 7) * 1.5, 0]} key={element.id}>
                 {/* {ElementTile(element, toggleText, toggle)} */}
-                {ElementTile(element, toggleText, toggle,)}
+                {ElementTile(element, toggleText, toggle, array[index])}
             </group>
             )}
         </mesh>
