@@ -8,7 +8,7 @@ export default function SpecialControls() {
             // maxPolarAngle={Math.PI / 1}
             // minAzimuthAngle = {Math.PI / -2}
             // maxAzimuthAngle = {Math.PI / 2}
-            minDistance = {10}
+            minDistance = {1}
             maxDistance = {50}
             rotateSpeed = {0.75}
             zoomSpeed = {1}

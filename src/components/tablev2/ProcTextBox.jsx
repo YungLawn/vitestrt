@@ -4,18 +4,18 @@ import React, { useRef, useMemo } from 'react'
 import { Canvas, createPortal, useFrame } from '@react-three/fiber'
 import { Text, Shadow, OrthographicCamera, OrbitControls } from '@react-three/drei'
 
-const tile = new THREE.BoxGeometry(0.99, 0.99, 0.25);
+const tile = new THREE.BoxGeometry(0.99, 0.99, 0.3);
 
-export default function ProcTextBox({ children }) {
+export default function ProcTextBox({ element, num, mass }) {
   const cam = useRef()
   const [scene, target] = useMemo(() => {
     const scene = new THREE.Scene()
     scene.background = new THREE.Color('white')
-    const target = new THREE.WebGLMultisampleRenderTarget(2048, 2048, {
-      format: THREE.RGBFormat,
+    const target = new THREE.WebGLRenderTarget(1024, 1024, {
+      format: THREE.RGBAFormat,
       stencilBuffer: false
     })
-    target.samples = 6
+    target.samples = 0
     return [scene, target]
   }, [])
 
@@ -27,25 +27,34 @@ export default function ProcTextBox({ children }) {
 
   return (
     <>
-      <OrthographicCamera ref={cam} position={[0, 0, 0.1]} zoom={10} />
+      <OrthographicCamera ref={cam} position={[0, 0, 0.1]} zoom={50} />
       {createPortal(
-        <Text
-          color="#171717"
-          fontSize={50}
-          maxWidth={60}
-          lineHeight={5}
-          letterSpacing={0}
-          // textAlign="left"
-          text={children}
-          anchorX="center"
-          anchorY="middle">
-          {children}
-        </Text>,
+        <>
+          <Text
+            position={[12,-2,0]}
+            color="#171717"
+            fontSize={15}>
+            {element}
+          </Text>
+          <Text
+            position={[-12,-3,0]}
+            color="#171717"
+            fontSize={10}>
+            {num}
+          </Text>
+          <Text
+            position={[-2,4,0]}
+            color="#171717"
+            fontSize={7.5}>
+            {mass}
+          </Text>
+        </>
+        ,
         scene
       )}
       <mesh geometry={tile}>
         {/* <sphereBufferGeometry attach="geometry" args={[2, 64, 64]} /> */}
-        <meshStandardMaterial attach="material" map={target.texture} />
+        <meshLambertMaterial attach="material" map={target.texture} />
       </mesh>
     </>
   )
