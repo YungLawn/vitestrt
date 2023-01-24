@@ -18,13 +18,13 @@ export default function StringtoTexture(element, backgroundColor, mass, num) {
   
     // Draw the string on the canvas
     ctx.fillStyle = "#000000";
-    ctx.letterSpacing = "5px"
+    ctx.lineWidth = 100;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.font = "bold 550px Helvetica";
-    ctx.fillText(element, widthCenter + widthCenter/4, heightCenter + heightCenter/10);
+    ctx.font = "bold 500px Helvetica";
+    ctx.fillText(element, widthCenter + widthCenter/6, heightCenter + heightCenter/10);
     ctx.font = "bold 300px Helvetica";
-    ctx.fillText(num, widthCenter - widthCenter/1.75, heightCenter + heightCenter/1.5);
+    ctx.fillText(num, widthCenter - widthCenter/2, heightCenter + heightCenter/1.5);
     ctx.font = "bold 300px Helvetica";
     ctx.fillText(mass, widthCenter, heightCenter - heightCenter/1.5);
   
