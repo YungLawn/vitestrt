@@ -6,7 +6,7 @@ import PeriodicTable from './PeriodicTable';
 import PeriodicTablev2 from './PeriodicTablev2';
 import tablev2 from './tablev2/tablev2';
 import TextTest from './textTest';
-// import Universe from './Universe';
+import ProcTextBox from './tablev2/ProcTextBox';// import Universe from './Universe';
 // import Grid from './components/Grid';
 import SpecialControls from './SpecialControls';
 
@@ -31,10 +31,13 @@ export default function PeriodicScene() {
 
                 <Suspense>
                 <group ref={Table} position={[0, 0, 0]} rotation={[0,0,0]}>
-                    {/* <PeriodicTable/> */}
-                    <TextTest/>
+                    <PeriodicTable/>
+                    {/* <TextTest/> */}
                     {/* <PeriodicTablev2/> */}
                     {/* <tablev2/> */}
+                    {/* <ProcTextBox>
+                        TEST
+                    </ProcTextBox> */}
                 </group>  
                 </Suspense>
                               

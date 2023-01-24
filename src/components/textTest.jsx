@@ -1,16 +1,18 @@
-import React, { useRef, useState } from "react";
-import * as THREE from 'three';
-import { useCursor, Text, useTexture} from '@react-three/drei';
+import React, { useRef, Suspense } from 'react'
+import { Canvas, useFrame, useLoader } from '@react-three/fiber'
+import { TextureLoader } from 'three/src/loaders/TextureLoader.js'
+import * as THREE from 'three'
 
-function TextTest() {
-    const name = (type) => `1-Hydrogen${type}.jpg`;
-    const tex = new useTexture([])
-    return ( 
-        <meshLambertMaterial
-        map={name}>
+export default function TextTest() {
+  const texture_1 = useLoader(TextureLoader, 'src/assets/textures/1-Hydrogen.jpg')
+  const tile  = new THREE.BoxGeometry(1,1,0.25)
+  const tex = new THREE.MeshLambertMaterial({map:texture_1});
 
-        </meshLambertMaterial>
-     );
+  const mesh = useRef()
+  useFrame(() => {
+    mesh.current.rotation.x = mesh.current.rotation.y += 0.005
+  })
+  return (
+    <mesh ref={mesh} geometry={tile} material={tex}/>
+  )
 }
-
-export default TextTest;
