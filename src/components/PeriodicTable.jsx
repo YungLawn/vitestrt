@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
 import * as THREE from 'three';
 import { useCursor, Text } from '@react-three/drei';
-import ProcTextBox from "./tablev2/ProcTextBox";
+import { useLoader } from '@react-three/fiber'
+import { TextureLoader } from 'three/src/loaders/TextureLoader.js'
 
 const mat = new THREE.MeshLambertMaterial({color:'#ffffff'});
 const tile = new THREE.BoxGeometry(0.99, 0.99, 0.25);
@@ -155,29 +156,29 @@ const elements = [
     {num: 118, id:'Og', name:'Oganesson', mass:'(294)', x:18, y:4, isotopes: [R]}
 ];
 
+
 const ElementTile = (element, toggleText, toggleIsotopes) => {
     const ElementTile = useRef();
     const [active, setActive] = useState(false);
     const [hover, setHover] = useState(false);
     useCursor(hover);
     const isotopeMap = element.isotopes;
-    const scaleFactor =[1.5,1.5,1];
+    const texture_1 = useLoader(TextureLoader, 'src/assets/textures/1-Hydrogen.jpg')
+    const tex = new THREE.MeshLambertMaterial({map:texture_1});
 
-    return(
+    return (
         <>
             <mesh
-                ref={ElementTile}
-                onPointerOver={(e) => {e.stopPropagation(); setHover(true)}}
-                onPointerOut={(e) => {e.stopPropagation(); setHover(false)}}
-                onPointerDown={(e) => {e.stopPropagation(); setActive(!active)}}
-                geometry={tile}
-                material={mat}
-                scale={active || hover ? scaleFactor : 1}
-            >
-                {ElementText(element.id, element.mass, element.num, toggleText)}  
-            </mesh>
-            {IsotopeStack(isotopeMap,active, toggleIsotopes)}
-        </>  
+            ref={ElementTile}
+            onPointerOver={(e) => {e.stopPropagation(); setHover(true)}}
+            onPointerOut={(e) => {e.stopPropagation(); setHover(false)}}
+            onPointerDown={(e) => {e.stopPropagation(); setActive(!active)}}
+            geometry={tile}
+            material={toggleText ? tex : mat}
+            scale={active || hover ? 1.5 : 1} />
+            {IsotopeStack(isotopeMap, active, toggleIsotopes)}
+        </>
+        
     )
 }
 
@@ -198,37 +199,6 @@ const IsotopeStack = (isotopeMap, pactive, toggle) => {
         )
     )
     }
-    return;
-}
-
-
-const ElementText = (id, mass, num, enabled) => {
-    if(enabled) {
-        return (
-        <mesh position={[-0.025,0,0.128]}>
-            <Text 
-                {...textoptions}
-                scale={0.5}
-                position={[0.175,-0.1,0]}
-            >
-                {id}
-            </Text>
-            <Text
-                {...textoptions}
-                scale={0.25}
-                position={[0,0.3,0]}
-            >
-                {mass}
-            </Text>
-            <Text
-                {...textoptions}
-                scale={0.25}
-                position={[-0.25,-0.35,0]}
-            >
-                {num}
-            </Text>
-        </mesh>
-    )}
     return;
 }
 
@@ -282,7 +252,7 @@ export default function PeriodicTable() {
             {elements.map((element) =>
             <group ref={Table} position={[(element.x - 9) * 1.5, (element.y - 7) * 1.5, 0]} key={element.id}>
                 {/* {ElementTile(element, toggleText, toggle)} */}
-                <ProcTextBox element={element.id} num={element.num} mass={element.mass} />
+                {ElementTile(element, toggleText, toggle)}
             </group>
             )}
         </mesh>
