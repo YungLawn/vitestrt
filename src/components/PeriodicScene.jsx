@@ -31,13 +31,13 @@ export default function PeriodicScene() {
 
                 <Suspense>
                 <group ref={Table} position={[0, 0, 0]} rotation={[0,0,0]}>
-                    <PeriodicTable/>
+                    {/* <PeriodicTable/> */}
                     {/* <TextTest/> */}
                     {/* <PeriodicTablev2/> */}
                     {/* <tablev2/> */}
-                    {/* <ProcTextBox>
+                    <ProcTextBox>
                         TEST
-                    </ProcTextBox> */}
+                    </ProcTextBox>
                 </group>  
                 </Suspense>
                               

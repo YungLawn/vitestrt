@@ -4,6 +4,8 @@ import React, { useRef, useMemo } from 'react'
 import { Canvas, createPortal, useFrame } from '@react-three/fiber'
 import { Text, Shadow, OrthographicCamera, OrbitControls } from '@react-three/drei'
 
+const tile = new THREE.BoxGeometry(0.99, 0.99, 0.25);
+
 export default function ProcTextBox({ children }) {
   const cam = useRef()
   const [scene, target] = useMemo(() => {
@@ -41,9 +43,8 @@ export default function ProcTextBox({ children }) {
         </Text>,
         scene
       )}
-      <mesh>
+      <mesh geometry={tile}>
         {/* <sphereBufferGeometry attach="geometry" args={[2, 64, 64]} /> */}
-        <boxBufferGeometry args={[1, 1, 0.25]} />
         <meshStandardMaterial attach="material" map={target.texture} />
       </mesh>
     </>
