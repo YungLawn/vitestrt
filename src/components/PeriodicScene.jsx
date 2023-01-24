@@ -10,7 +10,6 @@ import ProcTextBox from './tablev2/ProcTextBox';// import Universe from './Unive
 // import Grid from './components/Grid';
 import SpecialControls from './SpecialControls';
 
-
 export default function PeriodicScene() {
     const Table = useRef();
     return(
@@ -35,15 +34,12 @@ export default function PeriodicScene() {
                     {/* <TextTest/> */}
                     {/* <PeriodicTablev2/> */}
                     {/* <tablev2/> */}
-                    <ProcTextBox>
-                        TEST
-                    </ProcTextBox>
                 </group>  
                 </Suspense>
                               
 
                 <Stars/>
-                <Stats showPanel={4}/>
+                <Stats showPanel={0}/>
                 {/* <Grid size={10} /> */}
         </Canvas>
     </div>
