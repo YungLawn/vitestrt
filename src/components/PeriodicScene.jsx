@@ -4,10 +4,7 @@ import {Canvas, useFrame} from '@react-three/fiber';
 import {Stats, Stars} from '@react-three/drei';
 import PeriodicTable from './PeriodicTable';
 import PeriodicTablev2 from './PeriodicTablev2';
-import tablev2 from './tablev2/tablev2';
 import TextTest from './textTest';
-import ProcTextBox from './tablev2/ProcTextBox';// import Universe from './Universe';
-// import Grid from './components/Grid';
 import SpecialControls from './SpecialControls';
 
 export default function PeriodicScene() {
