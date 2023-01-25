@@ -145,7 +145,7 @@ let textures = [];
 const initTable = () => {
     if (textures.length == 0) {
         for(let i=0;i<elements.length;i++) {
-            textures.push(StringtoMaterial(elements[i].id,'#ffffff',true, elements[i].mass, i+1))
+            textures.push(StringtoMaterial(elements[i].id,'#ffffff', elements[i].mass, i+1))
         }
     }
 }
@@ -193,7 +193,7 @@ export default function PeriodicScene() {
                             
 
                 <Stars/>
-                <Stats showPanel={4}/>
+                <Stats showPanel={0}/>
             </Canvas>
         </div>
         </>
