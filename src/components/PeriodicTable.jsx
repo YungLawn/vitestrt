@@ -7,11 +7,19 @@ import StringtoTexture from "./StringtoTexture";
 
 const mat = new THREE.MeshLambertMaterial({color:'#ffffff'});
 const tile = new THREE.BoxGeometry(0.99, 0.99, 0.25);
-const button = new THREE.BoxGeometry(2, 1, 0.25);
+const button = new THREE.BoxGeometry(1.5, 1, 0.25);
 const bmats = new THREE.MeshLambertMaterial({color:'#00ff00'});
 const bmat = new THREE.MeshLambertMaterial({color:'#ff0000'});
 
-// const toggleIsosBut = StringtoTexture('Text',);
+const toggleIsosTexture = StringtoTexture('Isotopes','#00ff00');
+const bmatIsos = new THREE.MeshLambertMaterial({map:toggleIsosTexture});
+const toggleIsosTextureRed = StringtoTexture('Isotopes','#ff0000');
+const bmatIsosRed = new THREE.MeshLambertMaterial({map:toggleIsosTextureRed});
+const toggleTextTexture = StringtoTexture('Text','#00ff00');
+const bmatText = new THREE.MeshLambertMaterial({map:toggleTextTexture});
+const toggleTextTextureRed = StringtoTexture('Text','#ff0000');
+const bmatTextRed = new THREE.MeshLambertMaterial({map:toggleTextTextureRed});
+
 
 let array = [];
 
@@ -126,7 +134,7 @@ const elements = [
 
     {num:90, id:'Th', name:'Thorium', mass:'232.04', x:4 , y:1.5, isotopes: [R,R,R,R,R,R,B,R,R,R,R,R,R,R,R,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]},
     {num:91, id:'Pa', name:'Protactinium', mass:'231.06', x:5 , y:1.5, isotopes: [R,R,R,R,R,R,R,R,R,R,R,R,R,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]},
-    {num:92, id:'U', name:'Uranium', mass:'238.028', x:6 , y:1.5, isotopes: [R,R,R,R,R,R,R,R,R,R,R,B,B,B,B,B,B,B,B,B,B,B,B,B,B,'#ffffff',B]},
+    {num:92, id:'U', name:'Uranium', mass:'238.03', x:6 , y:1.5, isotopes: [R,R,R,R,R,R,R,R,R,R,R,B,B,B,B,B,B,B,B,B,B,B,B,B,B,'#ffffff',B]},
     {num:93, id:'Np', name:'Neptunium', mass:'(237)', x:7 , y:1.5,  isotopes: [R,R,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,]},
     {num:94, id:'Pu', name:'Plutonium', mass:'(244)', x:8 , y:1.5, isotopes: [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]},
     {num:95, id:'Am', name:'Americium', mass:'(243)', x:9 , y:1.5, isotopes: [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,]},
@@ -207,7 +215,6 @@ const initTextures = () => {
             array.push(StringtoTexture(elements[i].id,'#ffffff', elements[i].mass, i+1))
         }
     }
-    console.log(array)
 }
 
 export default function PeriodicTable() {
@@ -229,9 +236,8 @@ export default function PeriodicTable() {
             scale={toggleTextHover ? [1.25,1.25,1] : 1}
             position= {[-14,-4.5,0]}
             geometry={button}
-            material={toggleText ? bmats : bmat} 
+            material={toggleText ? bmatText : bmatTextRed} 
             >
-                <Text {...menuButtonTextOptions} > {toggleText ? 'Text Enabled' :'Text Disabled'}</Text>
             </mesh>
 
             <mesh
@@ -241,9 +247,8 @@ export default function PeriodicTable() {
                 scale={toggleHover ? [1.25,1.25,1] : 1}
                 position= {[-14,-3,0]}
                 geometry={button}
-                material={toggle ? bmats : bmat} 
+                material={toggle ? bmatIsos : bmatIsosRed} 
             >
-                <Text {...menuButtonTextOptions}>{toggle ? 'Isotopes Enabled' :'Isotopes Disabled'}</Text>
             </mesh>
                 
             {/* <mesh

@@ -18,16 +18,23 @@ export default function StringtoTexture(element, backgroundColor, mass, num) {
   
     // Draw the string on the canvas
     ctx.fillStyle = "#000000";
-    ctx.letterSpacing = "5px"
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.font = "bold 550px Helvetica";
-    ctx.fillText(element, widthCenter + widthCenter/4, heightCenter + heightCenter/10);
-    ctx.font = "bold 300px Helvetica";
-    ctx.fillText(num, widthCenter - widthCenter/1.75, heightCenter + heightCenter/1.5);
-    ctx.font = "bold 300px Helvetica";
-    ctx.fillText(mass, widthCenter, heightCenter - heightCenter/1.5);
-  
+
+    //element Tiles
+    if(mass != undefined && num != undefined) {
+      ctx.font = "bold 550px Helvetica";
+      ctx.fillText(element, widthCenter + widthCenter/6, heightCenter + heightCenter/10);
+      ctx.font = "bold 300px Helvetica";
+      ctx.fillText(num, widthCenter - widthCenter/1.75, heightCenter + heightCenter/1.5);
+      ctx.font = "bold 300px Helvetica";
+      ctx.fillText(mass, widthCenter, heightCenter - heightCenter/1.5);
+    }
+    //UI Tiles
+    else {
+      ctx.font = "bold 250px Helvetica";
+      ctx.fillText(element, widthCenter , heightCenter );
+    }
     // Create an image object from the canvas
     let img = new Image();
     img.src = canvas.toDataURL();
