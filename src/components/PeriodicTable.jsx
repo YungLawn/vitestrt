@@ -1,35 +1,10 @@
 import React, { useRef, useState } from "react";
 import * as THREE from 'three';
 import { useCursor, Text } from '@react-three/drei';
-import { useLoader } from '@react-three/fiber'
-import { TextureLoader } from 'three/src/loaders/TextureLoader.js'
-import StringtoTexture from "./StringtoTexture";
 
 const mat = new THREE.MeshLambertMaterial({color:'#ffffff'});
 const tile = new THREE.BoxGeometry(0.99, 0.99, 0.25);
-const button = new THREE.BoxGeometry(1.5, 1, 0.25);
-const bmats = new THREE.MeshLambertMaterial({color:'#00ff00'});
-const bmat = new THREE.MeshLambertMaterial({color:'#ff0000'});
 
-const toggleIsosTexture = StringtoTexture('Isotopes','#00ff00');
-const bmatIsos = new THREE.MeshLambertMaterial({map:toggleIsosTexture});
-const toggleIsosTextureRed = StringtoTexture('Isotopes','#ff0000');
-const bmatIsosRed = new THREE.MeshLambertMaterial({map:toggleIsosTextureRed});
-const toggleTextTexture = StringtoTexture('Text','#00ff00');
-const bmatText = new THREE.MeshLambertMaterial({map:toggleTextTexture});
-const toggleTextTextureRed = StringtoTexture('Text','#ff0000');
-const bmatTextRed = new THREE.MeshLambertMaterial({map:toggleTextTextureRed});
-
-
-let array = [];
-
-const menuButtonTextOptions = {
-    color:'#000000',
-    position: [0,0,0.128],
-    scale: 0.3,
-    maxWidth: 3,
-    textAlign: 'center'
-}
 const R = '#ff0000';
 const G = '#00ff00';
 const B = '#0000ff';
@@ -164,14 +139,13 @@ const elements = [
     {num: 118, id:'Og', name:'Oganesson', mass:'(294)', x:18, y:4, isotopes: [R]}
 ];
 
-const ElementTile = (element, toggleText, toggleIsotopes, texture) => {
+const ElementTile = (element, toggleText, toggleIsotopes, material) => {
     const ElementTile = useRef();
     const [active, setActive] = useState(false);
     const [hover, setHover] = useState(false);
     useCursor(hover);
     const isotopeMap = element.isotopes;
     // const texture_1 = useLoader(TextureLoader, 'src/assets/textures/1-Hydrogen.jpg')
-    const tex = new THREE.MeshLambertMaterial({map:texture});
 
     return (
         <>
@@ -181,7 +155,7 @@ const ElementTile = (element, toggleText, toggleIsotopes, texture) => {
             onPointerOut={(e) => {e.stopPropagation(); setHover(false)}}
             onPointerDown={(e) => {e.stopPropagation(); setActive(!active)}}
             geometry={tile}
-            material={toggleText ? tex : mat}
+            material={toggleText ? material : mat}
             scale={active || hover ? 1.5 : 1} />
             {IsotopeStack(isotopeMap, active, toggleIsotopes)}
         </>
@@ -209,34 +183,20 @@ const IsotopeStack = (isotopeMap, pactive, toggle) => {
     return;
 }
 
-const initTextures = () => {
-    if (array.length == 0) {
-        for(let i=0;i<elements.length;i++) {
-            array.push(StringtoTexture(elements[i].id,'#ffffff', elements[i].mass, i+1))
-        }
-    }
-}
-
-export default function PeriodicTable() {
+export default function PeriodicTable(textToggle, elementToggle, textures) {
     const Table = useRef();
-    const [toggleText, setToggleText] =useState(true);
-    const [toggleTextHover, setToggleTextHover] = useState(false);
-    const [toggle, setToggle] =useState(true);
-    const [toggleHover, setToggleHover] = useState(false);
-    // const [clear, setClear] = useState(true);
-    // const [clearHover, setClearHover] = useState(false);
-    initTextures();
+    // const [TextHover, setToggleTextHover] = useState(false);
+    // const [elementHover, setToggleHover] = useState(false);
     return (
         <mesh>
 
-            <mesh
+            {/* <mesh
             onPointerOver={(e) => {e.stopPropagation(); setToggleTextHover(true)}}
             onPointerOut={(e) => {e.stopPropagation(); setToggleTextHover(false)}}
-            onPointerDown={(e) => {e.stopPropagation(); setToggleText(!toggleText)}}
-            scale={toggleTextHover ? [1.25,1.25,1] : 1}
+            scale={TextHover ? [1.25,1.25,1] : 1}
             position= {[-14,-4.5,0]}
             geometry={button}
-            material={toggleText ? bmatText : bmatTextRed} 
+            material={textToggle ? bmatText : bmatTextRed} 
             >
             </mesh>
 
@@ -244,29 +204,16 @@ export default function PeriodicTable() {
                 onPointerOver={(e) => {e.stopPropagation(); setToggleHover(true)}}
                 onPointerOut={(e) => {e.stopPropagation(); setToggleHover(false)}}
                 onPointerDown={(e) => {e.stopPropagation(); setToggle(!toggle)}}
-                scale={toggleHover ? [1.25,1.25,1] : 1}
+                scale={elementHover ? [1.25,1.25,1] : 1}
                 position= {[-14,-3,0]}
                 geometry={button}
-                material={toggle ? bmatIsos : bmatIsosRed} 
+                material={elementToggle ? bmatIsos : bmatIsosRed} 
             >
-            </mesh>
-                
-            {/* <mesh
-            onPointerOver={(e) => {e.stopPropagation(); setClearHover(true)}}
-            onPointerOut={(e) => {e.stopPropagation(); setClearHover(false)}}
-            onPointerDown={(e) => {e.stopPropagation(); setClear(!clear)}}
-            scale={clearHover ? [1.25,1.25,1] : 1}
-            position= {[-14,-1.5,0]}
-            geometry={button}
-            material={clear ? bmats : bmat}
-            >
-                <Text {...menuButtonTextOptions}> Select All </Text>
             </mesh> */}
 
             {elements.map((element, index) =>
-            <group ref={Table} position={[(element.x - 9) * 1.5, (element.y - 7) * 1.5, 0]} key={element.id}>
-                {/* {ElementTile(element, toggleText, toggle)} */}
-                {ElementTile(element, toggleText, toggle, array[index])}
+            <group ref={Table} position={[(element.x - 9.5) * 1.5, (element.y - 5.75) * 1.5, 0]} key={element.id}>
+                {ElementTile(element, textToggle, elementToggle, textures[index])}
             </group>
             )}
         </mesh>

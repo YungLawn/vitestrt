@@ -18,12 +18,23 @@ html, body, #root {
 
 .canvaswrapper {
   height: 100%;
-  background-color: black;
+  background-color: #00091d;
+}
+
+.controls {
+  background-color: #4e5272;
+  height: 5.2%;
+  color: white;
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 1%;
 }
 
 .nav {
   height: 5%;
-  background-color: #363636;
+  background-color: #181922;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -54,9 +65,9 @@ html, body, #root {
 }
 
 .nav li.active {
-  background-color: #555;
+  background-color: #4e5272;
 }
 
 .nav li:hover {
-  background-color: #777;
+  background-color: #7177a5;
 }
