@@ -23,7 +23,7 @@ html, body, #root {
 
 .nav {
   height: 5%;
-  background-color: #000000;
+  background-color: #363636;
   color: white;
   display: flex;
   justify-content: space-between;

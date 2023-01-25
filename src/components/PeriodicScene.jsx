@@ -1,10 +1,8 @@
 import React, {Suspense, useRef} from 'react';
-import * as THREE from 'three'
-import {Canvas, useFrame} from '@react-three/fiber';
+import {Canvas} from '@react-three/fiber';
 import {Stats, Stars} from '@react-three/drei';
 import PeriodicTable from './PeriodicTable';
-import PeriodicTablev2 from './PeriodicTablev2';
-import TextTest from './textTest';
+
 import SpecialControls from './SpecialControls';
 
 export default function PeriodicScene() {
