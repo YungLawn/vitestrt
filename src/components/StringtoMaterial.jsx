@@ -11,7 +11,7 @@ export default function StringtoMaterial(element, backgroundColor, mass, num) {
     canvas.height = 1024 * scale;
 
     const elementTextSize = (550 * scale).toString() 
-    const elementMassNumSize = (325 * scale).toString()
+    const elementMassNumSize = (300 * scale).toString()
 
     const widthCenter = canvas.width / 2
     const heightCenter = canvas.height / 2
