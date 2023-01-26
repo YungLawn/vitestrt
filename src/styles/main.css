@@ -28,8 +28,7 @@ html, body, #root {
   display: flex;
   justify-content:space-between;
   align-items:baseline;
-  gap: 2rem;
-  padding: 0 1%;
+  padding: 0% 1%;
 }
 
 .maincontrols {
@@ -51,8 +50,8 @@ html, body, #root {
 .toggle-buttons {
   transform: rotate(180deg) scaleX(-1);
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
-  grid-template-rows: repeat(auto-fill, minmax(40px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(30px, 1fr));
 }
 
 .toggle-button {
@@ -60,14 +59,14 @@ html, body, #root {
 }
 
 .square-button {
-   width: 40px;
-   height: 40px;
+   width: 30px;
+   height: 30px;
    border-radius: 10%;
 }
 
 .toggle-button button.on {
-  background-color: green
+  background-color: #00ff00
 }
 .toggle-button button.off {
-  background-color: red
+  background-color: #ff0000
 }

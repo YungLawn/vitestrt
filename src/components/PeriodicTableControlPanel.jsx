@@ -1,77 +1,74 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-function ControlPanel({ elements }) {
-  const [checkboxes, setCheckboxes] = useState(() => {
-    return Array.from({ length: elements.length }, (_, i) => ({
+const ToggleButtonList = ({ elements }) => {
+  const [selectAll, setSelectAll] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [buttons, setButtons] = useState(
+    Array.from({ length: elements.length }, (_, i) => ({
       id: elements[i].id,
-      isChecked: false,
+      isOn: false,
       x: elements[i].x,
       y: elements[i].y
-    }));
-  });
+    }))
+  );
 
-  const [selectAll, setSelectAll] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const handleButtonToggle = id => {
+    setButtons(prevButtons =>
+      prevButtons.map(button => {
+        if (button.id === id) {
+          return { ...button, isOn: !button.isOn };
+        }
+        return button;
+      })
+    );
+  };
 
-  function handleCheckboxChange(id) {
-    const updatedCheckboxes = checkboxes.map(checkbox => {
-      if (checkbox.id === id) {
-        return { ...checkbox, isChecked: !checkbox.isChecked };
-      }
-      return checkbox;
-    });
-    setCheckboxes(updatedCheckboxes);
-  }
-
-  function handleSelectAllChange() {
-    setCheckboxes(checkboxes.map(checkbox => ({ ...checkbox, isChecked: !selectAll })));
-    setSelectAll(!selectAll);
-  }
-
-  function handleMinimize() {
-    setIsVisible(!isVisible);
-  }
+  const handleSelectAll = e => {
+    setSelectAll(e.target.checked);
+    setButtons(prevButtons =>
+      prevButtons.map(button => ({ ...button, isOn: e.target.checked }))
+    );
+  };
 
   return (
-    <div className="checkbox-list">
-      <button className='controlpanbut' onClick={handleMinimize}>Control Panel</button>
-      {isVisible && (
-        <div>
-          <label >
+    <>
+    <div className="dropdowntoggle">
+        <button onClick={() => setIsOpen(!isOpen)}>
+        {isOpen ? "Close Control Panel" : "Open Control Panel"}
+      </button>
+      <div className="select-all">
             <input
               type="checkbox"
               checked={selectAll}
-              onChange={handleSelectAllChange}
+              onChange={handleSelectAll}
             />
-            Select All
-          </label>
-          <div className="checkboxes">
-          {checkboxes.map(checkbox => (
-            <div
-              key={checkbox.id}
-              className="checkbox"
-              style={{
-                position: "absolute",
-                left: `${(checkbox.x * 20) -23}px`,
-                bottom: `${(checkbox.y * 20) - 20}px`
-              }}
-            >
-              <label htmlFor={`checkbox-${checkbox.id}`}>
-              <input
-                type="checkbox"
-                id={`checkbox-${checkbox.id}`}
-                checked={checkbox.isChecked}
-                onChange={() => handleCheckboxChange(checkbox.id)}
-              />
-                {checkbox.id}
-              </label>
-            </div>
-          ))}
-        </div>
-        </div>
+            <label>Select All</label>
+          </div>
+    </div>
+    <div className="dropdown-area">
+      {isOpen && (
+        <>
+          <div className="toggle-buttons">
+            {buttons.map((button, i) => (
+              <div
+                key={button.id}
+                className="toggle-button"
+                style={{ gridColumn: elements[i].x , gridRow: elements[i].y }}
+              >
+                <button
+                  className={`square-button ${button.isOn ? "on" : "off"}`}
+                  onClick={() => handleButtonToggle(button.id)}
+                >
+                  {button.id}
+                </button>
+              </div>
+            ))}
+          </div>
+        </>
       )}
     </div>
+    </>
   );
-}
+};
 
-export default ControlPanel;
+export default ToggleButtonList;

@@ -4,8 +4,7 @@ import {Stats, Stars} from '@react-three/drei';
 import { MeshLambertMaterial } from "three";
 import PeriodicTable from './PeriodicTable';
 import StringtoMaterial from './StringtoMaterial';
-// import ControlPanel from './PeriodicTableControlPanel';
-import ControlPanel from './PeriodicTableControlPanelTEST';
+import ControlPanel from './PeriodicTableControlPanel';
 import SpecialControls from './SpecialControls';
 
 const R = new MeshLambertMaterial({color:'#ff0000'});
