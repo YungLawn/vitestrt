@@ -26,10 +26,25 @@ html, body, #root {
   height: 5.2%;
   color: white;
   display: flex;
-  justify-content:space-around;
+  justify-content:space-between;
   align-items: center;
   gap: 2rem;
   padding: 0 1%;
+}
+.controlpanel {
+  background-color: #181922;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-list {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav {

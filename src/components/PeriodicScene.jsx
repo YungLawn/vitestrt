@@ -1,14 +1,15 @@
-import React, {Suspense, useRef, useState} from 'react';
+import React, {Suspense, useState} from 'react';
 import {Canvas} from '@react-three/fiber';
 import {Stats, Stars} from '@react-three/drei';
+import { MeshLambertMaterial } from "three";
 import PeriodicTable from './PeriodicTable';
 import StringtoMaterial from './StringtoMaterial';
-
+import ControlPanel from './PeriodicTableControlPanel';
 import SpecialControls from './SpecialControls';
 
-const R = '#ff0000';
-const G = '#00ff00';
-const B = '#0000ff';
+const R = new MeshLambertMaterial({color:'#ff0000'});
+const G = new MeshLambertMaterial({color:'#00ff00'});
+const B = new MeshLambertMaterial({color:'#0000ff'});
 const elements = [
     {num: 1, id:'H', name: 'Hydrogen', mass:'1.01', x:1, y:10, isotopes: [G,G,B,R,R,R,R]},
     {num: 2, id:'He', name:'Helium', mass:'4.03', x:18, y:10, isotopes: [G,G,R,R,R,R,R,R]},
@@ -157,7 +158,12 @@ export default function PeriodicScene() {
 
         <>
         <div className='controls'>
-            <label>
+            <div className='controlpanel'>
+                <ControlPanel size={10} elements={elements}/>
+            </div>
+            
+            <div>
+                <label>
                 <input
                     type="checkbox"
                     checked={TextToggle}
@@ -173,6 +179,9 @@ export default function PeriodicScene() {
                 />
                 Isotopes
             </label>
+            </div>
+            
+            
         </div>
         <div className='canvaswrapper'>
             {initTable()}
@@ -187,8 +196,8 @@ export default function PeriodicScene() {
                     <PeriodicTable/>
                 </group>     */}
 
-                <Suspense>
-                    {PeriodicTable(TextToggle,IsotopeToggle, textures)}
+                <Suspense fallback={<></>}>
+                    {PeriodicTable(TextToggle,IsotopeToggle, textures, elements)}
                 </Suspense>
                             
 

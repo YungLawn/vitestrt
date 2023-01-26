@@ -4,7 +4,7 @@ export default function StringtoMaterial(element, backgroundColor, mass, num) {
     // Create a canvas element
     let canvas = document.createElement("canvas");
     let ctx = canvas.getContext("2d");
-    const scale = 0.25;
+    const scale = 0.5;
 
     // Set the canvas size
     canvas.width = 1024 * scale;
@@ -45,6 +45,7 @@ export default function StringtoMaterial(element, backgroundColor, mass, num) {
     texture.needsUpdate = true;
 
     let material = new THREE.MeshLambertMaterial({map:texture})
+    console.log('StringToMaterial Ran')
     return material;
   }
   
