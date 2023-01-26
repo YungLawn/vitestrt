@@ -30,19 +30,19 @@ html, body, #root {
   align-items: center;
   gap: 2rem;
   padding: 0 1%;
+  z-index: 1;
 }
 .controlpanel {
-  background-color: #181922;
-  z-index: 1;
+  background-color: #9ea8ff;
   display: flex;
   align-items: center;
 }
 
 .checkbox-list {
+  background-color: #181922;
   position: absolute;
   z-index: 1;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items:flex-start;
+  overflow: visible;
 }

@@ -33,8 +33,7 @@ function ControlPanel({ elements }) {
   }
 
   return (
-    <div 
-    className="checkbox-list">
+    <div className="checkbox-list">
       <button className='controlpanbut' onClick={handleMinimize}>Control Panel</button>
       {isVisible && (
         <div>
@@ -47,28 +46,28 @@ function ControlPanel({ elements }) {
             Select All
           </label>
           <div className="checkboxes">
-        {checkboxes.map(checkbox => (
-          <div
-            key={checkbox.id}
-            className="checkbox"
-            style={{
-              position: "absolute",
-              left: `${(checkbox.x * 40)}px`,
-              bottom: `${(checkbox.y * 40) - 450}px`
-            }}
-          >
-            <input
-              type="checkbox"
-              id={`checkbox-${checkbox.id}`}
-              checked={checkbox.isChecked}
-              onChange={() => handleCheckboxChange(checkbox.id)}
-            />
-            <label htmlFor={`checkbox-${checkbox.id}`}>
-              {checkbox.id}
-            </label>
-          </div>
-        ))}
-      </div>
+          {checkboxes.map(checkbox => (
+            <div
+              key={checkbox.id}
+              className="checkbox"
+              style={{
+                position: "absolute",
+                left: `${(checkbox.x * 20) -23}px`,
+                bottom: `${(checkbox.y * 20) - 230}px`
+              }}
+            >
+              <label htmlFor={`checkbox-${checkbox.id}`}>
+              <input
+                type="checkbox"
+                id={`checkbox-${checkbox.id}`}
+                checked={checkbox.isChecked}
+                onChange={() => handleCheckboxChange(checkbox.id)}
+              />
+                {/* {checkbox.id} */}
+              </label>
+            </div>
+          ))}
+        </div>
         </div>
       )}
     </div>
