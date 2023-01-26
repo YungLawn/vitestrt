@@ -38,7 +38,7 @@ function ControlPanel({ elements }) {
       <button className='controlpanbut' onClick={handleMinimize}>Control Panel</button>
       {isVisible && (
         <div>
-          <label>
+          <label >
             <input
               type="checkbox"
               checked={selectAll}
