@@ -4,7 +4,8 @@ import {Stats, Stars} from '@react-three/drei';
 import { MeshLambertMaterial } from "three";
 import PeriodicTable from './PeriodicTable';
 import StringtoMaterial from './StringtoMaterial';
-import ControlPanel from './PeriodicTableControlPanel';
+// import ControlPanel from './PeriodicTableControlPanel';
+import ControlPanel from './PeriodicTableControlPanelTEST';
 import SpecialControls from './SpecialControls';
 
 const R = new MeshLambertMaterial({color:'#ff0000'});
@@ -159,11 +160,11 @@ export default function PeriodicScene() {
         <>
         <div className='controls'>
             <div className='controlpanel'>
-                <ControlPanel size={10} elements={elements}/>
+                <ControlPanel elements={elements}/>
             </div>
             
-            <div>
-                <label>
+            <div className='maincontrols'>
+            <label>
                 <input
                     type="checkbox"
                     checked={TextToggle}
@@ -181,7 +182,6 @@ export default function PeriodicScene() {
             </label>
             </div>
             
-            
         </div>
         <div className='canvaswrapper'>
             {initTable()}
@@ -197,12 +197,12 @@ export default function PeriodicScene() {
                 </group>     */}
 
                 <Suspense fallback={<></>}>
-                    {PeriodicTable(TextToggle,IsotopeToggle, textures, elements)}
+                    {PeriodicTable(TextToggle, IsotopeToggle, textures, elements)}
                 </Suspense>
                             
 
                 <Stars/>
-                <Stats showPanel={0}/>
+                <Stats showPanel={4}/>
             </Canvas>
         </div>
         </>

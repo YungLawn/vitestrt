@@ -53,7 +53,7 @@ function ControlPanel({ elements }) {
               style={{
                 position: "absolute",
                 left: `${(checkbox.x * 20) -23}px`,
-                bottom: `${(checkbox.y * 20) - 230}px`
+                bottom: `${(checkbox.y * 20) - 20}px`
               }}
             >
               <label htmlFor={`checkbox-${checkbox.id}`}>
@@ -63,7 +63,7 @@ function ControlPanel({ elements }) {
                 checked={checkbox.isChecked}
                 onChange={() => handleCheckboxChange(checkbox.id)}
               />
-                {/* {checkbox.id} */}
+                {checkbox.id}
               </label>
             </div>
           ))}

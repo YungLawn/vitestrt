@@ -27,22 +27,43 @@ html, body, #root {
   color: white;
   display: flex;
   justify-content:space-between;
-  align-items: center;
+  align-items:baseline;
   gap: 2rem;
   padding: 0 1%;
-  z-index: 1;
-}
-.controlpanel {
-  background-color: #9ea8ff;
-  display: flex;
-  align-items: center;
 }
 
-.checkbox-list {
-  background-color: #181922;
-  position: absolute;
+.controlpanel {
+  background-color: #4e5272;
   z-index: 1;
+  align-items:baseline;
+}
+
+.dropdown-area {
   display: flex;
-  align-items:flex-start;
-  overflow: visible;
+  align-items: center;
+  padding-top: 1%;
+}
+
+.toggle-buttons {
+  transform: rotate(180deg) scaleX(-1);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(40px, 1fr));
+}
+
+.toggle-button {
+  transform: rotateX(180deg);
+}
+
+.square-button {
+   width: 40px;
+   height: 40px;
+   border-radius: 10%;
+}
+
+.toggle-button button.on {
+  background-color: green
+}
+.toggle-button button.off {
+  background-color: red
 }

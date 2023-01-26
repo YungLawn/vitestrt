@@ -4,19 +4,19 @@ export default function StringtoMaterial(element, backgroundColor, mass, num) {
     // Create a canvas element
     let canvas = document.createElement("canvas");
     let ctx = canvas.getContext("2d");
-    const scale = 0.5;
+    const scale = 0.25;
 
     // Set the canvas size
     canvas.width = 1024 * scale;
     canvas.height = 1024 * scale;
 
     const elementTextSize = (550 * scale).toString() 
-    const elementMassNumSize = (300 * scale).toString()
+    const elementMassNumSize = (325 * scale).toString()
 
     const widthCenter = canvas.width / 2
     const heightCenter = canvas.height / 2
 
-    const font = ' Helvetica'
+    const font = ' Monospace'
 
     // Fill the background with the specified color
     ctx.fillStyle = backgroundColor;
