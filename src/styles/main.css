@@ -22,7 +22,7 @@ html, body, #root {
 }
 
 .controls {
-  background-color: #4e5272;
+  background-color: #00091d;
   height: 5.2%;
   color: white;
   display: flex;
@@ -30,6 +30,10 @@ html, body, #root {
   align-items:baseline;
   gap: 2rem;
   padding: 0 1%;
+}
+
+.maincontrols {
+  background-color: #4e5272;
 }
 
 .controlpanel {
