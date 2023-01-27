@@ -155,7 +155,6 @@ export default function PeriodicScene() {
     const [TextToggle, setTextToggle] = useState(true);
     const [IsotopeToggle, setIsotopeToggle] = useState(true);
     return(
-
         <>
         <div className='controls'>
             <div className='controlpanel'>
@@ -180,7 +179,6 @@ export default function PeriodicScene() {
                 Isotopes
             </label>
             </div>
-            
         </div>
         <div className='canvaswrapper'>
             {initTable()}
