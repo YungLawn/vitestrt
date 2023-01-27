@@ -24,8 +24,7 @@ const ElementTile = (element, textToggle, isotopeToggle, material, button) => {
             material={textToggle ? material : mat}
             scale={active || hover ? 1.5 : 1} />
             {IsotopeStack(isotopeMap, active, isotopeToggle)}
-        </>
-    )
+        </>)
     }
     else {
         return (

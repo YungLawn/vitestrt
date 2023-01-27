@@ -194,23 +194,17 @@ export default function PeriodicScene() {
         <div className='canvaswrapper'>
             {initTable()}
             <Canvas camera={{ fov: 30, position:[0,0,30] }}>
-                
                 <SpecialControls/>
         
                 <ambientLight intensity={0.25}/>
                 <pointLight position={[0, -20, 100]} lookAt={[0,0,0]} intensity={1}/>
 
-                {/* <group ref={Table} position={[-14.25, -11.5, 0]} rotation={[0,0,0]}>
-                    <PeriodicTable/>
-                </group>     */}
-
                 <Suspense fallback={<></>}>
                     {PeriodicTable(TextToggle, IsotopeToggle, textures, elements, buttons)}
-                </Suspense>
-                            
+                </Suspense>          
 
                 <Stars/>
-                <Stats showPanel={0}/>
+                <Stats showPanel={4}/>
             </Canvas>
         </div>
         </>
