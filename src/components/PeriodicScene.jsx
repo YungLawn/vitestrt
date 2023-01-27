@@ -2,10 +2,11 @@ import React, {Suspense, useState} from 'react';
 import {Canvas} from '@react-three/fiber';
 import {Stats, Stars} from '@react-three/drei';
 import { MeshLambertMaterial } from "three";
-import PeriodicTable from './PeriodicTable';
+import PeriodicTable from './PeriodicTableTEST';
 import StringtoMaterial from './StringtoMaterial';
 import ControlPanel from './PeriodicTableControlPanel';
 import SpecialControls from './SpecialControls';
+import '../styles/controls.css'
 
 const R = new MeshLambertMaterial({color:'#ff0000'});
 const G = new MeshLambertMaterial({color:'#00ff00'});
@@ -152,14 +153,23 @@ const initTable = () => {
 }
 
 export default function PeriodicScene() {
+    const [buttons, setButtons] = useState(
+        Array.from({ length: elements.length }, (_, i) => ({
+          id: undefined,
+          isOn: undefined,
+          x: undefined,
+          y: undefined
+        }))
+      );
+
+    const handleButtonState = newButtons => {setButtons(newButtons);};
     const [TextToggle, setTextToggle] = useState(true);
     const [IsotopeToggle, setIsotopeToggle] = useState(true);
     return(
-
         <>
         <div className='controls'>
             <div className='controlpanel'>
-                <ControlPanel elements={elements}/>
+                <ControlPanel elements={elements} handleButtonState={handleButtonState}/>
             </div>
             
             <div className='maincontrols'>
@@ -196,12 +206,12 @@ export default function PeriodicScene() {
                 </group>     */}
 
                 <Suspense fallback={<></>}>
-                    {PeriodicTable(TextToggle, IsotopeToggle, textures, elements)}
+                    {PeriodicTable(TextToggle, IsotopeToggle, textures, elements, buttons)}
                 </Suspense>
                             
 
                 <Stars/>
-                <Stats showPanel={4}/>
+                <Stats showPanel={0}/>
             </Canvas>
         </div>
         </>

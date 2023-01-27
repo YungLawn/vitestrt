@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-const ToggleButtonList = ({ elements }) => {
-  const [selectAll, setSelectAll] = useState(false);
+const ControlPanel = ({ elements, handleButtonState }) => {
+  const [selectAll, setSelectAll] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [buttons, setButtons] = useState(
     Array.from({ length: elements.length }, (_, i) => ({
       id: elements[i].id,
-      isOn: false,
+      isOn: true,
       x: elements[i].x,
       y: elements[i].y
     }))
@@ -21,6 +21,7 @@ const ToggleButtonList = ({ elements }) => {
         return button;
       })
     );
+    handleButtonState(buttons);
   };
 
   const handleSelectAll = e => {
@@ -28,6 +29,7 @@ const ToggleButtonList = ({ elements }) => {
     setButtons(prevButtons =>
       prevButtons.map(button => ({ ...button, isOn: e.target.checked }))
     );
+    handleButtonState(buttons);
   };
 
   return (
@@ -67,8 +69,9 @@ const ToggleButtonList = ({ elements }) => {
         </>
       )}
     </div>
+    {handleButtonState(buttons)}
     </>
   );
 };
 
-export default ToggleButtonList;
+export default ControlPanel;
