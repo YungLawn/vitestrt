@@ -190,7 +190,6 @@ export default function PeriodicScene() {
                 Isotopes
             </label>
             </div>
-            
         </div>
         <div className='canvaswrapper'>
             {initTable()}
