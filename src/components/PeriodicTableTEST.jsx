@@ -11,7 +11,6 @@ const ElementTile = (element, textToggle, isotopeToggle, material, button) => {
     const [hover, setHover] = useState(false);
     useCursor(hover);
     const isotopeMap = element.isotopes;
-    console.log(active && button)
     if( button ) {
     return (
         <>
