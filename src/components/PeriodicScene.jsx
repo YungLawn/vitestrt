@@ -15,10 +15,10 @@ import '../styles/controls.css'
 export default function PeriodicScene() {
     const [buttons, setButtons] = useState(
         Array.from({ length: elements.length }, (_, i) => ({
-          id: undefined,
-          isOn: undefined,
-          x: undefined,
-          y: undefined
+            id: elements[i].id,
+            isOn: false,
+            x: elements[i].x,
+            y: elements[i].y
         }))
       );
 
