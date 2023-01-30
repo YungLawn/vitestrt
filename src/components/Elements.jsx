@@ -4,6 +4,7 @@ import StringtoMaterial from "./StringtoMaterial";
 const R = new MeshLambertMaterial({color:'#ff0000'});
 const G = new MeshLambertMaterial({color:'#00ff00'});
 const B = new MeshLambertMaterial({color:'#0000ff'});
+const W = new MeshLambertMaterial({color:'#fcfcfc'});
 const elements = [
     {num: 1, id:'H', name: 'Hydrogen', mass:'1.01', x:1, y:10, isotopes: [G,G,B,R,R,R,R]},
     {num: 2, id:'He', name:'Helium', mass:'4.03', x:18, y:10, isotopes: [G,G,R,R,R,R,R,R]},
@@ -66,16 +67,16 @@ const elements = [
 
     {num: 55, id:'Cs', name:'Caesium', mass:'132.90', x:1, y:5, isotopes: [R,R,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,G,B,B,B,B,B,B,B,B,B,B,R,R,R,R,R]},
     {num: 56, id:'Ba', name:'Barium', mass:'132.90', x:2, y:5, isotopes: [R,R,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,G,B,G,G,G,G,G,B,B,B,B,B,B,B,B,R,R,R,R,R]},
-    {num: 57, id:'La', name:'Lanthanum', mass:'138.90', x:3, y:5, isotopes: [R,'#ffffff','#ffffff',B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,G,B,B,B,B,B,B,B,B,B,B,R,R,R,R]},
+    {num: 57, id:'La', name:'Lanthanum', mass:'138.90', x:3, y:5, isotopes: [R,W,W,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,G,B,B,B,B,B,B,B,B,B,B,R,R,R,R]},
 
     {num:58, id:'Ce', name:'Cerium', mass:'140.12', x:4 , y:2.5, isotopes: [B,R,B,B,B,B,B,B,B,B,B,B,B,G,B,G,B,G,B,G,B,B,B,B,B,B,B,B,B,B,R,R,R]},
-    {num:59, id:'Pr', name:'Praseodymium', mass:'140.91', x:5 , y:2.5, isotopes: [R,'#ffffff','#ffffff',B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,G,B,B,B,B,B,B,B,B,B,B,B,B,B]},
+    {num:59, id:'Pr', name:'Praseodymium', mass:'140.91', x:5 , y:2.5, isotopes: [R,W,W,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,G,B,B,B,B,B,B,B,B,B,B,B,B,B]},
     {num:60, id:'Nd', name:'Neodymium', mass:'144.24', x:6 , y:2.5, isotopes: [R,R,B,R,B,B,B,B,B,B,B,B,B,B,B,B,B,G,G,B,G,G,B,G,B,G,B,B,B,B,B,B]},
     {num:61, id:'Pm', name:'Promethium', mass:'(145)', x:7 , y:2.5, isotopes: [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]},
     {num:62, id:'Sm', name:'Samarium', mass:'150.36', x:8 , y:2.5, isotopes: [R,R,B,B,B,B,B,B,B,B,B,B,B,B,B,G,B,B,B,B,G,G,B,G,B,G,B,B,B,B,B,B,B,B]},
-    {num:63, id:'Eu', name:'Europium', mass:'151.96', x:9 , y:2.5, isotopes: [R,R,'#ffffff','#ffffff',R,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,G,B,G,B,B,B,B,B,B,B,B,B,R,R,R]},
+    {num:63, id:'Eu', name:'Europium', mass:'151.96', x:9 , y:2.5, isotopes: [R,R,W,W,R,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,G,B,G,B,B,B,B,B,B,B,B,B,R,R,R]},
     {num:64, id:'Gd', name:'Gadolinium', mass:'157.25', x:10 , y:2.5, isotopes: [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,G,G,G,G,G,B,G,B,B,B,B,B,B]},
-    {num:65, id:'Tb', name:'Terbium', mass:'158.93', x:11 , y:2.5, isotopes: [R,'#ffffff','#ffffff',R,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,G,B,B,B,B,B,B,B,B,B,]},
+    {num:65, id:'Tb', name:'Terbium', mass:'158.93', x:11 , y:2.5, isotopes: [R,W,W,R,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,G,B,B,B,B,B,B,B,B,B,]},
     {num:66, id:'Dy', name:'Dysprosium', mass:'162.5', x:12 , y:2.5, isotopes: [R,R,R,B,B,B,B,B,B,B,B,B,B,B,B,B,B,G,B,G,B,G,G,G,G,G,B,B,B,B]},
     {num:67, id:'Ho', name:'Holmium', mass:'164.93', x:13 , y:2.5, isotopes: [R,R,R,R,R,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,G,B,B,B,B,B,B,B]},
     {num:68, id:'Er', name:'Erbium', mass:'167.26', x:14 , y:2.5, isotopes: [R,R,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,G,B,G,B,G,G,G,B,G,B,B,B,B,B]},
@@ -105,7 +106,7 @@ const elements = [
 
     {num:90, id:'Th', name:'Thorium', mass:'232.04', x:4 , y:1.5, isotopes: [R,R,R,R,R,R,B,R,R,R,R,R,R,R,R,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]},
     {num:91, id:'Pa', name:'Protactinium', mass:'231.06', x:5 , y:1.5, isotopes: [R,R,R,R,R,R,R,R,R,R,R,R,R,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]},
-    {num:92, id:'U', name:'Uranium', mass:'238.03', x:6 , y:1.5, isotopes: [R,R,R,R,R,R,R,R,R,R,R,B,B,B,B,B,B,B,B,B,B,B,B,B,B,'#ffffff',B]},
+    {num:92, id:'U', name:'Uranium', mass:'238.03', x:6 , y:1.5, isotopes: [R,R,R,R,R,R,R,R,R,R,R,B,B,B,B,B,B,B,B,B,B,B,B,B,B,W,B]},
     {num:93, id:'Np', name:'Neptunium', mass:'(237)', x:7 , y:1.5,  isotopes: [R,R,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,]},
     {num:94, id:'Pu', name:'Plutonium', mass:'(244)', x:8 , y:1.5, isotopes: [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]},
     {num:95, id:'Am', name:'Americium', mass:'(243)', x:9 , y:1.5, isotopes: [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,]},

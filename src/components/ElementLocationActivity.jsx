@@ -22,7 +22,7 @@ const ElementTile = (material, button) => {
             onPointerOut={(e) => {e.stopPropagation(); setHover(false)}}
             onPointerDown={(e) => {e.stopPropagation(); setActive(!active)}}
             geometry={tile}
-            material={ active ? material : mat}
+            material={ active ? material : mat }
             scale={active || hover ? 1.5 : 1} />
         </>)
     }
