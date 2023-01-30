@@ -11,7 +11,7 @@ const ElementTile = (element, textToggle, isotopeToggle, material, button) => {
     const [hover, setHover] = useState(false);
     useCursor(hover);
     const isotopeMap = element.isotopes;
-    console.log(active && button)
+    if( button ) {
     return (
         <>
             <mesh
@@ -20,24 +20,32 @@ const ElementTile = (element, textToggle, isotopeToggle, material, button) => {
             onPointerOut={(e) => {e.stopPropagation(); setHover(false)}}
             onPointerDown={(e) => {e.stopPropagation(); setActive(!active)}}
             geometry={tile}
-            material={button ? material : mat}
+            material={textToggle ? material : mat}
             scale={active || hover ? 1.5 : 1} />
-            {IsotopeStack(isotopeMap, active, (isotopeToggle && button))}
-        </>
-    )
+            {IsotopeStack(isotopeMap, active, isotopeToggle)}
+        </>)
+    }
+    else {
+        return (
+            <mesh
+            ref={ElementTile}
+            geometry={tile}
+            material={textToggle || button ? material : mat}
+            scale={1} 
+            />)
+    }
 }
 
 const IsotopeStack = (isotopeMap, pactive, toggle) => {
     if(pactive && toggle) {
         return (
-        isotopeMap.map((isotope, index) =>
-        <mesh
-        scale={1}
-        position={[0,0,(index * 0.3) + 0.25]}
-        geometry={tile}
-        material={isotope}
-        />
-        )
+            isotopeMap.map((isotope, index) =>
+            <mesh
+            scale={1}
+            position={[0,0,(index * 0.3) + 0.25]}
+            geometry={tile}
+            material={isotope}
+            />)
         )
     }
     return;

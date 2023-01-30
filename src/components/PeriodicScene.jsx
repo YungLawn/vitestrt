@@ -3,11 +3,8 @@ import {Canvas} from '@react-three/fiber';
 import {Stats, Stars} from '@react-three/drei';
 import { MeshLambertMaterial } from "three";
 import { elements, textures } from './Elements';
-import PeriodicTable from './PeriodicTableTEST';
+import PeriodicTable from './PeriodicTable';
 import ElementLocation from './ElementLocationActivity';
-import PeriodicTablev2 from './PeriodicTablev2';
-import InstancedStack from './instancedStack';
-import StringtoMaterial from './StringtoMaterial';
 import ControlPanel from './PeriodicTableControlPanel';
 import SpecialControls from './SpecialControls';
 import '../styles/controls.css'
@@ -49,24 +46,6 @@ export default function PeriodicScene() {
             </label>
             </div>
             
-            {/* <div className='maincontrols'>
-            <label>
-                <input
-                    type="checkbox"
-                    checked={TextToggle}
-                    onChange={() => setTextToggle(!TextToggle)}
-                />
-                Text
-            </label>
-            <label>
-                <input
-                    type="checkbox"
-                    checked={IsotopeToggle}
-                    onChange={() => setIsotopeToggle(!IsotopeToggle)}
-                />
-                Isotopes
-            </label>
-            </div> */}
         </div>
         <div className='canvaswrapper'>
             <Canvas camera={{ fov: 30, position:[0,0,30] }}>
