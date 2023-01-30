@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
 const ControlPanel = ({ elements, handleButtonState }) => {
-  const [selectAll, setSelectAll] = useState(false);
+  const [selectAll, setSelectAll] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [buttons, setButtons] = useState(
     Array.from({ length: elements.length }, (_, i) => ({
       id: elements[i].id,
-      isOn: false,
+      isOn: true,
       x: elements[i].x,
       y: elements[i].y
     }))
