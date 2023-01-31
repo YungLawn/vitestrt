@@ -62,7 +62,7 @@ export default function PeriodicScene() {
                 </Suspense>          
 
                 <Stars/>
-                <Stats showPanel={4}/>
+                <Stats showPanel={0}/>
             </Canvas>
         </div>
         </>
