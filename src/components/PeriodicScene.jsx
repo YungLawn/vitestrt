@@ -49,7 +49,7 @@ export default function PeriodicScene() {
         </div>
         <div className='canvaswrapper'>
             <Canvas camera={{ fov: 30, position:[0,0,30] }}>
-                <SpecialControls/>
+                <SpecialControls />
         
                 <ambientLight intensity={0.25}/>
                 <pointLight position={[0, -20, 100]} lookAt={[0,0,0]} intensity={1}/>
@@ -66,9 +66,6 @@ export default function PeriodicScene() {
             </Canvas>
         </div>
         </>
-        
-
-    
     )
 }
 

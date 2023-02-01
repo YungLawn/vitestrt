@@ -4,6 +4,7 @@ import Home from "./components/Home"
 import About from "./components/About"
 import PeriodicScene from "./components/PeriodicScene";
 import { Route, Routes } from "react-router-dom"
+import StarRating from "./components/StarRating";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           {/* <Route path="/pricing" element={<Pricing />} /> */}
-          <Route path="/about" element={<About />} />
+          <Route path="/about" element={<StarRating/>} />
           <Route path="/Table" element={<PeriodicScene/>}/>
         </Routes>
       </div>
