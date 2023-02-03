@@ -54,16 +54,16 @@ const placeKey = (materials, buttons) => {
             )
         }
     }
-    
+
 }
 
 export default function ElementLocation(textures, elements, buttons) {
     const Table = useRef();
     return (
-        <> 
+        <>
             {placeKey(textures, buttons)}
             <mesh>
-                {                
+                {
                 elements.map((element, index) =>
                 <group ref={Table} position={[(element.x - 9.5) * 1.5, (element.y - 5.75) * 1.5, 0]} key={element.id}>
                     {ElementTile(textures[index], buttons[index].isOn)}
@@ -71,6 +71,6 @@ export default function ElementLocation(textures, elements, buttons) {
                 )}
             </mesh>
         </>
-        
+
     )
 }

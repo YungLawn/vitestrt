@@ -45,12 +45,12 @@ export default function PeriodicScene() {
                 Isotopes
             </label>
             </div>
-            
+
         </div>
         <div className='canvaswrapper'>
             <Canvas camera={{ fov: 30, position:[0,0,30] }}>
                 <SpecialControls />
-        
+
                 <ambientLight intensity={0.25}/>
                 <pointLight position={[0, -20, 100]} lookAt={[0,0,0]} intensity={1}/>
 
@@ -59,7 +59,7 @@ export default function PeriodicScene() {
                     {/* {InstancedStack(textures)} */}
                     {/* <PeriodicTablev2/> */}
                     {/* {ElementLocation(textures, elements, buttons)} */}
-                </Suspense>          
+                </Suspense>
 
                 <Stars/>
                 <Stats showPanel={0}/>

@@ -1,10 +1,10 @@
 import { MeshLambertMaterial } from "three";
 import StringtoMaterial from "./StringtoMaterial";
 
-const R = new MeshLambertMaterial({color:'#ff0000'});
-const G = new MeshLambertMaterial({color:'#00ff00'});
-const B = new MeshLambertMaterial({color:'#0000ff'});
-const W = new MeshLambertMaterial({color:'#fcfcfc'});
+const R = new MeshLambertMaterial({color:'#f00'});
+const G = new MeshLambertMaterial({color:'#0f0'});
+const B = new MeshLambertMaterial({color:'#00f'});
+const W = new MeshLambertMaterial({color:'#fff'});
 const elements = [
     {num: 1, id:'H', name: 'Hydrogen', mass:'1.01', x:1, y:10, isotopes: [G,G,B,R,R,R,R]},
     {num: 2, id:'He', name:'Helium', mass:'4.03', x:18, y:10, isotopes: [G,G,R,R,R,R,R,R]},
