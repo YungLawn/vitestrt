@@ -55,10 +55,10 @@ export default function PeriodicScene() {
                 <pointLight position={[0, -20, 100]} lookAt={[0,0,0]} intensity={1}/>
 
                 <Suspense fallback={<></>}>
-                    {PeriodicTable(TextToggle, IsotopeToggle, textures, elements, buttons)}
+                    {/* {PeriodicTable(TextToggle, IsotopeToggle, textures, elements, buttons)} */}
                     {/* {InstancedStack(textures)} */}
                     {/* <PeriodicTablev2/> */}
-                    {/* {ElementLocation(textures, elements, buttons)} */}
+                    {ElementLocation(textures, elements, buttons)}
                 </Suspense>          
 
                 <Stars/>
