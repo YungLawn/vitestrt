@@ -34,7 +34,7 @@ export default function PeriodicScene() {
                     checked={TextToggle}
                     onChange={() => setTextToggle(!TextToggle)}
                 />
-                Text
+                Text!
             </label>
             <label>
                 <input
@@ -42,7 +42,7 @@ export default function PeriodicScene() {
                     checked={IsotopeToggle}
                     onChange={() => setIsotopeToggle(!IsotopeToggle)}
                 />
-                Isotopes
+                Isotopes!
             </label>
             </div>
 
