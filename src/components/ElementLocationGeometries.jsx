@@ -40,7 +40,7 @@ const ElementTile = (material, button) => {
     }
 }
 
-const placeKey = (materials, buttons) => {
+const Key = (materials, buttons) => {
     for(let i = 0; i < buttons.length; i++) {
         console.log(buttons[i])
         if (buttons[i].isOn) {
@@ -61,7 +61,7 @@ export default function ElementLocation(textures, elements, buttons) {
     const Table = useRef();
     return (
         <>
-            {placeKey(textures, buttons)}
+            {Key(textures, buttons)}
             <mesh>
                 {
                 elements.map((element, index) =>

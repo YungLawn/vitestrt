@@ -3,7 +3,7 @@ import {Canvas} from '@react-three/fiber';
 import {Stats, Stars} from '@react-three/drei';
 import { elements, textures } from './Elements';
 import PeriodicTable from './PeriodicTable';
-import ElementLocation from './ElementLocationActivity';
+import ElementLocation from './ElementLocationGeometries';
 import ControlPanel from './PeriodicTableControlPanel';
 import SpecialControls from './SpecialControls';
 import '../styles/controls.css'
@@ -54,8 +54,8 @@ export default function PeriodicScene() {
                 <pointLight position={[0, -20, 100]} lookAt={[0,0,0]} intensity={1}/>
 
                 <Suspense fallback={<></>}>
-                    {PeriodicTable(TextToggle, IsotopeToggle, textures, elements, buttons)}
-                    {/* {ElementLocation(textures, elements, buttons)} */}
+                    {/* {PeriodicTable(TextToggle, IsotopeToggle, textures, elements, buttons)} */}
+                    {ElementLocation(textures, elements, buttons)}
                 </Suspense>          
 
                 <Stars/>
