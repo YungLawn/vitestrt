@@ -1,7 +1,6 @@
 import React, {Suspense, useState} from 'react';
 import {Canvas} from '@react-three/fiber';
 import {Stats, Stars} from '@react-three/drei';
-import { MeshLambertMaterial } from "three";
 import { elements, textures } from './Elements';
 import PeriodicTable from './PeriodicTable';
 import ElementLocation from './ElementLocationActivity';
@@ -56,10 +55,8 @@ export default function PeriodicScene() {
 
                 <Suspense fallback={<></>}>
                     {PeriodicTable(TextToggle, IsotopeToggle, textures, elements, buttons)}
-                    {/* {InstancedStack(textures)} */}
-                    {/* <PeriodicTablev2/> */}
                     {/* {ElementLocation(textures, elements, buttons)} */}
-                </Suspense>
+                </Suspense>          
 
                 <Stars/>
                 <Stats showPanel={0}/>
