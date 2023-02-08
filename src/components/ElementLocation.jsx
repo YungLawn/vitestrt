@@ -1,7 +1,7 @@
 import React, {Suspense, useState, useRef} from 'react';
 import {Canvas} from '@react-three/fiber';
 import {Stats, Stars, useCursor} from '@react-three/drei';
-import { useSpring, animated, config } from "@react-spring/three";
+import { useSpring, animated} from "@react-spring/three";
 import { BoxGeometry, MeshLambertMaterial } from "three";
 import { elements, textures } from './Elements';
 import SpecialControls from './SpecialControls';
@@ -19,7 +19,7 @@ const ElementTile = ( {material, button} ) => {
     useCursor(hover);
     const { scale } = useSpring({
         scale: active || hover ? 1.5 : 1,
-        config: { tension: 70, friction: 12 }
+        config: { tension: 200, friction: 12, mass: 1, clamp: false, precision: 0.001, velocity: 0.01 }
     });
 
     if( button ) {

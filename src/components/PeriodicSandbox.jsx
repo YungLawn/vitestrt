@@ -1,8 +1,8 @@
-import React, {Suspense, useState, useRef} from 'react';
-import {Canvas, useFrame} from '@react-three/fiber';
-import {Stats, Stars, useCursor} from '@react-three/drei';
-import { useSpring, animated, config } from "@react-spring/three";
-import { BoxGeometry, MathUtils  } from "three";
+import React, { Suspense, useState, useRef } from 'react';
+import { Canvas} from '@react-three/fiber';
+import { Stats, Stars, useCursor} from '@react-three/drei';
+import { useSpring, animated} from "@react-spring/three";
+import { BoxGeometry } from "three";
 import { elements, textures } from './Elements';
 import IsotopeStack from "./IsotopeStack";
 import SpecialControls from './SpecialControls';
