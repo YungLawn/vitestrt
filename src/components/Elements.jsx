@@ -1,11 +1,6 @@
 import { MeshLambertMaterial } from "three";
 import StringtoMaterial from "./StringtoMaterial";
 
-// const R = new MeshLambertMaterial({color:'#f00'});
-// const G = new MeshLambertMaterial({color:'#0f0'});
-// const B = new MeshLambertMaterial({color:'#00f'});
-// const W = new MeshLambertMaterial({color:'#fff'});
-
 const R = '#f00'
 const G = '#0f0'
 const B = '#00f'

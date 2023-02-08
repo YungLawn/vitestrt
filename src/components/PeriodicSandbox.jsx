@@ -7,7 +7,6 @@ import IsotopeStack from "./IsotopeStack";
 import SpecialControls from './SpecialControls';
 import '../styles/controls.css'
 
-const mat = new MeshLambertMaterial({color:'#ffffff'});
 const tile = new BoxGeometry(0.99, 0.99, 0.25);
 
 const ElementTile = ( {element, material, button} ) => {
