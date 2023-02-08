@@ -15,8 +15,6 @@ const IsotopeStack = ({ data, active }) => {
   //   config: { tension: 200, friction: 12, mass: 1, clamp: false, precision: 0.001, velocity: 0.01 }
   // });
 
-  //   console.log(active)
-
   // update instance matrices only when needed
   React.useEffect(() => {
     const mesh = meshRef.current;
@@ -46,10 +44,10 @@ const IsotopeStack = ({ data, active }) => {
         frustumCulled={false}
         visible={active}
         >
-        <boxGeometry attach="geometry" args={[1, 0.25, 1]}>
-            <instancedBufferAttribute attach="attributes-color" args={[colorArray, 3]} />
-        </boxGeometry>
-        <meshStandardMaterial attach="material" vertexColors/>
+          <boxGeometry attach="geometry" args={[1, 0.25, 1]}>
+              <instancedBufferAttribute attach="attributes-color" args={[colorArray, 3]} />
+          </boxGeometry>
+          <meshStandardMaterial attach="material" vertexColors/>
         </animated.instancedMesh>
     );
 
