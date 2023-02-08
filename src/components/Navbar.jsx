@@ -8,9 +8,9 @@ export default function Navbar() {
         Interactive Periodic Table
       </Link>
       <ul>
-        {/* <CustomLink to="/pricing">Pricing</CustomLink> */}
         <CustomLink to="/about">About</CustomLink>
-        <CustomLink to='/table'>Sandbox</CustomLink>
+        <CustomLink to="/table">Sandbox</CustomLink>
+        <CustomLink to='/activity'>Activity</CustomLink>
       </ul>
     </nav>
   )

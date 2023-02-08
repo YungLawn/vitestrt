@@ -1,25 +1,40 @@
-import Navbar from "./components/Navbar"
-// import Pricing from "./pages/Pricing"
-import Home from "./components/Home"
-import About from "./components/About"
-import ElementLocation from "./components/ElementLocation";
-import PeriodicScene from "./components/PeriodicScene";
 import { Route, Routes } from "react-router-dom"
+import React, {Suspense, useState, useRef} from 'react';
+import Navbar from "./components/Navbar"
+import Home from "./components/Home"
+import { elements } from "./components/Elements";
 import StarRating from "./components/StarRating";
+import ElementLocation from "./components/ElementLocation";
+import ControlPanel from "./components/PeriodicTableControlPanel";
+import PeriodicScene from "./components/PeriodicSandbox";
+import About from "./components/About"
 
 function App() {
+  const [buttons, setButtons] = useState(
+    Array.from({ length: elements.length }, (_, i) => ({
+        id: elements[i].id,
+        isOn: false,
+        x: elements[i].x,
+        y: elements[i].y
+    }))
+  );
 
-
+  const handleButtonState = newButtons => {setButtons(newButtons);};
 
   return (
     <>
       <Navbar />
+      <div className='controls'>
+          <div className='controlpanel'>
+              <ControlPanel elements={elements} handleButtonState={handleButtonState}/>
+          </div>
+      </div>
       <div className="container">
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/pricing" element={<Pricing />} /> */}
-          <Route path="/about" element={<StarRating/>} />
-          <Route path="/Table" element={<ElementLocation/>}/>
+          <Route path="/about" element={<About/>} />
+          <Route path="/table" element={<PeriodicScene buttons={buttons}/>} />
+          <Route path="/activity" element={<ElementLocation buttons={buttons}/>}/>
         </Routes>
       </div>
     </>
