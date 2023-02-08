@@ -1,7 +1,7 @@
 import React, {Suspense, useState, useRef} from 'react';
 import {Canvas} from '@react-three/fiber';
 import {Stats, Stars, useCursor} from '@react-three/drei';
-import { BoxGeometry, MeshLambertMaterial } from "three";
+import { BoxGeometry } from "three";
 import { elements, textures } from './Elements';
 import IsotopeStack from "./IsotopeStack";
 import SpecialControls from './SpecialControls';

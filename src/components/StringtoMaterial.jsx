@@ -1,4 +1,4 @@
-import * as THREE from 'three'
+import { MeshLambertMaterial, Texture} from 'three'
 
 export default function StringtoMaterial(element, backgroundColor, mass, num) {
     // Create a canvas element
@@ -41,10 +41,10 @@ export default function StringtoMaterial(element, backgroundColor, mass, num) {
     img.src = canvas.toDataURL();
   
     // Create a texture object from the image
-    let texture = new THREE.Texture(img);
+    let texture = new Texture(img);
     texture.needsUpdate = true;
 
-    let material = new THREE.MeshLambertMaterial({map:texture})
+    let material = new MeshLambertMaterial({map:texture})
     console.log('StringToMaterial Ran')
     return material;
   }

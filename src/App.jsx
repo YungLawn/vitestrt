@@ -3,7 +3,7 @@ import React, {Suspense, useState, useRef} from 'react';
 import Navbar from "./components/Navbar"
 import Home from "./components/Home"
 import { elements } from "./components/Elements";
-import StarRating from "./components/StarRating";
+// import StarRating from "./components/StarRating";
 import ElementLocation from "./components/ElementLocation";
 import ControlPanel from "./components/PeriodicTableControlPanel";
 import PeriodicScene from "./components/PeriodicSandbox";

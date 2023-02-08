@@ -3,9 +3,6 @@ import {Canvas} from '@react-three/fiber';
 import {Stats, Stars, useCursor} from '@react-three/drei';
 import { BoxGeometry, MeshLambertMaterial } from "three";
 import { elements, textures } from './Elements';
-// import PeriodicTable from './PeriodicTable';
-// import ElementLocation from './ElementLocationGeometries';
-import ControlPanel from './PeriodicTableControlPanel';
 import SpecialControls from './SpecialControls';
 import '../styles/controls.css'
 
