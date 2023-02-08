@@ -1,6 +1,7 @@
 import React, {Suspense, useState, useRef} from 'react';
 import {Canvas} from '@react-three/fiber';
 import {Stats, Stars, useCursor} from '@react-three/drei';
+import { useSpring, animated, config } from "@react-spring/three";
 import { BoxGeometry, MeshLambertMaterial } from "three";
 import { elements, textures } from './Elements';
 import SpecialControls from './SpecialControls';
@@ -16,30 +17,33 @@ const ElementTile = ( {material, button} ) => {
     const [active, setActive] = useState(false);
     const [hover, setHover] = useState(false);
     useCursor(hover);
+    const { scale } = useSpring({
+        scale: active || hover ? 1.5 : 1,
+        config: { tension: 70, friction: 12 }
+    });
+
     if( button ) {
     return (
-        <>
-            <mesh
+            <animated.mesh
             ref={ElementTile}
             onPointerOver={(e) => {e.stopPropagation(); setHover(true)}}
             onPointerOut={(e) => {e.stopPropagation(); setHover(false)}}
             onPointerDown={(e) => {e.stopPropagation(); setActive(!active)}}
             geometry={tile}
             material={ active ? material : mat }
-            scale={active || hover ? 1.5 : 1} />
-        </>
+            scale={scale} />
         )
     }
     else {
         return (
-            <mesh
+            <animated.mesh
             ref={ElementTile}
             onPointerOver={(e) => {e.stopPropagation(); setHover(true)}}
             onPointerOut={(e) => {e.stopPropagation(); setHover(false)}}
             onPointerDown={(e) => {e.stopPropagation(); setActive(!active)}}
             geometry={tile}
             material={active ? wrongTile : mat}
-            scale={hover || active ? 1.5 : 1}
+            scale={scale}
             />
         )
     }
@@ -70,7 +74,6 @@ const Table = ( {textures, elements, buttons} ) => {
                 {
                 elements.map((element, index) =>
                 <group ref={Table} position={[(element.x - 9.5) * 1.5, (element.y - 5.75) * 1.5, 0]} key={element.id}>
-                    {/* {ElementTile(textures[index], buttons[index].isOn)} */}
                     <ElementTile material={textures[index]} button={buttons[index].isOn}/>
                 </group>
                 )}
@@ -82,7 +85,6 @@ const Table = ( {textures, elements, buttons} ) => {
 
 export default function ElementLocation( {buttons} ) {
     return(
-        <>
         <div className='canvaswrapper'>
             <Canvas camera={{ fov: 30, position:[0,0,30] }}>
                 <SpecialControls />
@@ -92,13 +94,12 @@ export default function ElementLocation( {buttons} ) {
 
                 <Suspense fallback={<> <h1>Loading</h1></>}>
                     <Table textures={textures} elements={elements} buttons={buttons}/>
-                </Suspense>          
+                </Suspense>
 
                 <Stars/>
                 <Stats showPanel={4}/>
             </Canvas>
         </div>
-        </>
     )
 }
 

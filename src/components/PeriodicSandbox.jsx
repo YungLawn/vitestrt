@@ -1,7 +1,8 @@
 import React, {Suspense, useState, useRef} from 'react';
-import {Canvas} from '@react-three/fiber';
+import {Canvas, useFrame} from '@react-three/fiber';
 import {Stats, Stars, useCursor} from '@react-three/drei';
-import { BoxGeometry } from "three";
+import { useSpring, animated, config } from "@react-spring/three";
+import { BoxGeometry, MathUtils  } from "three";
 import { elements, textures } from './Elements';
 import IsotopeStack from "./IsotopeStack";
 import SpecialControls from './SpecialControls';
@@ -15,18 +16,23 @@ const ElementTile = ( {element, material, button} ) => {
     const [hover, setHover] = useState(false);
     useCursor(hover);
     const isotopeMap = element.isotopes;
+    const { scale } = useSpring({
+        scale: active || hover ? 1.5 : 1,
+        config: { tension: 200, friction: 12, mass: 1, clamp: false, precision: 0.001, velocity: 0.01 }
+    });
     // console.log(isotopeMap)
 
     return (
         <>
-            <mesh
+            <animated.mesh
             ref={ElementTile}
             onPointerOver={(e) => {e.stopPropagation(); setHover(true)}}
             onPointerOut={(e) => {e.stopPropagation(); setHover(false)}}
             onPointerDown={(e) => {e.stopPropagation(); setActive(!active)}}
             geometry={tile}
             material={material}
-            scale={active || hover ? 1.5 : 1} />
+            scale={scale}
+            />
             <IsotopeStack data={isotopeMap} active={button}/>
         </>)
 }
@@ -46,7 +52,6 @@ function PeriodicTable( {textures, elements, buttons} ) {
 
 export default function PeriodicScene( {buttons} ) {
     return(
-        <>
         <div className='canvaswrapper'>
             <Canvas camera={{ fov: 30, position:[0,0,30] }}>
                 <SpecialControls />
@@ -56,13 +61,12 @@ export default function PeriodicScene( {buttons} ) {
 
                 <Suspense fallback={<></>}>
                     <PeriodicTable textures={textures} elements={elements} buttons={buttons}/>
-                </Suspense>          
+                </Suspense>
 
                 <Stars/>
                 <Stats showPanel={4}/>
             </Canvas>
         </div>
-        </>
     )
 }
 

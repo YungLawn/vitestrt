@@ -35,7 +35,7 @@ const ControlPanel = ({ elements, handleButtonState }) => {
   return (
     <>
     <div className="dropdowntoggle">
-        <button onClick={() => setIsOpen(!isOpen)}>
+      <button  onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? "Close Control Panel" : "Open Control Panel"}
       </button>
       <div className="select-all">

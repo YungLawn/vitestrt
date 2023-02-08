@@ -3,38 +3,44 @@
     height: 5.2%;
     color: white;
     display: flex;
-    justify-content:space-between;
+    justify-content:center;
     align-items:baseline;
     padding: 0% 1%;
   }
-  
+
   .maincontrols {
     background-color: #4e5272;
   }
-  
+
   .controlpanel {
     background-color: #4e5272;
     z-index: 1;
-    align-items:baseline;
+    align-items:center;
   }
-  
+
+  .dropdowntoggle {
+    display: flex;
+    justify-content: center;
+  }
+
   .dropdown-area {
     display: flex;
+    justify-content:center;
     align-items: center;
     padding-top: 1%;
   }
-  
+
   .toggle-buttons {
     transform: rotate(180deg) scaleX(-1);
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
     grid-template-rows: repeat(auto-fill, minmax(30px, 1fr));
   }
-  
+
   .toggle-button {
     transform: rotateX(180deg);
   }
-  
+
   .square-button {
     display: flex;
     width: 30px;
@@ -42,7 +48,7 @@
     border-radius: 10%;
     align-items: center;
   }
-  
+
   .toggle-button button.on {
     background-color: #00ff00
   }
