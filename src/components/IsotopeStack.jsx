@@ -30,8 +30,8 @@ const IsotopeStack = ({ data, active }) => {
   const colorArray = useMemo(() => Float32Array.from(new Array(data.length).fill().flatMap((_, i) => tempColor.set(data[i]).toArray())), [])
   //const [{ offsetZ }] = useSpring({ offsetz: 1, config: { mass: 5, tension: 1000, friction: 50, precision: 0.0001 } }, [active])
   const { offsetZ } = useSpring({
-    offsetZ: !active ? [0,0,100] : [0,0,0.5],
-    config: { tension: 100, friction: 20, mass: 1, clamp: false, precision: 0.001, velocity: 0.01 }
+    offsetZ: active ? [0,0,0.5] : [0,0,100],
+    config: { tension: 57, friction: 13, mass: 1, clamp: false, precision: 0.001, velocity: 0.01 }
   });
 
   // update instance matrices only when needed
