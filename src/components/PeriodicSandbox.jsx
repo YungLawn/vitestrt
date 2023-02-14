@@ -17,13 +17,13 @@ const ElementTile = ( {element, material, button} ) => {
     useCursor(hover);
     const isotopeMap = element.isotopes;
     const { scale } = useSpring({
-        scale: active || hover ? 1.5 : 1,
+        scale: active || hover || button? 1.5 : 1,
         config: { tension: 200, friction: 12, mass: 1, clamp: false, precision: 0.001, velocity: 0.01 }
     });
-    const { offsetZ } = useSpring({
-        offsetZ: active ? [0,0,0] : [0,0,-0.25],
-        config: { tension: 1000, friction: 50, mass: 1, clamp: false, precision: 0.001, velocity: 0.01 }
-      });
+    // const { offsetZ } = useSpring({
+    //     offsetZ: active ? [0,0,0] : [0,0,-0.25],
+    //     config: { tension: 1000, friction: 50, mass: 1, clamp: false, precision: 0.001, velocity: 0.01 }
+    // });
     // console.log(isotopeMap)
 
     return (
