@@ -9,7 +9,7 @@ export default function SpecialControls() {
             minAzimuthAngle = {Math.PI / -2}
             maxAzimuthAngle = {Math.PI / 2}
             minDistance = {10}
-            maxDistance = {500}
+            maxDistance = {60}
             rotateSpeed = {0.75}
             zoomSpeed = {1}
             setAzimuthalAngle={Math.PI}

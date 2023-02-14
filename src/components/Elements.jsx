@@ -67,7 +67,7 @@ const elements = [
 
     {num: 55, id:'Cs', name:'Caesium', mass:'132.90', x:1, y:5, isotopes: [R,R,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,G,B,B,B,B,B,B,B,B,B,B,R,R,R,R,R]},
     {num: 56, id:'Ba', name:'Barium', mass:'132.90', x:2, y:5, isotopes: [R,R,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,G,B,G,G,G,G,G,B,B,B,B,B,B,B,B,R,R,R,R,R]},
-    {num: 57, id:'La', name:'Lanthanum', mass:'138.90', x:3, y:5, isotopes: [R,W,W,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,G,B,B,B,B,B,B,B,B,B,B,R,R,R,R]},
+    {num: 57, id:'La', name:'Lanthanum', mass:'138.90', x:3, y:2.5, isotopes: [R,W,W,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,G,B,B,B,B,B,B,B,B,B,B,R,R,R,R]},
 
     {num:58, id:'Ce', name:'Cerium', mass:'140.12', x:4 , y:2.5, isotopes: [B,R,B,B,B,B,B,B,B,B,B,B,B,G,B,G,B,G,B,G,B,B,B,B,B,B,B,B,B,B,R,R,R]},
     {num:59, id:'Pr', name:'Praseodymium', mass:'140.91', x:5 , y:2.5, isotopes: [R,W,W,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,G,B,B,B,B,B,B,B,B,B,B,B,B,B]},
@@ -102,7 +102,7 @@ const elements = [
 
     {num: 87, id:'Fr', name:'Francium', mass:'(223)', x:1, y:4, isotopes: [R,R,R,R,R,B,B,B,B,B,B,B,B,B,B,R,R,R,R,R,R,B,B,B,B,B,B,B,B,B,B,B,B,B]},
     {num: 88, id:'Ra', name:'Radium', mass:'(226)', x:2, y:4, isotopes: [R,R,R,R,R,R,B,B,B,B,B,B,B,B,R,R,R,R,R,R,B,B,B,B,B,B,B,B,B,B,B,B,B]},
-    {num: 89, id:'Ac', name:'Actinium', mass:'(227)', x:3, y:4, isotopes: [R,R,R,R,R,R,R,R,B,R,R,R,R,R,R,R,B,B,B,B,B,B,B,B,B,B,B,B,B,R]},
+    {num: 89, id:'Ac', name:'Actinium', mass:'(227)', x:3, y:1.5, isotopes: [R,R,R,R,R,R,R,R,B,R,R,R,R,R,R,R,B,B,B,B,B,B,B,B,B,B,B,B,B,R]},
 
     {num:90, id:'Th', name:'Thorium', mass:'232.04', x:4 , y:1.5, isotopes: [R,R,R,R,R,R,B,R,R,R,R,R,R,R,R,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]},
     {num:91, id:'Pa', name:'Protactinium', mass:'231.06', x:5 , y:1.5, isotopes: [R,R,R,R,R,R,R,R,R,R,R,R,R,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]},
