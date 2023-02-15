@@ -5,11 +5,10 @@ import { useSpring, animated} from "@react-spring/three";
 import { BoxGeometry, MeshLambertMaterial } from "three";
 import { elements, textures } from './Elements';
 import SpecialControls from './SpecialControls';
-import '../styles/controls.css'
 
 const mat = new MeshLambertMaterial({color:'#ffffff'});
-const wrongTile = new MeshLambertMaterial({color:'#ff0000'});
-const tile = new BoxGeometry(0.99, 0.99, 0.25);
+const wrongTile = new MeshLambertMaterial({color:'#f00'});
+const tile = new BoxGeometry(1, 1, 0.25);
 const key = new BoxGeometry(2, 2, 0.5);
 
 const ElementTile = ( {material, button} ) => {
@@ -58,8 +57,7 @@ const Key = (materials, buttons) => {
                     geometry ={key}
                     material={materials[i]}
                     position={[0,4,0]}
-                >
-                </mesh>
+                />
             )
         }
     }
@@ -73,7 +71,7 @@ const Table = ( {textures, elements, buttons} ) => {
             <mesh>
                 {
                 elements.map((element, index) =>
-                <group ref={Table} position={[(element.x - 9.5) * 1.5, (element.y - 5.75) * 1.5, 0]} key={element.id}>
+                <group ref={Table} position={[(element.x - 9.5) * 1.55, (element.y - 5.75) * 1.55, 0]} key={element.id}>
                     <ElementTile material={textures[index]} button={buttons[index].isOn}/>
                 </group>
                 )}

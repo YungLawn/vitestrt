@@ -6,8 +6,9 @@ import { elements } from "./components/Elements";
 // import StarRating from "./components/StarRating";
 import ElementLocation from "./components/ElementLocation";
 import ControlPanel from "./components/PeriodicTableControlPanel";
-import PeriodicScene from "./components/PeriodicSandbox";
+import PeriodicSandbox from "./components/PeriodicSandbox";
 import About from "./components/About"
+import './styles/controls.css'
 
 function App() {
   const [buttons, setButtons] = useState(
@@ -33,7 +34,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About/>} />
-          <Route path="/table" element={<PeriodicScene buttons={buttons}/>} />
+          <Route path="/table" element={<PeriodicSandbox buttons={buttons}/>} />
           <Route path="/activity" element={<ElementLocation buttons={buttons}/>}/>
         </Routes>
       </div>

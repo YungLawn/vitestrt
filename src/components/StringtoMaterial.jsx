@@ -4,13 +4,13 @@ export default function StringtoMaterial(element, backgroundColor, mass, num) {
     // Create a canvas element
     let canvas = document.createElement("canvas");
     let ctx = canvas.getContext("2d");
-    const scale = 0.125;
+    const scale = 0.25;
 
     // Set the canvas size
     canvas.width = 1024 * scale;
     canvas.height = 1024 * scale;
 
-    const elementTextSize = (550 * scale).toString() 
+    const elementTextSize = (550 * scale).toString()
     const elementMassNumSize = (300 * scale).toString()
 
     const widthCenter = canvas.width / 2
@@ -21,7 +21,7 @@ export default function StringtoMaterial(element, backgroundColor, mass, num) {
     // Fill the background with the specified color
     ctx.fillStyle = backgroundColor;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-  
+
     // Draw the string on the canvas
     ctx.fillStyle = "#000000";
     ctx.height = 2
@@ -39,7 +39,7 @@ export default function StringtoMaterial(element, backgroundColor, mass, num) {
     // Create an image object from the canvas
     let img = new Image();
     img.src = canvas.toDataURL();
-  
+
     // Create a texture object from the image
     let texture = new Texture(img);
     texture.needsUpdate = true;
@@ -48,4 +48,3 @@ export default function StringtoMaterial(element, backgroundColor, mass, num) {
     console.log('StringToMaterial Ran')
     return material;
   }
-  

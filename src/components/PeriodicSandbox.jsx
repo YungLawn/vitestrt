@@ -6,9 +6,8 @@ import { BoxGeometry } from "three";
 import { elements, textures } from './Elements';
 import IsotopeStack from "./IsotopeStack";
 import SpecialControls from './SpecialControls';
-import '../styles/controls.css'
 
-const tile = new BoxGeometry(0.99, 0.99, 0.25);
+const tile = new BoxGeometry(1, 1, 0.25);
 
 const ElementTile = ( {element, material, button} ) => {
     const ElementTile = useRef();
@@ -47,7 +46,7 @@ function PeriodicTable( {textures, elements, buttons} ) {
     return (
         <mesh>
             {elements.map((element, index) =>
-            <group ref={Table} position={[(element.x - 9.5) * 1.5, (element.y - 5.75) * 1.5, 0]} key={element.id}>
+            <group ref={Table} position={[(element.x - 9.5) * 1.55, (element.y - 5.75) * 1.55, 0]} key={element.id}>
                 <ElementTile element={elements[index]} material={textures[index]} button={buttons[index].isOn}/>
             </group>
             )}
@@ -55,7 +54,7 @@ function PeriodicTable( {textures, elements, buttons} ) {
     )
 }
 
-export default function PeriodicScene( {buttons} ) {
+export default function PeriodicSandbox( {buttons} ) {
     return(
         <div className='canvaswrapper'>
             <Canvas camera={{ fov: 30, position:[0,0,30] }}>
