@@ -8,9 +8,9 @@ import { elements, textures } from './Elements';
 const mat = new MeshLambertMaterial({color:'#ffffff'});
 const wrongTile = new MeshLambertMaterial({color:'#f00'});
 const tile = new BoxGeometry(1, 1, 0.25);
-const key = new BoxGeometry(2, 2, 0.5);
+const key = new BoxGeometry(3, 3, 0.5);
 
-const ElementTile = ( {material, button} ) => {
+const ElementTile = ( {material, selected} ) => {
     const ElementTile = useRef();
     const [active, setActive] = useState(false);
     const [hover, setHover] = useState(false);
@@ -20,7 +20,7 @@ const ElementTile = ( {material, button} ) => {
         config: { tension: 200, friction: 12, mass: 1, clamp: false, precision: 0.001, velocity: 0.01 }
     });
 
-    if( button ) {
+    if( selected ) {
     return (
             <animated.mesh
             ref={ElementTile}
@@ -47,48 +47,47 @@ const ElementTile = ( {material, button} ) => {
     }
 }
 
-const Key = (materials, buttons) => {
-    for(let i = 0; i < buttons.length; i++) {
-        // console.log(buttons[i])
-        if (buttons[i].isOn) {
-            return (
-                <mesh
-                    geometry ={key}
-                    material={materials[i]}
-                    position={[0,4,0]}
-                />
-            )
-        }
-    }
+const Key = ({texture}) => {
+    return (
+        <mesh
+            geometry ={key}
+            material={texture}
+            position={[0,5.5,0]}
+        />
+    )
 }
 
-const Table = ( {textures, elements, buttons} ) => {
+const Table = ( {textures, elements, selection} ) => {
     const Table = useRef();
+    const SelectionKey = [];
+    for(let i=0;i<elements.length;i++) {
+        if ( selection ==i) SelectionKey.push(true);
+        else SelectionKey.push(false);
+    }
     return (
         <>
-            {Key(textures, buttons)}
+            <Key texture={textures[selection]}/>
             <mesh>
                 {
                 elements.map((element, index) =>
                 <group ref={Table} position={[(element.x - 9.5) * 1.55, (element.y - 5.75) * 1.55, 0]} key={element.id}>
-                    <ElementTile material={textures[index]} button={buttons[index].isOn}/>
+                    <ElementTile material={textures[index]} selected={SelectionKey[index]}/>
                 </group>
                 )}
             </mesh>
         </>
-
     )
 }
 
-export default function ElementLocation( {buttons} ) {
+export default function EleLocByIndex( {elementIndex} ) {
     return(
         <div className='canvaswrapper'>
             <Canvas camera={{ fov: 30, position:[0,0,30] }}>
                 <OrbitControls
-                    minPolarAngle={Math.PI / -1}
-                    maxPolarAngle={Math.PI / 1}
-                    minAzimuthAngle = {Math.PI / -1}
-                    maxAzimuthAngle = {Math.PI / 1}
+                    minPolarAngle={Math.PI / 3}
+                    maxPolarAngle={Math.PI / 1.5}
+                    minAzimuthAngle = {Math.PI / -10}
+                    maxAzimuthAngle = {Math.PI / 10}
                     minDistance = {10}
                     maxDistance = {60}
                 />
@@ -97,7 +96,7 @@ export default function ElementLocation( {buttons} ) {
                 <pointLight position={[0, -20, 100]} lookAt={[0,0,0]} intensity={1}/>
 
                 <Suspense fallback={<> <h1>Loading</h1></>}>
-                    <Table textures={textures} elements={elements} buttons={buttons}/>
+                    <Table textures={textures} elements={elements} selection={elementIndex}/>
                 </Suspense>
 
                 <Stars/>

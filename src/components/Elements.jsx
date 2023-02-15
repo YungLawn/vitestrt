@@ -138,7 +138,7 @@ const elements = [
 
 let textures = [];
 for(let i=0;i<elements.length;i++) {
-    textures.push(StringtoMaterial(elements[i].id,'#ffffff', elements[i].mass, i+1))
+    textures.push(StringtoMaterial(elements[i].id, W, elements[i].mass, i+1))
 }
 
 export {elements, textures}

@@ -1,11 +1,10 @@
 import React, { Suspense, useState, useRef } from 'react';
 import { Canvas} from '@react-three/fiber';
-import { Stats, Stars, useCursor} from '@react-three/drei';
+import { Stats, Stars, useCursor, OrbitControls} from '@react-three/drei';
 import { useSpring, animated} from "@react-spring/three";
 import { BoxGeometry } from "three";
 import { elements, textures } from './Elements';
 import IsotopeStack from "./IsotopeStack";
-import SpecialControls from './SpecialControls';
 
 const tile = new BoxGeometry(1, 1, 0.25);
 
@@ -58,7 +57,14 @@ export default function PeriodicSandbox( {buttons} ) {
     return(
         <div className='canvaswrapper'>
             <Canvas camera={{ fov: 30, position:[0,0,30] }}>
-                <SpecialControls />
+                <OrbitControls
+                    minPolarAngle={Math.PI / -1}
+                    maxPolarAngle={Math.PI / 1}
+                    minAzimuthAngle = {Math.PI / -2}
+                    maxAzimuthAngle = {Math.PI / 2}
+                    minDistance = {10}
+                    maxDistance = {60}
+                />
 
                 <ambientLight intensity={0.25}/>
                 <pointLight position={[0, -20, 100]} lookAt={[0,0,0]} intensity={1}/>

@@ -5,6 +5,7 @@ import Home from "./components/Home"
 import { elements } from "./components/Elements";
 // import StarRating from "./components/StarRating";
 import ElementLocation from "./components/ElementLocation";
+import EleLocByIndex from "./components/EleLocByIndex";
 import ControlPanel from "./components/PeriodicTableControlPanel";
 import PeriodicSandbox from "./components/PeriodicSandbox";
 import About from "./components/About"
@@ -35,7 +36,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About/>} />
           <Route path="/table" element={<PeriodicSandbox buttons={buttons}/>} />
-          <Route path="/activity" element={<ElementLocation buttons={buttons}/>}/>
+          {/* <Route path="/activity" element={<ElementLocation buttons={buttons} />}/> */}
+          <Route path="/activity" element={<EleLocByIndex elementIndex={10}/>}/>
         </Routes>
       </div>
     </>
