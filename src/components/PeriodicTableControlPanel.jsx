@@ -39,13 +39,13 @@ const ControlPanel = ({ elements, handleButtonState }) => {
         {isOpen ? "Close Control Panel" : "Open Control Panel"}
       </button>
       <div className="select-all">
-            <input
-              type="checkbox"
-              checked={selectAll}
-              onChange={handleSelectAll}
-            />
-            <label>Select All</label>
-          </div>
+        <input
+          type="checkbox"
+          checked={selectAll}
+          onChange={handleSelectAll}
+        />
+        <label>Select All</label>
+      </div>
     </div>
     <div className="dropdown-area">
       {isOpen && (

@@ -81,7 +81,7 @@ const Table = ( {textures, elements, buttons} ) => {
     )
 }
 
-export default function ElementLocation( {buttons} ) {
+export default function ElementLocation( {buttons, element} ) {
     return(
         <div className='canvaswrapper'>
             <Canvas camera={{ fov: 30, position:[0,0,30] }}>
