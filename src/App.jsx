@@ -8,6 +8,7 @@ import ElementLocation from "./components/ElementLocation";
 import EleLocByIndex from "./components/EleLocByIndex";
 import ControlPanel from "./components/PeriodicTableControlPanel";
 import PeriodicSandbox from "./components/PeriodicSandbox";
+// import PeriodicSandbox from "./components/PeriodicSandboxNoButt";
 import About from "./components/About"
 import './styles/controls.css'
 
@@ -40,7 +41,7 @@ function App() {
             </>
           }/>
           {/* <Route path="/activity" element={<ElementLocation buttons={buttons} />}/> */}
-          <Route path="/activity" element={<EleLocByIndex elementIndex={10}/>}/>
+          <Route path="/activity" element={<EleLocByIndex elementIndex={0}/>}/>
         </Routes>
       </div>
     </>
