@@ -20,22 +20,25 @@ function App() {
         y: elements[i].y
     }))
   );
-
   const handleButtonState = newButtons => {setButtons(newButtons);};
 
   return (
     <>
       <Navbar />
-      <div className='controls'>
-          <div className='controlpanel'>
-              <ControlPanel elements={elements} handleButtonState={handleButtonState}/>
-          </div>
-      </div>
       <div className="container">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About/>} />
-          <Route path="/table" element={<PeriodicSandbox buttons={buttons}/>} />
+          <Route path="/table" element={
+            <>
+              <div className='controls'>
+                <div className='controlpanel'>
+                    <ControlPanel elements={elements} handleButtonState={handleButtonState}/>
+                </div>
+              </div>
+              <PeriodicSandbox buttons={buttons}/>
+            </>
+          }/>
           {/* <Route path="/activity" element={<ElementLocation buttons={buttons} />}/> */}
           <Route path="/activity" element={<EleLocByIndex elementIndex={10}/>}/>
         </Routes>

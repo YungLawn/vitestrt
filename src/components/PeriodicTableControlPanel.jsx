@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ControlPanel = ({ elements, handleButtonState }) => {
+const ControlPanel = ({ elements, handleButtonState } ) => {
   const [selectAll, setSelectAll] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [buttons, setButtons] = useState(
