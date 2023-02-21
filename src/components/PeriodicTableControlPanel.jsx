@@ -68,8 +68,8 @@ const ControlPanel = ({ elements, handleButtonState } ) => {
           </div>
         </>
       )}
+      {handleButtonState(buttons)}
     </div>
-    {handleButtonState(buttons)}
     </>
   );
 };

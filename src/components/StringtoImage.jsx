@@ -22,13 +22,13 @@ export default function StringtoImage(element, backgroundColor, mass, num) {
     ctx.fillStyle = backgroundColor;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Draw the string on the canvas
+    // init
     ctx.fillStyle = "#000000";
     ctx.height = 2
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
 
-    //element Tiles
+    //draw text
     ctx.font = 'bold ' + elementTextSize + 'px' + font;
     ctx.fillText(element, widthCenter + widthCenter/6, heightCenter + heightCenter/10);
     ctx.font = 'bold ' + elementMassNumSize + 'px' + font;
