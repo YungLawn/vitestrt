@@ -86,11 +86,11 @@ export default function EleLocByIndex( {elementIndex} ) {
                 <OrbitControls
                     minPolarAngle={Math.PI / 3}
                     maxPolarAngle={Math.PI / 1.5}
-                    minAzimuthAngle = {Math.PI / -10}
-                    maxAzimuthAngle = {Math.PI / 10}
-                    minDistance = {10}
-                    maxDistance = {60}
-                    enablePan= {false}
+                    minAzimuthAngle={Math.PI / -10}
+                    maxAzimuthAngle={Math.PI / 10}
+                    minDistance={10}
+                    maxDistance={60}
+                    enablePan={false}
                 />
 
                 <ambientLight intensity={0.25}/>
