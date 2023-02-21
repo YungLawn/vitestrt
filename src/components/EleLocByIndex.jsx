@@ -90,6 +90,7 @@ export default function EleLocByIndex( {elementIndex} ) {
                     maxAzimuthAngle = {Math.PI / 10}
                     minDistance = {10}
                     maxDistance = {60}
+                    enablePan= {false}
                 />
 
                 <ambientLight intensity={0.25}/>
