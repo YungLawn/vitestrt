@@ -1,7 +1,7 @@
 import React from "react";
 import { useDrag } from "react-dnd";
 
-function Tile({ id, url }) {
+function Tile({ id, src }) {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "image",
     item: { id: id },
@@ -12,7 +12,7 @@ function Tile({ id, url }) {
   return (
     <img
       ref={drag}
-      src={url}
+      src={src}
       width="150px"
       style={{ border: isDragging ? "5px solid pink" : "0px" }}
     />

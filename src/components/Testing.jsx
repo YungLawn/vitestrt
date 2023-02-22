@@ -7,7 +7,7 @@ import { elements } from "./Elements";
 export default function Testing() {
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className="App">
+      <div className="activityWrapper">
         <DragDrop />
       </div>
     </DndProvider>
