@@ -6,7 +6,7 @@ import { BoxGeometry } from "three";
 import { elements, textures } from './Elements';
 import IsotopeStack from "./IsotopeStack";
 
-const tile = new BoxGeometry(1, 1, 0.25);
+const tile = new BoxGeometry(1, 1, 0.5);
 
 const ElementTile = ( {element, material, button} ) => {
     const ElementTile = useRef();
@@ -74,7 +74,7 @@ export default function PeriodicSandbox( {buttons} ) {
                 </Suspense>
 
                 <Stars/>
-                <Stats showPanel={0} className="stats" parent={parent}/>
+                <Stats showPanel={0} className="stats"/>
             </Canvas>
         </div>
     )

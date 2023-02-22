@@ -9,7 +9,7 @@ import EleLocByIndex from "./components/EleLocByIndex";
 import ControlPanel from "./components/PeriodicTableControlPanel";
 import PeriodicSandbox from "./components/PeriodicSandbox";
 // import PeriodicSandbox from "./components/PeriodicSandboxNoButt";
-import About from "./components/About"
+import Testing from "./components/Testing"
 import './styles/controls.css'
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About/>} />
+          <Route path="/testing" element={<Testing/>} />
           <Route path="/table" element={
             <>
               <div className='controls'>

@@ -1,0 +1,35 @@
+.sortingActivity {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.unsorted {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  height: min-content;
+  min-height: 9vw;
+  border: 2px solid rgb(255, 0, 0);
+}
+
+img {
+  margin: 1%;
+  width: 9vw;
+  height: 9vw;
+}
+
+.sorted {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  height: min-content;
+  min-height: 9vw;
+  border: 2px solid rgb(19, 3, 255);
+}

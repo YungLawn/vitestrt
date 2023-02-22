@@ -8,7 +8,7 @@ export default function Navbar() {
         Interactive Periodic Table
       </Link>
       <ul>
-        <CustomLink to="/about">About</CustomLink>
+        <CustomLink to="/testing">Testing</CustomLink>
         <CustomLink to="/table">Sandbox</CustomLink>
         <CustomLink to='/activity'>Activity</CustomLink>
       </ul>

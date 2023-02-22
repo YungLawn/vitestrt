@@ -1,5 +1,3 @@
-import { MeshLambertMaterial, Texture} from 'three'
-
 export default function StringtoImage(element, backgroundColor, mass, num) {
     // Create a canvas element
     let canvas = document.createElement("canvas");
@@ -40,6 +38,6 @@ export default function StringtoImage(element, backgroundColor, mass, num) {
     let texture = new Image();
     texture.src = canvas.toDataURL();
 
-    return texture;
+    return texture.src;
 
   }
