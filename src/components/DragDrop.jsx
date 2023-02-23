@@ -4,25 +4,23 @@ import { useDrop } from "react-dnd";
 import '../styles/dnd.css'
 import StringtoImage from "./StringtoImage"
 import { elements } from "./Elements";
+import { nuclides } from "./Nuclides";
 
 // const PictureList = elements.map ((element, index) => {
 //   {id: element.id; src: StringtoImage(element.id, '#fff', element.mass, element.num)}
 // })
 
-const Tiles = [
-  {
-    id: 1,
-    src: StringtoImage('A', '#fff', 'A', 'A'),
-  },
-  {
-    id: 2,
-    src: StringtoImage('B', '#fff', 'B', 'B'),
-  },
-  {
-    id: 3,
-    src: StringtoImage('C', '#fff', 'C', 'C'),
-  },
-];
+// const Tiles = Array.from({ length: elements.length - 100 }, (_, i) => ({
+//   id: elements[i].id,
+//   src: StringtoImage(elements[i].id, '#fff', elements[i].mass, elements[i].num),
+// }))
+
+const Tiles = Array.from({ length: nuclides.length - 3042 }, (_, i) => ({
+    id: nuclides[i].id + nuclides[i].x,
+    src: StringtoImage(nuclides[i].id, nuclides[i].col, ( parseInt(nuclides[i].y,10) + parseInt(nuclides[i].x,10)), nuclides[i].y),
+}))
+
+console.log(elements[1].x);
 
 function DragDrop() {
   const [board, setBoard] = useState([]);
@@ -36,8 +34,8 @@ function DragDrop() {
   }));
 
   const addImageToBoard = (id) => {
-    const pictureList = Tiles.filter((picture) => id === picture.id);
-    setBoard((board) => [...board, pictureList[0]]);
+    const tiles = Tiles.filter((picture) => id === picture.id);
+    setBoard((board) => [...board, tiles[0]]);
   };
   return (
     <div className="sortingActivity">

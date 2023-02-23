@@ -18,7 +18,7 @@ function App() {
         id: elements[i].id,
         isOn: false,
         x: elements[i].x,
-        y: elements[i].y
+        y: elements[i].y,
     }))
   );
   const handleButtonState = newButtons => {setButtons(newButtons);};
