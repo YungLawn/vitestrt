@@ -8,7 +8,7 @@ export default function Testing() {
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="activityWrapper">
-        <DragDrop />
+        <DragDrop elementIndex={1} />
       </div>
     </DndProvider>
   )

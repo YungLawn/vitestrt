@@ -3,27 +3,24 @@ import Tile from "./Tile";
 import { useDrop } from "react-dnd";
 import '../styles/dnd.css'
 import StringtoImage from "./StringtoImage"
-import { elements } from "./Elements";
 import { nuclides } from "./Nuclides";
 
-// const PictureList = elements.map ((element, index) => {
-//   {id: element.id; src: StringtoImage(element.id, '#fff', element.mass, element.num)}
-// })
+function DragDrop( {elementIndex} ) {
 
-// const Tiles = Array.from({ length: elements.length - 100 }, (_, i) => ({
-//   id: elements[i].id,
-//   src: StringtoImage(elements[i].id, '#fff', elements[i].mass, elements[i].num),
-// }))
+  let Isotopes = [];
+  for(let i=1;i<nuclides.length;i++) {
+    if(elementIndex === nuclides[i].y) {
+      Isotopes.push(nuclides[i])
+    }
+  }
 
-const Tiles = Array.from({ length: nuclides.length - 3042 }, (_, i) => ({
-    id: nuclides[i].id + nuclides[i].x,
-    src: StringtoImage(nuclides[i].id, nuclides[i].col, ( parseInt(nuclides[i].y,10) + parseInt(nuclides[i].x,10)), nuclides[i].y),
-}))
+  const Tiles = Array.from({ length: Isotopes.length }, (_, i) => ({
+    id: Isotopes[i].id + (parseInt(Isotopes[i].x,10) + 1),
+    src: StringtoImage(Isotopes[i].id, Isotopes[i].col, ( parseInt(Isotopes[i].y,10) + parseInt(Isotopes[i].x,10)), Isotopes[i].y),
+  }))
 
-console.log(elements[1].x);
-
-function DragDrop() {
   const [board, setBoard] = useState([]);
+  const [unsortedTiles, setUnsortedTiles] = useState(Tiles);
 
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "image",
@@ -34,13 +31,18 @@ function DragDrop() {
   }));
 
   const addImageToBoard = (id) => {
-    const tiles = Tiles.filter((picture) => id === picture.id);
-    setBoard((board) => [...board, tiles[0]]);
+    const tiles = unsortedTiles.filter((picture) => id === picture.id);
+    setBoard((board) => {
+      const newBoard = [...board, tiles[0]];
+      return newBoard.filter((item, index) => newBoard.indexOf(item) === index);
+    });
+    setUnsortedTiles((unsortedTiles) => unsortedTiles.filter((picture) => id !== picture.id));
   };
+
   return (
     <div className="sortingActivity">
       <div className="unsorted">
-        {Tiles.map((picture) => {
+        {unsortedTiles.map((picture) => {
           return <Tile src={picture.src} id={picture.id} key={picture.id}/>;
         })}
       </div>
@@ -52,5 +54,6 @@ function DragDrop() {
     </div>
   );
 }
+
 
 export default DragDrop;

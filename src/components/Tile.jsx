@@ -14,7 +14,7 @@ function Tile({ id, src }) {
       ref={drag}
       src={src}
       width="150px"
-      style={{ border: isDragging ? "5px solid pink" : "0px" }}
+      style={{ border: isDragging ? "2px solid #fff" : "0px" }}
     />
   );
 }
