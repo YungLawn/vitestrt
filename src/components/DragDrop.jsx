@@ -29,6 +29,9 @@ function DragDrop({ Tiles  }) {
   };
 
   const reset = () => {
+    for (let i = 0; i < 2; i++) {
+      Tiles.sort(() => Math.random() - 0.5);
+    }
     setSortedTiles([]);
     setUnsortedTiles(Tiles);
     setIsSorted(false);

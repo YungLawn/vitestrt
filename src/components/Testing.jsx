@@ -25,7 +25,7 @@ export default function Testing() {
     x: parseInt(Isotopes[i].x, 10),
   }));
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 2; i++) {
     Tiles.sort(() => Math.random() - 0.5);
   }
   console.log(Tiles)

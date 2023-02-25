@@ -38,7 +38,7 @@ export default function StringtoImage(element, backgroundColor, mass, num) {
     let texture = new Image();
     texture.src = canvas.toDataURL();
 
-    // console.log('StingtoImage Ran')
+    console.log('StingtoImage Ran')
 
     return texture.src;
 
