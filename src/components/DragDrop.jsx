@@ -1,32 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Tile from "./Tile";
-import { useDrop } from "react-dnd";
+// import Tile from "./Tile";
+import { useDrop, useDrag } from "react-dnd";
 import "../styles/dnd.css";
-import StringtoImage from "./StringtoImage";
-import { nuclides } from "./Nuclides";
 
-function DragDrop({ elementIndex }) {
-  let Isotopes = [];
-  for (let i = 1; i < nuclides.length; i++) {
-    if (elementIndex === nuclides[i].y) {
-      Isotopes.push(nuclides[i]);
-    }
-  }
-
-  const Tiles = Array.from({ length: Isotopes.length }, (_, i) => ({
-    id: Isotopes[i].id + (parseInt(Isotopes[i].x, 10) + 1),
-    src: StringtoImage(
-      Isotopes[i].id,
-      Isotopes[i].col,
-      parseInt(Isotopes[i].y, 10) + parseInt(Isotopes[i].x, 10),
-      Isotopes[i].y
-    ),
-    x: parseInt(Isotopes[i].x, 10),
-  }));
-
-  for (let i = 0; i < 5; i++) {
-    Tiles.sort(() => Math.random() - 0.5);
-  }
+function DragDrop({ Tiles  }) {
 
   const [sortedTiles, setSortedTiles] = useState([]);
   const [unsortedTiles, setUnsortedTiles] = useState(Tiles);
@@ -34,19 +11,13 @@ function DragDrop({ elementIndex }) {
 
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "image",
-    drop: (item) => addImageToBoard(item.id),
+    drop: (item) => addImage(item.id),
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
     }),
   }));
 
-  useEffect(() => {
-    if (isSorted) {
-      alert("Congratulations! Tiles are sorted correctly!");
-    }
-  }, [isSorted]);
-
-  const addImageToBoard = (id) => {
+  const addImage = (id) => {
     const tiles = unsortedTiles.filter((picture) => id === picture.id);
     setSortedTiles((sortedTiles) => {
       const newBoard = [...sortedTiles, tiles[0]];
@@ -57,22 +28,38 @@ function DragDrop({ elementIndex }) {
     );
   };
 
+  const reset = () => {
+    setSortedTiles([]);
+    setUnsortedTiles(Tiles);
+    setIsSorted(false);
+  };
+
+  const checkSorted = () => {
+    return (
+      sortedTiles.every((tile, index, array) => {
+        if (index === 0) {
+          return true;
+        } else {
+          return tile.x >= array[index - 1].x;
+        }
+      })
+    )
+  }
+
   useEffect(() => {
     if (unsortedTiles.length === 0) {
-      setIsSorted(
-        sortedTiles.every((tile, index, array) => {
-          if (index === 0) {
-            return true;
-          } else {
-            return tile.x >= array[index - 1].x;
-          }
-        })
-      );
+      if (checkSorted()) {
+        setIsSorted(true);
+      } else {
+        reset();
+      }
     }
-  }, [unsortedTiles, sortedTiles]);
+  }, [unsortedTiles, sortedTiles, Tiles]);
 
   return (
     <div className="sortingActivity">
+      <div className="isSorted">{isSorted ? "Sorted!" : "Unsorted!"}</div>
+      <button onClick={reset}>Reset</button>
       <div className="unsorted">
         {unsortedTiles.map((picture) => {
           return <Tile src={picture.src} id={picture.id} key={picture.id} />;
@@ -84,6 +71,24 @@ function DragDrop({ elementIndex }) {
         })}
       </div>
     </div>
+  );
+}
+
+function Tile({ id, src }) {
+  const [{ isDragging }, drag] = useDrag(() => ({
+    type: "image",
+    item: { id: id },
+    collect: (monitor) => ({
+      isDragging: !!monitor.isDragging(),
+    }),
+  }));
+  return (
+    <img
+      ref={drag}
+      src={src}
+      width="150px"
+      style={{ border: isDragging ? "2px solid #fff" : "0px" }}
+    />
   );
 }
 

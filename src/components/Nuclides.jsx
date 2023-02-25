@@ -1,9 +1,11 @@
-// neutrons,protons,halflife,caption
+import StringtoImage from "./StringtoImage";
+
+// neutrons,protons,abbreviation, color
 const R = '#f00';
 const G = '#0f0';
 const B = '#00f';
 const W = '#fff';
-export const nuclides = [
+const nuclides = [
     //Neutron
     {x:0,y:1,id:'n', col:'#00F'},
     //Hydrogen
@@ -3264,4 +3266,16 @@ export const nuclides = [
     {x:175,y:118,id:'Og', col:'#F00'},
 ]
 
-// console.log(nuclides);
+let nuclideTextures = [];
+// for(let i=0;i<nuclides.length;i++) {
+//     nuclideTextures.push(StringtoImage(
+//         nuclides[i].id,
+//         nuclides[i].col,
+//         parseInt(nuclides[i].y, 10) + parseInt(nuclides[i].x, 10),
+//         nuclides[i].y
+//       ))
+// }
+
+console.log('StringtoImage Ran')
+
+export {nuclides, nuclideTextures}

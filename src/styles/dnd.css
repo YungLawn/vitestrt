@@ -2,6 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  height: 100%;
 }
 
 .sortingActivity {
@@ -17,7 +19,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  width: 100%;
+  width: 90%;
   height: min-content;
   min-height: 9vw;
   border: 2px solid #f00;
@@ -33,8 +35,8 @@ img {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: left;
-  width: 100%;
+  justify-content: center;
+  width: 90%;
   height: min-content;
   min-height: 9vw;
   border: 2px solid #00f;
