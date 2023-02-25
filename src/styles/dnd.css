@@ -39,3 +39,7 @@ img {
   min-height: 9vw;
   border: 2px solid #00f;
 }
+
+.isSorted {
+  color: #fff;
+}
