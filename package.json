@@ -13,9 +13,12 @@
     "@react-three/drei": "^9.53.0",
     "@react-three/fiber": "^8.10.0",
     "nice-color-palettes": "^3.0.0",
+    "rdndmb-html5-to-touch": "^8.0.0",
     "react": "^18.2.0",
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
+    "react-dnd-multi-backend": "^8.0.0",
+    "react-dnd-touch-backend": "^16.0.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.6.2",
     "three": "^0.148.0"
