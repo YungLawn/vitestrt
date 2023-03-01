@@ -36,7 +36,7 @@ export default function Testing() {
       return null
     }
     const {itemType, item, style} = preview;
-    return <img src={item.src}/>
+    return <img src={preview.item.src}/>
   }
 
   return (
