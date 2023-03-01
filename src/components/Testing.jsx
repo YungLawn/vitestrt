@@ -5,18 +5,7 @@ import StringtoImage from "./StringtoImage"
 import DragDrop from "./DragDrop";
 import { nuclides } from "./Nuclides";
 
-const MyPreview = () => {
-  const preview = usePreview()
-  if (!preview.display) {
-    return null
-  }
-  const {itemType, item, style} = preview;
-  return <div className="item-list__item" style={style}>{itemType}</div>
-}
-
 export default function Testing() {
-  const opts = {enableMouseEvents: true}
-
   const elementIndex = 1;
 
   let Isotopes = [];
@@ -40,7 +29,15 @@ export default function Testing() {
   for (let i = 0; i < 2; i++) {
     Tiles.sort(() => Math.random() - 0.5);
   }
-  console.log(Tiles)
+
+  const MyPreview = () => {
+    const preview = usePreview()
+    if (!preview.display) {
+      return null
+    }
+    const {itemType, item, style} = preview;
+    return <div className="item-list__item" style={style}>{item.src}</div>
+  }
 
   return (
     <DndProvider options={HTML5toTouch}>
