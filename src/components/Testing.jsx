@@ -1,6 +1,6 @@
-import StringtoImage from "./StringtoImage"
 import { DndProvider } from 'react-dnd-multi-backend'
 import { HTML5toTouch } from 'rdndmb-html5-to-touch'
+import StringtoImage from "./StringtoImage"
 import DragDrop from "./DragDrop";
 import { nuclides } from "./Nuclides";
 
