@@ -30,21 +30,11 @@ export default function Testing() {
     Tiles.sort(() => Math.random() - 0.5);
   }
 
-  const MyPreview = () => {
-    const preview = usePreview()
-    if (!preview.display) {
-      return null
-    }
-    const {itemType, item, style} = preview;
-    return <img src={preview.item.src}/>
-  }
-
   return (
     <DndProvider options={HTML5toTouch}>
       <div className="activityWrapper">
         <DragDrop Tiles={Tiles}/>
       </div>
-      <MyPreview/>
     </DndProvider>
   )
 }
