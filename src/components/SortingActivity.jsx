@@ -5,8 +5,7 @@ import StringtoImage from "./StringtoImage"
 import DragDrop from "./DragDrop";
 import { nuclides } from "./Nuclides";
 
-export default function Testing() {
-  const elementIndex = 1;
+export default function SortingActivity( {elementIndex}) {
 
   let Isotopes = [];
   for (let i = 1; i < nuclides.length; i++) {

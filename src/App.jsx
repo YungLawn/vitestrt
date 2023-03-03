@@ -9,10 +9,14 @@ import EleLocByIndex from "./components/EleLocByIndex";
 import ControlPanel from "./components/PeriodicTableControlPanel";
 import PeriodicSandbox from "./components/PeriodicSandbox";
 // import PeriodicSandbox from "./components/PeriodicSandboxNoButt";
-import Testing from "./components/Testing"
+import Testing from "./components/SortingActivity"
+import IsotopeActivity from "./components/IsotopeActivity";
+import SortingActivity from "./components/SortingActivity";
 import './styles/controls.css'
 
 function App() {
+  const [elementIndex, setElementIndex] = useState(1);
+
   const [buttons, setButtons] = useState(
     Array.from({ length: elements.length }, (_, i) => ({
         id: elements[i].id,
@@ -29,7 +33,7 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/testing" element={<Testing/>} />
+          <Route path="/testing" element={<SortingActivity elementIndex={elementIndex}/>} />
           <Route path="/table" element={
             <>
               <div className='controls'>
