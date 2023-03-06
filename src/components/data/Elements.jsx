@@ -1,5 +1,5 @@
 import { MeshLambertMaterial } from "three";
-import StringtoMaterial from "./StringtoMaterial";
+import StringtoMaterial from "../Utilities+Helpers/StringtoMaterial";
 
 const R = '#f00'
 const G = '#0f0'

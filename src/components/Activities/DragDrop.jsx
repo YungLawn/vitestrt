@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 // import Tile from "./Tile";
 import { useDrop, useDrag } from "react-dnd";
-import "../styles/dnd.css";
 
 function DragDrop({ Tiles }) {
 

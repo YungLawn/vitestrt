@@ -1,9 +1,11 @@
 import { DndProvider } from 'react-dnd-multi-backend'
 import { HTML5toTouch } from 'rdndmb-html5-to-touch'
 import { usePreview } from 'react-dnd-preview';
-import StringtoImage from "./StringtoImage"
+import StringtoImage from '../Utilities+Helpers/StringtoImage';
 import DragDrop from "./DragDrop";
-import { nuclides } from "./Nuclides";
+import { nuclides } from '../data/Nuclides';
+import IsotopeActivity from './IsotopeActivity';
+import '../../styles/dnd.css'
 
 export default function SortingActivity( {elementIndex}) {
 
@@ -30,10 +32,17 @@ export default function SortingActivity( {elementIndex}) {
   }
 
   return (
-    <DndProvider options={HTML5toTouch}>
-      <div className="activityWrapper">
-        <DragDrop Tiles={Tiles}/>
-      </div>
-    </DndProvider>
+    <div className='IsotopeSortingWrapper'>
+      {/* <div>
+        <IsotopeActivity selectedElement={1}/>
+      </div> */}
+      <DndProvider options={HTML5toTouch}>
+        <div className="activityWrapper">
+          <DragDrop Tiles={Tiles}/>
+        </div>
+      </DndProvider>
+    </div>
+
+
   )
 }

@@ -2,16 +2,14 @@ import { Route, Routes } from "react-router-dom"
 import React, {Suspense, useState, useRef} from 'react';
 import Navbar from "./components/Navbar"
 import Home from "./components/Home"
-import { elements } from "./components/Elements";
+import { elements } from "./components/data/Elements";
 // import StarRating from "./components/StarRating";
-import ElementLocation from "./components/ElementLocation";
-import EleLocByIndex from "./components/EleLocByIndex";
+import EleLocByIndex from "./components/Activities/EleLocByIndex";
 import ControlPanel from "./components/PeriodicTableControlPanel";
 import PeriodicSandbox from "./components/PeriodicSandbox";
 // import PeriodicSandbox from "./components/PeriodicSandboxNoButt";
-import Testing from "./components/SortingActivity"
-import IsotopeActivity from "./components/IsotopeActivity";
-import SortingActivity from "./components/SortingActivity";
+import IsotopeActivity from "./components/Activities/IsotopeActivity";
+import SortingActivity from "./components/Activities/SortingActivity";
 import './styles/controls.css'
 
 function App() {
@@ -44,7 +42,6 @@ function App() {
               <PeriodicSandbox buttons={buttons}/>
             </>
           }/>
-          {/* <Route path="/activity" element={<ElementLocation buttons={buttons} />}/> */}
           <Route path="/activity" element={<EleLocByIndex elementIndex={0}/>}/>
         </Routes>
       </div>

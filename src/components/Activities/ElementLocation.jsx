@@ -3,7 +3,7 @@ import {Canvas} from '@react-three/fiber';
 import {Stats, Stars, useCursor, OrbitControls} from '@react-three/drei';
 import { useSpring, animated} from "@react-spring/three";
 import { BoxGeometry, MeshLambertMaterial } from "three";
-import { elements, textures } from './Elements';
+import { elements, textures } from './data/Elements';
 
 const mat = new MeshLambertMaterial({color:'#ffffff'});
 const wrongTile = new MeshLambertMaterial({color:'#f00'});

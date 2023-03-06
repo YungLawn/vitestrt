@@ -3,8 +3,8 @@ import { Canvas} from '@react-three/fiber';
 import { Stats, Stars, useCursor, OrbitControls} from '@react-three/drei';
 import { useSpring, animated} from "@react-spring/three";
 import { BoxGeometry } from "three";
-import { elements, textures } from './Elements';
-import IsotopeStack from "./IsotopeStack";
+import { elements, textures } from './data/Elements';
+import IsotopeStack from "./Utilities+Helpers/IsotopeStack";
 
 const tile = new BoxGeometry(1, 1, 0.5);
 

@@ -1,4 +1,4 @@
-import StringtoImage from "./StringtoImage";
+import StringtoImage from "../Utilities+Helpers/StringtoImage";
 
 // neutrons,protons,abbreviation, color
 const R = '#f00';
