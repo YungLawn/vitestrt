@@ -1,15 +1,16 @@
 .IsotopeSortingWrapper {
-
+  height: 100%;
 }
 
-.activityWrapper {
+/* .activityWrapper {
+  position: absolute;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 95%;
   margin: 0;
   text-align: center;
-}
+} */
 
 .sortingActivity {
   display: flex;

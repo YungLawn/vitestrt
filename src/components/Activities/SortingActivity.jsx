@@ -33,14 +33,12 @@ export default function SortingActivity( {elementIndex}) {
 
   return (
     <div className='IsotopeSortingWrapper'>
-      {/* <div>
-        <IsotopeActivity selectedElement={1}/>
-      </div> */}
       <DndProvider options={HTML5toTouch}>
         <div className="activityWrapper">
           <DragDrop Tiles={Tiles}/>
         </div>
       </DndProvider>
+      <IsotopeActivity selectedElement={1}/>
     </div>
 
 
