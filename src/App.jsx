@@ -13,7 +13,7 @@ import SortingActivity from "./components/Activities/SortingActivity";
 import './styles/controls.css'
 
 function App() {
-  const [elementIndex, setElementIndex] = useState(10);
+  const [elementIndex, setElementIndex] = useState(1);
 
   const [buttons, setButtons] = useState(
     Array.from({ length: elements.length }, (_, i) => ({

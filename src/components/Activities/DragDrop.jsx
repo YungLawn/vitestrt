@@ -9,7 +9,7 @@ function DragDrop({ Tiles }) {
   const [isSorted, setIsSorted] = useState(false);
 
   const [{ isOver }, drop] = useDrop(() => ({
-    accept: "image",
+    accept: "div",
     drop: (item) => addImage(item.id),
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
@@ -60,19 +60,19 @@ function DragDrop({ Tiles }) {
 
   const Tile = ({ id, src }) => {
     const [{ isDragging }, drag] = useDrag(() => ({
-      type: "image",
+      type: "div",
       item: { id: id },
       collect: (monitor) => ({
         isDragging: !!monitor.isDragging(),
       }),
     }));
     return (
-      <img
+        <img
         ref={drag}
         src={src}
         width="150px"
         style={{ border: isDragging ? "2px solid #fff" : "0px" }}
-      />
+        />
     );
   }
 
@@ -81,15 +81,15 @@ function DragDrop({ Tiles }) {
       <button className='resetButton' onClick={reset}>Reset</button>
       <div className="unsorted">
         {unsortedTiles.map((picture) => {
-          return <Tile src={picture.src} id={picture.id} key={picture.id} />;
-        })}
-      </div>
-      <div className="sorted" ref={drop}>
-        {sortedTiles.map((picture) => {
-          return <Tile src={picture.src} id={picture.id} key={picture.id} />;
+          return <Tile src={picture.src} id={picture.id} key={picture.id}/> ;
         })}
       </div>
       <div className="isSorted">{isSorted ? "Sorted!" : "Unsorted!"}</div>
+      <div className="sorted" ref={drop}>
+        {sortedTiles.map((picture) => {
+          return <Tile src={picture.src} id={picture.id} key={picture.id}/> ;
+        })}
+      </div>
     </div>
   );
 }

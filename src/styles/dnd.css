@@ -17,6 +17,7 @@
 }
 
 .unsorted {
+  /* margin-bottom: 0.5%; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -24,12 +25,13 @@
   width: 90%;
   height: min-content;
   min-height: 9vw;
-  border: 2px solid #f00;
-  background: rgba(0,0,0,0.5);
+  border: 2px solid #500000;
+  background: rgba(0,0,0,0.25);
   backdrop-filter: saturate(90%) blur(10px);
 }
 
 .sorted {
+  /* margin-top: 0.5%; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -37,69 +39,72 @@
   width: 90%;
   height: min-content;
   min-height: 9vw;
-  border: 2px solid #00f;
-  background: rgba(0,0,0,0.5);
+  border: 2px solid #000044;
+  background: rgba(0,0,0,0.25);
   backdrop-filter: saturate(90%) blur(10px);
 }
 
 img {
   margin: 0.5%;
-  border-radius: 5%;
+  border-radius: 2.5%;
+  background-color: rgba(190, 190, 190, 0.5);
+  box-shadow: rgba(0, 0, 0, 0.99) 0px 2px 4px, rgba(0, 0, 0, 0.99) 0px 7px 13px -3px, rgba(0, 0, 0, 0.99) -5px -5px 1px inset;
 }
 
 .resetButton {
   align-items: center;
-  appearance: none;
-  background-color: #FCFCFD;
-  border-radius: 4px;
-  border-width: 0;
-  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
   box-sizing: border-box;
-  color: #36395A;
+  color: rgba(0, 0, 0, 0.85);
   cursor: pointer;
   display: inline-flex;
-  font-family: "JetBrains Mono",monospace;
-  height: 48px;
+  font-family: monospace;
+  font-size: 16px;
+  font-weight: 600;
   justify-content: center;
-  line-height: 1;
-  list-style: none;
-  overflow: hidden;
-  padding-left: 16px;
-  padding-right: 16px;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
   position: relative;
-  text-align: left;
   text-decoration: none;
-  transition: box-shadow .15s,transform .15s;
+  transition: all 250ms;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  white-space: nowrap;
-  will-change: box-shadow,transform;
-  font-size: 18px;
+  vertical-align: baseline;
+  width: auto;
 }
 
+.resetButton:hover,
 .resetButton:focus {
-  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
 }
 
 .resetButton:hover {
-  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 .resetButton:active {
-  box-shadow: #D6D6E7 0 3px 7px inset;
-  transform: translateY(2px);
+  background-color: #F0F0F1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
 }
 
 .isSorted {
   display: flex;
   align-items: center;
-  flex-direction: column;
   justify-content: center;
-  background: rgba(0,0,0,0.5);
-  backdrop-filter: saturate(90%) blur(10px);
   width: 90%;
-  font-size: large;
+  font-size: 200%;
   color: #fff;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: saturate(90%) blur(10px);
 }
