@@ -70,8 +70,6 @@ function DragDrop({ Tiles }) {
         <img
         ref={drag}
         src={src}
-        width="150px"
-        style={{ border: isDragging ? "2px solid #fff" : "0px" }}
         />
     );
   }

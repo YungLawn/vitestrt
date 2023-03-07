@@ -7,7 +7,7 @@ import { nuclides } from '../data/Nuclides';
 import IsotopeActivity from './IsotopeActivity';
 import '../../styles/dnd.css'
 
-export default function SortingActivity( {elementIndex}) {
+export default function SortingActivity( {elementIndex} ) {
 
   let Isotopes = [];
   for (let i = 1; i < nuclides.length; i++) {
@@ -37,9 +37,7 @@ export default function SortingActivity( {elementIndex}) {
       <DndProvider options={HTML5toTouch}>
           <DragDrop Tiles={Tiles}/>
       </DndProvider>
-      <IsotopeActivity selectedElement={1}/>
+      <IsotopeActivity selectedElement={elementIndex}/>
     </div>
-
-
   )
 }

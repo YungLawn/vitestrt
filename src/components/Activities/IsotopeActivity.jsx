@@ -5,7 +5,7 @@ import { useSpring, animated} from "@react-spring/three";
 import { BoxGeometry } from "three";
 import { elements, textures } from '../data/Elements';
 import IsotopeStack from '../Utilities+Helpers/IsotopeStack';
-const tile = new BoxGeometry(1, 1, 0.25);
+const tile = new BoxGeometry(1, 1, 0.5);
 
 const ElementTile = ( {element, material, selected} ) => {
     const ElementTile = useRef();
@@ -14,7 +14,7 @@ const ElementTile = ( {element, material, selected} ) => {
     useCursor(hover);
     const isotopeMap = element.isotopes;
     const { scale } = useSpring({
-        scale: active || hover ? 1.5 : 1,
+        scale: active || hover || selected ? 1.5 : 1,
         config: { tension: 200, friction: 12, mass: 1, clamp: false, precision: 0.001, velocity: 0.01 }
     });
 
@@ -29,7 +29,7 @@ const ElementTile = ( {element, material, selected} ) => {
             material={material}
             scale={scale}
             />
-            <IsotopeStack data={isotopeMap} active={selected}/>
+            <IsotopeStack data={isotopeMap} active={selected || active}/>
         </>)
 }
 
@@ -37,8 +37,12 @@ function PeriodicTable( {textures, elements, selection} ) {
     const Table = useRef();
     const SelectionKey = [];
     for(let i=0;i<elements.length;i++) {
-        if ( selection ==i) SelectionKey.push(true);
-        else SelectionKey.push(false);
+        if ( selection == elements[i].num){
+            SelectionKey.push(true);
+        }
+        else{
+            SelectionKey.push(false);
+        }
     }
     return (
         <mesh>
@@ -68,7 +72,7 @@ export default function IsotopeActivity( {selectedElement} ) {
                 <pointLight position={[0, -20, 100]} lookAt={[0,0,0]} intensity={1}/>
 
                 <Suspense fallback={<></>}>
-                    <PeriodicTable textures={textures} elements={elements} selectedElement={selectedElement}/>
+                    <PeriodicTable textures={textures} elements={elements} selection={selectedElement}/>
                 </Suspense>
 
                 <Stars/>
