@@ -20,28 +20,26 @@
 }
 
 .unsorted {
-  margin: 0.5%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   width: 95%;
   height: min-content;
-  min-height: 9vw;
+  min-height: 9svw;
   border: 2px solid #500000;
   background: rgba(0,0,0,0.25);
   backdrop-filter: saturate(90%) blur(10px);
 }
 
 .sorted {
-  margin: 0.5%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   width: 95%;
   height: min-content;
-  min-height: 9vw;
+  min-height: 9svw;
   border: 2px solid #000044;
   background: rgba(0,0,0,0.25);
   backdrop-filter: saturate(90%) blur(10px);
@@ -50,8 +48,8 @@
 img {
   margin: 0.5%;
   border-radius: 2.5%;
-  background-color: rgba(190, 190, 190, 0.5);
-  box-shadow: rgba(0, 0, 0, 0.99) 0px 2px 4px, rgba(0, 0, 0, 0.99) 0px 7px 13px -3px, rgba(0, 0, 0, 0.99) -2px -2px 2px 5px inset;
+  background-color: rgba(126, 126, 126, 0.75);
+  box-shadow: rgba(0, 0, 0, 0.99) 0px 2px 4px, rgba(0, 0, 0, 0.99) 0px 7px 13px -3px, rgba(0, 0, 0, 0.99) -2px -2px 2px 4px inset;
 }
 
 .resetButton {

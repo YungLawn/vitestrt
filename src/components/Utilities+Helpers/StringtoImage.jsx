@@ -21,7 +21,7 @@ export default function StringtoImage(element, backgroundColor, mass, num) {
 
     switch(backgroundColor) {
       case '#F00':
-        bg = 'rgba(255,0,0,0.75)'
+        bg = 'rgba(255, 0, 0, 0.75)'
         break;
       case '#0F0':
         bg = 'rgba(0,255,0,0.75)'
