@@ -21,7 +21,7 @@ export default function StringtoImage(element, backgroundColor, mass, num) {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // init
-    ctx.fillStyle = "#000000";
+    ctx.fillStyle = "#fff";
     ctx.height = 2
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";

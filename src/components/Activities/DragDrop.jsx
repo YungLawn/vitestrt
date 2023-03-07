@@ -77,7 +77,7 @@ function DragDrop({ Tiles }) {
   }
 
   return (
-    <div className="sortingActivity">
+    <div style={{position: "absolute"}} className="sortingActivity">
       <div className="isSorted">{isSorted ? "Sorted!" : "Unsorted!"}</div>
       <button onClick={reset}>Reset</button>
       <div className="unsorted">

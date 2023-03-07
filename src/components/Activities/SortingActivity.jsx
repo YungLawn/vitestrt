@@ -18,6 +18,7 @@ export default function SortingActivity( {elementIndex}) {
 
   const Tiles = Array.from({ length: Isotopes.length }, (_, i) => ({
     id: Isotopes[i].id + (parseInt(Isotopes[i].x, 10) + 1),
+
     src: StringtoImage(
       Isotopes[i].id,
       Isotopes[i].col,
@@ -34,9 +35,7 @@ export default function SortingActivity( {elementIndex}) {
   return (
     <div className='IsotopeSortingWrapper'>
       <DndProvider options={HTML5toTouch}>
-        <div className="activityWrapper">
           <DragDrop Tiles={Tiles}/>
-        </div>
       </DndProvider>
       <IsotopeActivity selectedElement={1}/>
     </div>
