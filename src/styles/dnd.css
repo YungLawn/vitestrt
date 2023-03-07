@@ -7,22 +7,25 @@
 }
 
 .sortingActivity {
+  border: 2px solid #000000;
   position: absolute;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  width: 100%;
+  width: 90%;
   z-index: 1;
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: saturate(90%) blur(10px);
 }
 
 .unsorted {
-  /* margin-bottom: 0.5%; */
+  margin: 0.5%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  width: 90%;
+  width: 95%;
   height: min-content;
   min-height: 9vw;
   border: 2px solid #500000;
@@ -31,12 +34,12 @@
 }
 
 .sorted {
-  /* margin-top: 0.5%; */
+  margin: 0.5%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  width: 90%;
+  width: 95%;
   height: min-content;
   min-height: 9vw;
   border: 2px solid #000044;
@@ -48,7 +51,7 @@ img {
   margin: 0.5%;
   border-radius: 2.5%;
   background-color: rgba(190, 190, 190, 0.5);
-  box-shadow: rgba(0, 0, 0, 0.99) 0px 2px 4px, rgba(0, 0, 0, 0.99) 0px 7px 13px -3px, rgba(0, 0, 0, 0.99) -5px -5px 1px inset;
+  box-shadow: rgba(0, 0, 0, 0.99) 0px 2px 4px, rgba(0, 0, 0, 0.99) 0px 7px 13px -3px, rgba(0, 0, 0, 0.99) -2px -2px 2px 5px inset;
 }
 
 .resetButton {
@@ -105,6 +108,4 @@ img {
   width: 90%;
   font-size: 200%;
   color: #fff;
-  background: rgba(0,0,0,0.75);
-  backdrop-filter: saturate(90%) blur(10px);
 }
