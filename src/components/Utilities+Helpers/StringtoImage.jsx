@@ -1,4 +1,6 @@
 export default function StringtoImage(element, backgroundColor, mass, num) {
+  // console.log(backgroundColor)
+
     // Create a canvas element
     let canvas = document.createElement("canvas");
     let ctx = canvas.getContext("2d");
@@ -15,13 +17,28 @@ export default function StringtoImage(element, backgroundColor, mass, num) {
     const heightCenter = canvas.height / 2
 
     const font = ' Monospace'
+    let bg = '';
+
+    switch(backgroundColor) {
+      case '#F00':
+        bg = 'rgba(255,0,0,0.75)'
+        break;
+      case '#0F0':
+        bg = 'rgba(0,255,0,0.75)'
+        break;
+      case '#00F':
+        bg = 'rgba(0,0,255,0.75)'
+        break;
+      default:
+        backgroundColor = '#fff'
+    }
 
     // Fill the background with the specified color
-    ctx.fillStyle = backgroundColor;
+    ctx.fillStyle = bg;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // init
-    ctx.fillStyle = "#fff";
+    ctx.fillStyle = "#000";
     ctx.height = 2
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";

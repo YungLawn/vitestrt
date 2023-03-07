@@ -78,8 +78,7 @@ function DragDrop({ Tiles }) {
 
   return (
     <div style={{position: "absolute"}} className="sortingActivity">
-      <div className="isSorted">{isSorted ? "Sorted!" : "Unsorted!"}</div>
-      <button onClick={reset}>Reset</button>
+      <button className='resetButton' onClick={reset}>Reset</button>
       <div className="unsorted">
         {unsortedTiles.map((picture) => {
           return <Tile src={picture.src} id={picture.id} key={picture.id} />;
@@ -90,6 +89,7 @@ function DragDrop({ Tiles }) {
           return <Tile src={picture.src} id={picture.id} key={picture.id} />;
         })}
       </div>
+      <div className="isSorted">{isSorted ? "Sorted!" : "Unsorted!"}</div>
     </div>
   );
 }
