@@ -30,7 +30,7 @@ export default function StringtoImage(element, backgroundColor, mass, num) {
         bg = 'rgba(0,0,255,0.75)'
         break;
       default:
-        backgroundColor = '#fff'
+        bg = '#fff'
     }
 
     // Fill the background with the specified color
