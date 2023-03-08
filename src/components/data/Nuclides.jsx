@@ -3276,6 +3276,5 @@ let nuclideTextures = [];
 //       ))
 // }
 
-console.log('StringtoImage Ran')
 
 export {nuclides, nuclideTextures}

@@ -33,7 +33,7 @@ const ElementTile = ( {element, material, selected} ) => {
         </>)
 }
 
-function PeriodicTable( {textures, elements, selection} ) {
+function PeriodicTable( {selection, isSorted} ) {
     const Table = useRef();
     const SelectionKey = [];
     for(let i=0;i<elements.length;i++) {
@@ -48,14 +48,14 @@ function PeriodicTable( {textures, elements, selection} ) {
         <mesh>
             {elements.map((element, index) =>
             <group ref={Table} position={[(element.x - 9.5) * 1.55, (element.y - 5.75) * 1.55, 0]} key={element.id}>
-                <ElementTile element={elements[index]} material={textures[index]} selected={SelectionKey[index]}/>
+                <ElementTile element={elements[index]} material={textures[index]} selected={SelectionKey[index] && isSorted}/>
             </group>
             )}
         </mesh>
     )
 }
 
-export default function IsotopeActivity( {selectedElement} ) {
+export default function IsotopeActivity( {selectedElement, isSorted} ) {
     return(
         <div className='canvaswrapper'>
             <Canvas camera={{ fov: 30, position:[0,0,30] }}>
@@ -72,7 +72,7 @@ export default function IsotopeActivity( {selectedElement} ) {
                 <pointLight position={[0, -20, 100]} lookAt={[0,0,0]} intensity={1}/>
 
                 <Suspense fallback={<></>}>
-                    <PeriodicTable textures={textures} elements={elements} selection={selectedElement}/>
+                    <PeriodicTable selection={selectedElement} isSorted={isSorted}/>
                 </Suspense>
 
                 <Stars/>

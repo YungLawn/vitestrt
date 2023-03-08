@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 // import Tile from "./Tile";
 import { useDrop, useDrag } from "react-dnd";
 
-function DragDrop({ Tiles }) {
+function DragDrop({ Tiles, isSorted, setIsSorted }) {
 
   const [sortedTiles, setSortedTiles] = useState([]);
   const [unsortedTiles, setUnsortedTiles] = useState(Tiles);
-  const [isSorted, setIsSorted] = useState(false);
 
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "div",
