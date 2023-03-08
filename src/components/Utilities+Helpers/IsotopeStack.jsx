@@ -11,7 +11,7 @@ const IsotopeStack = ({ data, active }) => {
   const numPoints = data.length;
   const colorArray = useMemo(() => Float32Array.from(new Array(data.length).fill().flatMap((_, i) => tempColor.set(data[i]).toArray())), [])
   const { offsetZ } = useSpring({
-    offsetZ: active ? [0,0,0.75] : [0,0,70],
+    offsetZ: active ? [0,0,0.75] : [0,0,100],
     config: { tension: 57, friction: 13, mass: 1, clamp: false, precision: 0.001, velocity: 0.01 }
   });
 

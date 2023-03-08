@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import Tile from "./Tile";
 import { useDrop, useDrag } from "react-dnd";
 
 function DragDrop({ Tiles, isSorted, setIsSorted }) {
@@ -8,7 +7,7 @@ function DragDrop({ Tiles, isSorted, setIsSorted }) {
   const [unsortedTiles, setUnsortedTiles] = useState(Tiles);
 
   const [{ isOver }, drop] = useDrop(() => ({
-    accept: "div",
+    accept: "image",
     drop: (item) => addImage(item.id),
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
@@ -59,7 +58,7 @@ function DragDrop({ Tiles, isSorted, setIsSorted }) {
 
   const Tile = ({ id, src }) => {
     const [{ isDragging }, drag] = useDrag(() => ({
-      type: "div",
+      type: "image",
       item: { id: id },
       collect: (monitor) => ({
         isDragging: !!monitor.isDragging(),
@@ -81,7 +80,7 @@ function DragDrop({ Tiles, isSorted, setIsSorted }) {
           return <Tile src={picture.src} id={picture.id} key={picture.id}/> ;
         })}
       </div>
-      <div className="isSorted">{isSorted ? "Sorted!" : "Unsorted!"}</div>
+      {/* <div className="isSorted">{isSorted ? "Sorted!" : "Unsorted!"}</div> */}
       <div className="sorted" ref={drop}>
         {sortedTiles.map((picture) => {
           return <Tile src={picture.src} id={picture.id} key={picture.id}/> ;
