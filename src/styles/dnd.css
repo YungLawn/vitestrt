@@ -15,9 +15,9 @@
   flex-direction: column;
   justify-content: center;
   width: 90%;
+  max-height: 0.5fr;
   z-index: 1;
   background: rgba(131, 131, 131, 0.25);
-  backdrop-filter: saturate(90%) blur(10px);
 }
 
 .unsorted {
@@ -30,7 +30,7 @@
   min-height: 9svw;
   border: 2px solid #500000;
   background: rgba(131, 131, 131, 0.25);
-  backdrop-filter: saturate(90%) blur(10px);
+  backdrop-filter: saturate(90%) blur(1px);
 }
 
 .sorted {
@@ -44,7 +44,7 @@
   min-height: 9svw;
   border: 2px solid #000044;
   background: rgba(131, 131, 131, 0.25);
-  backdrop-filter: saturate(90%) blur(10px);
+  backdrop-filter: saturate(90%) blur(1px);
 }
 
 img {
