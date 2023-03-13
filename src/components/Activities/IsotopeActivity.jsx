@@ -76,7 +76,7 @@ export default function IsotopeActivity( {selectedElement, isSorted} ) {
                 </Suspense>
 
                 <Stars/>
-                <Stats showPanel={0} className="stats" parent={parent}/>
+                <Stats showPanel={4} className="stats" parent={parent}/>
             </Canvas>
         </div>
     )
