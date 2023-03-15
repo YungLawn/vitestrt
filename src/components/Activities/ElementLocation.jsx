@@ -3,7 +3,7 @@ import {Canvas} from '@react-three/fiber';
 import {Stats, Stars, useCursor, OrbitControls} from '@react-three/drei';
 import { useSpring, animated} from "@react-spring/three";
 import { BoxGeometry, MeshLambertMaterial } from "three";
-import { elements, textures } from './data/Elements';
+import { elements, textures } from '../data/Elements';
 
 const mat = new MeshLambertMaterial({color:'#ffffff'});
 const wrongTile = new MeshLambertMaterial({color:'#f00'});
@@ -81,6 +81,7 @@ const Table = ( {textures, elements, buttons} ) => {
 }
 
 export default function ElementLocation( {buttons} ) {
+    console.log(buttons)
     return(
         <div className='canvaswrapper'>
             <Canvas camera={{ fov: 30, position:[0,0,30] }}>
