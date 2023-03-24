@@ -81,6 +81,7 @@ const Table = ( {textures, elements, buttons} ) => {
 }
 
 export default function ElementLocation( {buttons} ) {
+    console.log(buttons)
     return(
         <div className='canvaswrapper'>
             <Canvas camera={{ fov: 30, position:[0,0,30] }}>
