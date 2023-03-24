@@ -69,7 +69,7 @@ export default function PeriodicSandbox( {buttons} ) {
                 </Suspense>
 
                 <Stars/>
-                <Stats showPanel={4} className="stats"/>
+                {/* <Stats showPanel={4} className="stats"/> */}
             </Canvas>
         </div>
     )

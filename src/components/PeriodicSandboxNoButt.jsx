@@ -74,7 +74,7 @@ export default function PeriodicSandbox( ) {
                 </Suspense>
 
                 <Stars/>
-                <Stats showPanel={0} className="stats" parent={parent}/>
+                {/* <Stats showPanel={0}/> */}
             </Canvas>
         </div>
     )

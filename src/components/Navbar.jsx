@@ -5,7 +5,7 @@ export default function Navbar() {
   return (
     <nav className="nav">
       <Link to="/" className="site-title">
-        Interactive Periodic Table
+        Isotope Discovery Activity
       </Link>
       <ul>
         {/* <CustomLink to="/testing">Testing</CustomLink>
