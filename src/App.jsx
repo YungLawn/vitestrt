@@ -9,7 +9,6 @@ import ControlPanel from "./components/PeriodicTableControlPanel";
 import PeriodicSandbox from "./components/PeriodicSandbox";
 // import PeriodicSandbox from "./components/PeriodicSandboxNoButt";
 import IsotopeActivity from "./components/Activities/IsotopeActivity";
-import ElementLocation from "./components/Activities/ElementLocation";
 import SortingActivity from "./components/Activities/SortingActivity";
 import Acivity from './components/DragandDrop/Activity'
 import './styles/controls.css'
@@ -45,8 +44,7 @@ function App() {
                     <ControlPanel elements={elements} handleButtonState={handleButtonState}/>
                 </div>
               </div>
-              {/* <PeriodicSandbox buttons={buttons}/> */}
-              <ElementLocation buttons={buttons}/>
+              <PeriodicSandbox buttons={buttons}/>
             </>
           }/> */}
           {/* <Route path="/activity1" element={
