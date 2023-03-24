@@ -1,13 +1,35 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
+import { useState } from "react";
+import { elements } from "./data/Elements"
 import '../styles/nav.css'
 
-export default function Navbar() {
+export default function Navbar( { selectedOption, setSelectedOption } ) {
+
+  const handleOptionChange = (event) => {
+    // console.log(event.target.value)
+    setSelectedOption(event.target.value);
+  }
+
   return (
     <nav className="nav">
       <Link to="/" className="site-title">
         Isotope Discovery Activity
       </Link>
       <ul>
+        <li className="dropDown">
+        <select value={selectedOption} onChange={handleOptionChange}>
+          {elements.map((option, index) => (
+            <option key={option.id} value={index}>
+              {option.name}
+            </option>
+          ))}
+        </select>
+          {/* <form className="enterMass">
+            <label> Mass:
+              <input type='integer'/>
+            </label>
+          </form> */}
+        </li>
         {/* <CustomLink to="/testing">Testing</CustomLink>
         <CustomLink to="/table">Sandbox</CustomLink> */}
         <CustomLink to='/activity1'>Activity 1</CustomLink>

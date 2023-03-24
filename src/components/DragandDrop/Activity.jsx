@@ -10,6 +10,7 @@ import './app.css'
 //TODO
 
 export default function Acivity( { sortedKey, setSortedKey, elementIndex } ) {
+// console.log(elementIndex)
 
 const [sorted, setSorted] = useState(false)
 

@@ -8,11 +8,13 @@
     gap: 2rem;
     padding: 0 1%;
   }
-  
+
   .site-title {
     font-size: 1.5rem;
+    font-family:"JetBrains Mono",monospace;
+
   }
-  
+
   .nav ul {
     padding: 0;
     margin: 0;
@@ -20,7 +22,21 @@
     display: flex;
     gap: 1rem;
   }
-  
+
+  .nav li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .dropDown select {
+    height: 100%;
+    width: 100%;
+    background-color: #181922;
+    color: #fff;
+    outline: none;
+  }
+
   .nav a {
     color: inherit;
     text-decoration: none;
@@ -29,11 +45,11 @@
     align-items: center;
     padding: .25rem;
   }
-  
+
   .nav li.active {
     background-color: #4e5272;
   }
-  
+
   .nav li:hover {
     background-color: #7177a5;
   }

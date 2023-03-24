@@ -3,8 +3,8 @@
   import { Card } from './Card.jsx'
 
   export const Container = ( { Tiles, sorted, setSorted } ) => {
-  // console.log(Tiles)
-  const defaultTiles = Tiles;
+  // console.log([...Tiles])
+  const defaultTiles = [...Tiles];
 
   const [cards, setCards] = useState(shuffleArray([...Tiles]))
 

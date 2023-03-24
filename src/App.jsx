@@ -15,10 +15,13 @@ import './styles/controls.css'
 import ElementLocation from "./components/Activities/ElementLocation";
 
 function App() {
+
+  const [selectedOption, setSelectedOption] = useState(0);
+
   const activityKey = new Array(elements.length).fill(false);
   const [sortedKey, setSortedKey] = useState(activityKey)
 
-  const [elementIndex, setElementIndex] = useState(1);
+  // const [elementIndex, setElementIndex] = useState(1);
 
   const [buttons, setButtons] = useState(
     Array.from({ length: elements.length }, (_, i) => ({
@@ -30,9 +33,11 @@ function App() {
   );
   const handleButtonState = newButtons => {setButtons(newButtons);};
 
+  // console.log(selectedOption)
+
   return (
     <>
-      <Navbar />
+      <Navbar selectedOption={selectedOption} setSelectedOption={setSelectedOption}/>
       <div className="container">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -57,8 +62,8 @@ function App() {
               <ElementLocation buttons={buttons}/>
             </>
           }/> */}
-          <Route path="/activity1" element={ <EleLocByIndex elementIndex={elementIndex}/> }/>
-          <Route path="/activity2" element={<Acivity sortedKey={sortedKey} setSortedKey={setSortedKey} elementIndex={elementIndex}/>}/>
+          <Route path="/activity1" element={ <EleLocByIndex elementIndex={selectedOption}/> }/>
+          <Route path="/activity2" element={ <Acivity sortedKey={sortedKey} setSortedKey={setSortedKey} elementIndex={selectedOption}/>}/>
         </Routes>
       </div>
     </>
