@@ -6,7 +6,7 @@ import { BoxGeometry } from "three";
 import { elements, textures } from './data/Elements';
 import IsotopeStack from "./Utilities+Helpers/IsotopeStack";
 
-const tile = new BoxGeometry(1, 1, 0.25);
+const tile = new BoxGeometry(1, 1, 0.5);
 
 const ElementTile = ( {element, material} ) => {
     const ElementTile = useRef();
