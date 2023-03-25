@@ -62,8 +62,8 @@ function App() {
               <ElementLocation buttons={buttons}/>
             </>
           }/> */}
-          <Route path="/activity1" element={ <EleLocByIndex elementIndex={selectedOption}/> }/>
-          <Route path="/activity2" element={ <Acivity sortedKey={sortedKey} setSortedKey={setSortedKey} elementIndex={selectedOption}/>}/>
+          <Route path="/activity1" element={ <EleLocByIndex elementIndex={1}/> }/>
+          <Route path="/activity2" element={ <Acivity sortedKey={sortedKey} setSortedKey={setSortedKey} elementIndex={1}/>}/>
         </Routes>
       </div>
     </>

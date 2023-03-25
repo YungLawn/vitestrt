@@ -16,7 +16,7 @@ export default function Navbar( { selectedOption, setSelectedOption } ) {
         Isotope Discovery Activity
       </Link>
       <ul>
-        <li className="dropDown">
+        {/* <li className="dropDown">
         <select value={selectedOption} onChange={handleOptionChange}>
           {elements.map((option, index) => (
             <option key={option.id} value={index}>
@@ -24,12 +24,7 @@ export default function Navbar( { selectedOption, setSelectedOption } ) {
             </option>
           ))}
         </select>
-          {/* <form className="enterMass">
-            <label> Mass:
-              <input type='integer'/>
-            </label>
-          </form> */}
-        </li>
+        </li> */}
         {/* <CustomLink to="/testing">Testing</CustomLink>
         <CustomLink to="/table">Sandbox</CustomLink> */}
         <CustomLink to='/activity1'>Activity 1</CustomLink>
