@@ -9,7 +9,7 @@
 
 .SortingActivity {
     margin: 1%;
-    border: 2px solid #000000;
+    /* border: 2px solid #000000; */
     position: absolute;
     display: flex;
     align-items: center;
@@ -18,8 +18,15 @@
     width: 90%;
     max-height: 0.5fr;
     z-index: 1;
-    background: rgba(131, 131, 131, 0.25);
-  }
+    /* background: rgba(131, 131, 131, 0.25); */
+    transition: all 3s;
+}
+
+.SortingActivity.hidden {
+    opacity: 0;
+    z-index: 0;
+}
+
 
 .draggableArea {
     margin: 2rem;
@@ -29,7 +36,6 @@
     flex-direction: row;
     background: rgba(131, 131, 131, 0.25);
     backdrop-filter: saturate(90%) blur(1px);
-    transition: all 1s;
 }
 
 .Tile {

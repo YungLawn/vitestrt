@@ -4,7 +4,7 @@ import { Stats, Stars, useCursor, OrbitControls} from '@react-three/drei';
 import { useSpring, animated} from "@react-spring/three";
 import { BoxGeometry } from "three";
 import { elements, textures } from './data/Elements';
-import IsotopeStack from './IsotopeStack';
+import IsotopeStack from './Utilities+Helpers/IsotopeStack';
 const tile = new BoxGeometry(1, 1, 0.5);
 const key = new BoxGeometry(3, 3, 0.5);
 
@@ -76,7 +76,7 @@ function PeriodicTable( {elementData} ) {
     )
 }
 
-export default function IsotopeActivityTEST( { elementData} ) {
+export default function IsotopeActivity( { elementData} ) {
     // console.log(elementData)
     return(
         <div className='canvaswrapper'>

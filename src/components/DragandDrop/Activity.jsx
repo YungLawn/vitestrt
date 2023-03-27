@@ -4,7 +4,7 @@ import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 import { nuclides } from '../data/Nuclides';
 import StringtoImage from './StringtoImage';
-import IsotopeActivityTEST from '../IsotopeActivityTEST';
+import IsotopeActivity from '../IsotopeActivity';
 import './app.css'
 
 const generateTiles = (num) => {
@@ -29,7 +29,7 @@ const generateTiles = (num) => {
   return Tiles
 }
 
-export default function Acivity( { sortedKey, setSortedKey, elementIndex } ) {
+export default function Activity( { sortedKey, setSortedKey, elementIndex } ) {
 // console.log(elementIndex)
 
 const [sorted, setSorted] = useState(false)
@@ -45,13 +45,15 @@ useEffect(() => {
   }
 }, [sorted]);
 
-
 return (
   <div className="Activity">
+    <div className='SortingActivity'>
+    {/* <div className={sortedKey[elementIndex] ? 'SortingActivity hidden' : 'SortingActivity'}> */}
       <DndProvider backend={HTML5Backend}>
-          <Container Tiles={generateTiles(elementIndex)} sorted={sorted} setSorted={setSorted}/>
+        <Container Tiles={generateTiles(elementIndex)} sorted={sorted} setSorted={setSorted}/>
       </DndProvider>
-      <IsotopeActivityTEST elementData={sortedKey}/>
+    </div>
+    <IsotopeActivity elementData={sortedKey}/>
   </div>
 );
 }

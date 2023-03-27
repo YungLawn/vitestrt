@@ -66,11 +66,9 @@
   // console.log(defaultTiles)
   // console.log(sorted)
 
-  const opacity = sorted ? 0.25 : 1
   return (
-    <div className='SortingActivity'>
-      {/* <div className="isSorted">{sorted ? "Sorted!" : "Unsorted!"}</div> */}
-      <div className='draggableArea' style={{ opacity }}> {cards.map((card, i) => renderCard(card, i))}</div>
+    <div className={sorted ? 'draggableArea hidden' : 'draggableArea'}>
+      {cards.map((card, i) => renderCard(card, i))}
     </div>
   )
   }
