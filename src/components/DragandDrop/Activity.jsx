@@ -47,10 +47,10 @@ useEffect(() => {
 
 return (
   <div className="Activity">
-    <div className='SortingActivity'>
-    {/* <div className={sortedKey[elementIndex] ? 'SortingActivity hidden' : 'SortingActivity'}> */}
+    {/* <div className='SortingActivity'> */}
+    <div className={sortedKey[elementIndex] ? 'SortingActivity hidden' : 'SortingActivity'}>
       <DndProvider backend={HTML5Backend}>
-        <Container Tiles={generateTiles(elementIndex)} sorted={sorted} setSorted={setSorted}/>
+        <Container Tiles={generateTiles(0)} sorted={sorted} setSorted={setSorted}/>
       </DndProvider>
     </div>
     <IsotopeActivity elementData={sortedKey}/>

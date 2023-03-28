@@ -67,8 +67,6 @@
   // console.log(sorted)
 
   return (
-    <div className={sorted ? 'draggableArea hidden' : 'draggableArea'}>
-      {cards.map((card, i) => renderCard(card, i))}
-    </div>
+      cards.map((card, i) => renderCard(card, i))
   )
   }

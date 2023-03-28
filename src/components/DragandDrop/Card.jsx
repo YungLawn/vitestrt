@@ -63,7 +63,7 @@ export const Card = ({ src, id, text, index, moveCard }) => {
   const opacity = isDragging ? 0.25 : 1
   drag(drop(ref))
   return (
-    <div className='Tile' ref={ref} style={{ opacity }} data-handler-id={handlerId}>
+    <div className={isDragging ? 'Tile dragging' : 'Tile'} ref={ref} data-handler-id={handlerId}>
       <img src={src}/>
     </div>
   )

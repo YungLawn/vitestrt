@@ -1,3 +1,5 @@
+import { RGBAFormat } from "three";
+
 export default function StringtoImage(element, backgroundColor, mass, num) {
   // console.log(backgroundColor)
 
@@ -19,6 +21,7 @@ export default function StringtoImage(element, backgroundColor, mass, num) {
     const font = ' Monospace'
 
     // Fill the background with the specified color
+    // backgroundColor = 'rgba(0,0,0,0)'
     ctx.fillStyle = backgroundColor;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
