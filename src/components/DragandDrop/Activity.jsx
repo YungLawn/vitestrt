@@ -7,7 +7,7 @@ import StringtoImage from './StringtoImage';
 import IsotopeActivity from '../IsotopeActivity';
 import './app.css'
 
-const generateTiles = (num) => {
+export const generateTiles = (num) => {
 
   let Isotopes = [];
   for (let i = 1; i < nuclides.length; i++) {
@@ -16,7 +16,7 @@ const generateTiles = (num) => {
     }
   }
 
-  const Tiles = Array.from({ length: Isotopes.length }, (_, i) => ({
+  let tiles = Array.from({ length: Isotopes.length }, (_, i) => ({
     id: Isotopes[i].id + " " + (parseInt(Isotopes[i].x, 10) + 1),
     src: StringtoImage(
     Isotopes[i].id,
@@ -26,12 +26,13 @@ const generateTiles = (num) => {
     )
   }));
 
-  return Tiles
+  return tiles
 }
 
 export default function Activity( { sortedKey, setSortedKey, elementIndex } ) {
 // console.log(elementIndex)
 
+const [Tiles, setTiles] = useState(generateTiles(elementIndex))
 const [sorted, setSorted] = useState(false)
 
 useEffect(() => {
@@ -45,12 +46,19 @@ useEffect(() => {
   }
 }, [sorted]);
 
+useEffect(() => {
+  console.log('Element Changed to: ' + elementIndex)
+  // setTiles(generateTiles(elementIndex))
+  console.log(generateTiles(elementIndex))
+
+}, [elementIndex])
+
 return (
   <div className="Activity">
     {/* <div className='SortingActivity'> */}
     <div className={sortedKey[elementIndex] ? 'SortingActivity hidden' : 'SortingActivity'}>
       <DndProvider backend={HTML5Backend}>
-        <Container Tiles={generateTiles(0)} sorted={sorted} setSorted={setSorted}/>
+        <Container Tiles={Tiles} sorted={sorted} setSorted={setSorted}/>
       </DndProvider>
     </div>
     <IsotopeActivity elementData={sortedKey}/>

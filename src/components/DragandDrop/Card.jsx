@@ -64,7 +64,8 @@ export const Card = ({ src, id, text, index, moveCard }) => {
   drag(drop(ref))
   return (
     <div className={isDragging ? 'Tile dragging' : 'Tile'} ref={ref} data-handler-id={handlerId}>
-      <img src={src}/>
+      {/* <img src={src}/> */}
+      {id}
     </div>
   )
 }
