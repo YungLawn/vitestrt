@@ -51,8 +51,8 @@ border-radius: 10px;
 }
 
 .Tile {
-    height: 20vh;
-    width: 20vh;
+    min-height: 20vh;
+    min-width: 20vh;
     display: flex;
     align-items: center;
     justify-content: center;
