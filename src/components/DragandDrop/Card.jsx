@@ -38,12 +38,9 @@ export const Card = ({ lbl, num, mass, col, id, index, moveCard }) => {
   drag(drop(ref))
   return (
     <div className={isDragging ? 'Tile dragging' : 'Tile'} style={{backgroundColor: col}} ref={ref} data-handler-id={handlerId}>
+      <div className='mass'> {mass} </div>
       <div className='lbl'> {lbl} </div>
       <div className='num'> {num} </div>
-      <div className='mass'> {mass} </div>
-
-
-
     </div>
   )
 }

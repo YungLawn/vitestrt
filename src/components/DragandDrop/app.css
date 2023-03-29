@@ -4,16 +4,13 @@
 scrollbar-width: thin;
 scrollbar-color: #808080 transparent;
 }
-
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
 width: 1px;
 }
-
 *::-webkit-scrollbar-track {
     background: transparent;
 }
-
 *::-webkit-scrollbar-thumb {
 background-color: #808080;
 border-radius: 10px;
@@ -29,8 +26,6 @@ border-radius: 10px;
 }
 
 .SortingActivity {
-    margin: 1rem;
-    padding: 1rem;
     position: absolute;
     display: flex;
     align-items: center;
@@ -38,7 +33,9 @@ border-radius: 10px;
     justify-content: left;
     overflow-x: auto;
     gap: 1rem;
-    width: 100%;
+    margin: 1rem;
+    padding: 1rem;
+    width: 95%;
     z-index: 1;
     background: rgba(218, 218, 218, 0.25);
     backdrop-filter: saturate(90%) blur(1px);
@@ -53,23 +50,39 @@ border-radius: 10px;
 .Tile {
     min-height: 20vh;
     min-width: 20vh;
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
+    display: grid;
     cursor: move;
     border-radius: 2.5%;
     transition: all 1s;
+    padding: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 .Tile.dragging {
     opacity: 0.25;
 }
 
+.Tile * {
+    font-size: 1.75rem;
+    font-weight: bold;
+    font-family:"JetBrains Mono",monospace;
+}
+
 .lbl {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    /* top: 50%;
-    left: 50%; */
+    font-size: 3rem;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+}
+
+.num {
+    display: flex;
+    align-self: flex-end;
+    justify-self: left;
+}
+.mass {
+    display: flex;
+    align-self: flex-start;
+    justify-self: center;
 }
 
 /* .Tile img {
