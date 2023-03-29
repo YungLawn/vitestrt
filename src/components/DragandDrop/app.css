@@ -13,7 +13,7 @@ width: 1px;
 }
 *::-webkit-scrollbar-thumb {
 background-color: #808080;
-border-radius: 10px;
+border-radius: 0.5rem;
 }
 
 .Activity{
@@ -35,10 +35,11 @@ border-radius: 10px;
     gap: 1rem;
     margin: 1rem;
     padding: 1rem;
-    width: 95%;
+    width: 100%;
     z-index: 1;
     background: rgba(218, 218, 218, 0.25);
     backdrop-filter: saturate(90%) blur(1px);
+    border-radius: 0.5rem;
     transition: all 1s;
 }
 .SortingActivity.hidden {
@@ -60,20 +61,17 @@ border-radius: 10px;
 .Tile.dragging {
     opacity: 0.25;
 }
-
 .Tile * {
     font-size: 1.75rem;
     font-weight: bold;
-    font-family:"JetBrains Mono",monospace;
+    font-family:"JetBrains Mono", monospace;
 }
-
 .lbl {
     font-size: 3rem;
     display: flex;
     align-self: center;
     justify-self: center;
 }
-
 .num {
     display: flex;
     align-self: flex-end;
