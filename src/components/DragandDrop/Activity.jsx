@@ -29,7 +29,7 @@ export const generateTiles = (num) => {
   let tiles = Array.from({ length: Isotopes.length }, (_, i) => ({
     id: Isotopes[i].id + " " + (parseInt(Isotopes[i].x, 10) + 1),
     num: Isotopes[i].y,
-    mass: Isotopes[i].x,
+    mass: parseInt(Isotopes[i].y, 10) + parseInt(Isotopes[i].x, 10),
     lbl: Isotopes[i].id,
     col: Isotopes[i].col
   }));
