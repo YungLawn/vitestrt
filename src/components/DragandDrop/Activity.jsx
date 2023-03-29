@@ -58,7 +58,7 @@ return (
     {/* <div className='SortingActivity'> */}
     <div className={sortedKey[elementIndex] ? 'SortingActivity hidden' : 'SortingActivity'}>
       <DndProvider backend={HTML5Backend}>
-        <Container Tiles={Tiles} sorted={sorted} setSorted={setSorted}/>
+        <Container Tiles={generateTiles(10)} sorted={sorted} setSorted={setSorted}/>
       </DndProvider>
     </div>
     <IsotopeActivity elementData={sortedKey}/>
