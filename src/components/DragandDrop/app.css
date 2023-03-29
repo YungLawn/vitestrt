@@ -1,3 +1,24 @@
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+scrollbar-width: thin;
+scrollbar-color: #808080 rgba(218, 218, 218, 0);;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+width: 1px;
+}
+
+*::-webkit-scrollbar-track {
+    background: rgba(218, 218, 218, 0);
+}
+
+*::-webkit-scrollbar-thumb {
+background-color: #808080;
+border-radius: 10px;
+}
+
 .Activity{
     height: 100%;
     width: 100%;
@@ -23,7 +44,6 @@
     backdrop-filter: saturate(90%) blur(1px);
     transition: all 1s;
 }
-
 .SortingActivity.hidden {
     opacity: 0;
     z-index: 0;
@@ -38,11 +58,9 @@
     border-radius: 2.5%;
     transition: all 1s;
 }
-
 .Tile.dragging {
     opacity: 0.25;
 }
-
 .Tile img {
     height: 20vh;
     width: 20vh;
