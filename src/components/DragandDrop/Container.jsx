@@ -2,7 +2,7 @@
   import { useCallback, useEffect, useState } from 'react'
   import { Card } from './Card.jsx'
 
-  export const Container = ( { Tiles, sorted, setSorted } ) => {
+export const Container = ( { Tiles, sorted, setSorted } ) => {
   // console.log([...Tiles])
   const defaultTiles = [...Tiles];
 
@@ -26,7 +26,6 @@
         key={card.id}
         index={index}
         id={card.id}
-        text={card.text}
         moveCard={moveCard}
       />
     )
@@ -63,10 +62,17 @@
     else setSorted(false)
   }, [cards]);
 
+  useEffect(() => {
+    // console.log('elements Changed')
+    setCards(shuffleArray([...Tiles]))
+  }, [Tiles])
+
   // console.log(defaultTiles)
   // console.log(sorted)
+  // console.log(cards)
+  // console.log(Tiles)
 
   return (
       cards.map((card, i) => renderCard(card, i))
   )
-  }
+}

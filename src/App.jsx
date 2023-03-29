@@ -20,15 +20,15 @@ function App() {
 
   // const [elementIndex, setElementIndex] = useState(1);
 
-  const [buttons, setButtons] = useState(
-    Array.from({ length: elements.length }, (_, i) => ({
-        id: elements[i].id,
-        isOn: false,
-        x: elements[i].x,
-        y: elements[i].y,
-    }))
-  );
-  const handleButtonState = newButtons => {setButtons(newButtons);};
+  // const [buttons, setButtons] = useState(
+  //   Array.from({ length: elements.length }, (_, i) => ({
+  //       id: elements[i].id,
+  //       isOn: false,
+  //       x: elements[i].x,
+  //       y: elements[i].y,
+  //   }))
+  // );
+  // const handleButtonState = newButtons => {setButtons(newButtons);};
 
   // console.log(selectedOption)
 

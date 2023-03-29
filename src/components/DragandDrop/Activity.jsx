@@ -32,7 +32,6 @@ export const generateTiles = (num) => {
 export default function Activity( { sortedKey, setSortedKey, elementIndex } ) {
 // console.log(elementIndex)
 
-const [Tiles, setTiles] = useState(generateTiles(elementIndex))
 const [sorted, setSorted] = useState(false)
 
 useEffect(() => {
@@ -46,19 +45,12 @@ useEffect(() => {
   }
 }, [sorted]);
 
-useEffect(() => {
-  console.log('Element Changed to: ' + elementIndex)
-  // setTiles(generateTiles(elementIndex))
-  console.log(generateTiles(elementIndex))
-
-}, [elementIndex])
-
 return (
   <div className="Activity">
     {/* <div className='SortingActivity'> */}
     <div className={sortedKey[elementIndex] ? 'SortingActivity hidden' : 'SortingActivity'}>
       <DndProvider options={HTML5toTouch}>
-        <Container Tiles={generateTiles(10)} sorted={sorted} setSorted={setSorted}/>
+        <Container Tiles={generateTiles(parseInt(elementIndex, 10))} sorted={sorted} setSorted={setSorted}/>
       </DndProvider>
     </div>
     <IsotopeActivity elementData={sortedKey}/>
