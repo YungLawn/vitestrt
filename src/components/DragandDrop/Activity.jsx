@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Container } from './Container';
-import { DndProvider } from 'react-dnd'
-import { HTML5Backend } from 'react-dnd-html5-backend'
+import { DndProvider } from 'react-dnd-multi-backend';
+import { HTML5toTouch } from 'rdndmb-html5-to-touch'
 import { nuclides } from '../data/Nuclides';
 import StringtoImage from './StringtoImage';
 import IsotopeActivity from '../IsotopeActivity';
@@ -57,7 +57,7 @@ return (
   <div className="Activity">
     {/* <div className='SortingActivity'> */}
     <div className={sortedKey[elementIndex] ? 'SortingActivity hidden' : 'SortingActivity'}>
-      <DndProvider backend={HTML5Backend}>
+      <DndProvider options={HTML5toTouch}>
         <Container Tiles={generateTiles(10)} sorted={sorted} setSorted={setSorted}/>
       </DndProvider>
     </div>
