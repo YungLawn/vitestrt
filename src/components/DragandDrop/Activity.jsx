@@ -3,7 +3,7 @@ import { Container } from './Container';
 import { DndProvider } from 'react-dnd-multi-backend';
 import { HTML5toTouch } from 'rdndmb-html5-to-touch'
 import { nuclides } from '../data/Nuclides';
-import StringtoImage from './StringtoImage';
+// import StringtoImage from './StringtoImage';
 import IsotopeActivity from '../IsotopeActivity';
 import './app.css'
 
@@ -16,14 +16,22 @@ export const generateTiles = (num) => {
     }
   }
 
+  // let tiles = Array.from({ length: Isotopes.length }, (_, i) => ({
+  //   id: Isotopes[i].id + " " + (parseInt(Isotopes[i].x, 10) + 1),
+  //   src: StringtoImage(
+  //   Isotopes[i].id,
+  //   Isotopes[i].col,
+  //   parseInt(Isotopes[i].y, 10) + parseInt(Isotopes[i].x, 10),
+  //   Isotopes[i].y
+  //   )
+  // }));
+
   let tiles = Array.from({ length: Isotopes.length }, (_, i) => ({
     id: Isotopes[i].id + " " + (parseInt(Isotopes[i].x, 10) + 1),
-    src: StringtoImage(
-    Isotopes[i].id,
-    Isotopes[i].col,
-    parseInt(Isotopes[i].y, 10) + parseInt(Isotopes[i].x, 10),
-    Isotopes[i].y
-    )
+    num: Isotopes[i].y,
+    mass: Isotopes[i].x,
+    lbl: Isotopes[i].id,
+    col: Isotopes[i].col
   }));
 
   return tiles

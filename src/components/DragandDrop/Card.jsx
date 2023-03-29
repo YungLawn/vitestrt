@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { useDrag, useDrop } from 'react-dnd'
 
-export const Card = ({ src, id, index, moveCard }) => {
+export const Card = ({ lbl, num, mass, col, id, index, moveCard }) => {
   const ref = useRef(null)
   const [{ handlerId }, drop] = useDrop({
     accept: "Tile",
@@ -37,9 +37,8 @@ export const Card = ({ src, id, index, moveCard }) => {
 
   drag(drop(ref))
   return (
-    <div className={isDragging ? 'Tile dragging' : 'Tile'} ref={ref} data-handler-id={handlerId}>
-      <img src={src}/>
-      {/* {id} */}
+    <div className={isDragging ? 'Tile dragging' : 'Tile'} style={{backgroundColor: col}} ref={ref} data-handler-id={handlerId}>
+      {id}
     </div>
   )
 }

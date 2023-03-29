@@ -22,7 +22,10 @@ export const Container = ( { Tiles, sorted, setSorted } ) => {
   const renderCard = useCallback((card, index) => {
     return (
       <Card
-        src={card.src}
+        lbl={card.lbl}
+        num={card.num}
+        mass={card.mass}
+        col={card.col}
         key={card.id}
         index={index}
         id={card.id}
